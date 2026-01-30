@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://huwllewellyn.github.io/ft-article-axa",
+  "homepage": "https://casper-codes.github.io/ft-article-sopra-steria",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
