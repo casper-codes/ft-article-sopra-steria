@@ -1,0 +1,29 @@
+/* FT template styling - external CSS handles most styling */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: clip;
+}
+
+/* Override external styles */
+.pc-cta {
+  background-color: #222222 !important;
+}
+
+/* Make pc__client anchor inherit styling */
+.pc__client a {
+  color: inherit;
+  text-decoration: inherit;
+  display: block;
+}
+
+.pc__client a:hover,
+.pc__client a:visited,
+.pc__client a:focus {
+  color: inherit;
+  text-decoration: inherit;
+}

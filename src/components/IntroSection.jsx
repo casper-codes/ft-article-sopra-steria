@@ -1,0 +1,582 @@
+import styled from "styled-components";
+
+import { motion } from "framer-motion";
+import { getAssetPath } from "../utils/assetPath";
+import { SVGWrapper } from "./shared/SectionLayout";
+import { media } from "../utils/breakpoints";
+
+const MARGIN = 40;
+
+const Container = styled.section`
+    width: 100%;
+    height: 92svh;
+    padding: 0;
+    background: #f2f0ea;
+    font-family: "dm-sans", "DM Sans", -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 0;
+    min-height: 900px;
+    ${media.tablet(`
+        min-height: 700px;
+    `)}
+    ${media.mobile(`
+        min-height: 500px;
+    `)}
+`;
+
+const ContentWrapper = styled(motion.div)`
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+    padding: 0 ${MARGIN}px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
+
+const TitleContainer = styled(motion.div)`
+    position: absolute;
+    top: 16%;
+    left: 58px;
+    width: 100%;
+    height: 100%;
+    max-width: calc(100% - ${MARGIN * 3}px);
+    z-index: 10;
+    ${media.tablet(`
+        top: 10%;
+        margin-top: 5%;
+        max-width: calc(100% - ${MARGIN * 3}px);
+    `)}
+    ${media.mobile(`
+        top: 20%;
+        margin-top: 0;
+        left: 20px;
+        max-width: calc(100% - 40px);
+    `)}
+    ${media.wide(`
+        left: 50%;
+        max-width: 1500px;
+        transform: translateX(-50%);
+        max-width: calc(100% - ${MARGIN * 3}px);
+    `)}
+`;
+
+const TitleWordWrapper = styled.div`
+    overflow: hidden;
+    display: block;
+    height: auto;
+
+    &.the {
+        z-index: 11;
+    }
+
+    &.new-nexus {
+        z-index: 12;
+        display: flex;
+    }
+
+    &.of {
+        z-index: 13;
+        text-align: center;
+    }
+
+    &.global {
+        z-index: 14;
+    }
+
+    &.risk {
+        z-index: 15;
+        display: flex;
+        justify-content: flex-end;
+    }
+    ${media.tablet(`
+        &.the {
+        }
+
+        &.new-nexus {
+        }
+
+        &.of {
+        }
+
+        &.global {
+        }
+
+        &.risk {
+        }
+    `)}
+    ${media.mobile(`
+        &.the {
+        }
+
+        &.new-nexus {
+        }
+
+        &.of {
+        }
+
+        &.global {
+            text-align: right;
+        }
+
+        &.risk {
+        }
+    `)}
+`;
+
+const TitleWord = styled(motion.h1)`
+    position: relative;
+    font-family: freight-big-pro, Georgia, serif;
+    color: #0f0707;
+    margin: 0;
+    letter-spacing: -1.54px;
+    line-height: 0.8;
+    font-size: clamp(100px, 15svh, 154px);
+
+    &.the {
+        font-weight: 300;
+        font-style: italic;
+    }
+
+    &.new-nexus {
+        font-weight: 600;
+        font-style: normal;
+        background: #f2f0ea;
+    }
+
+    &.of {
+        font-weight: 300;
+        font-style: italic;
+    }
+
+    &.global {
+        font-weight: 600;
+        font-style: normal;
+    }
+
+    &.risk {
+        font-weight: 600;
+        font-style: normal;
+    }
+
+    ${media.tablet(`
+        font-size: clamp(60px, 12svh, 100px);
+        letter-spacing: -1px;
+    `)}
+    ${media.mobile(`
+        font-size: clamp(40px, 10svh, 60px);
+        letter-spacing: -0.6px;
+    `)}
+`;
+
+const SubtitleWrapper = styled.div`
+    position: absolute;
+    right: 0;
+    max-width: calc(100% - ${MARGIN}px);
+    ${media.mobile(`
+        right: unset;
+        left: 0;
+    `)}
+`;
+
+const GlobalRiskWrapper = styled.div`
+    width: fit-content;
+    margin-left: 50%;
+    max-width: calc(50% - ${MARGIN / 2}px);
+    ${media.tablet(`
+        max-width: unset;
+        overflow: display;
+    `)}
+    ${media.mobile(`
+        margin-left: unset;
+        width: 100%;
+        max-width: unset;
+        content-align: right;
+    `)}
+`;
+
+const Subtitle = styled(motion.p)`
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 1.2;
+    transform: none;
+    color: #0f0707;
+    margin: 0;
+    opacity: 1;
+    letter-spacing: 0;
+    font-family: "dm-sans", "DM Sans", -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+    z-index: 4;
+    text-align: left;
+    background: #f2f0ea;
+    width: 400px;
+    display: flex;
+    left: 0;
+
+    ${media.tablet(`
+
+    `)}
+    ${media.mobile(`
+        font-size: 16px;
+        width: 300px;
+    `)}
+`;
+
+const SVGContainer = styled.div`
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100svw;
+    height: 100svh;
+    z-index: 1;
+    pointer-events: none;
+    display: flex;
+    align-items: flex-end;
+`;
+
+const AnimationSVGWrapper = styled(SVGWrapper)`
+    width: 50%;
+    height: auto;
+    pointer-events: none;
+    padding-right: 0;
+`;
+
+const TopRightSVGContainer = styled.div`
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50svw;
+    height: 100svh;
+    z-index: 1;
+    pointer-events: none;
+    display: flex;
+    align-items: flex-start;
+`;
+
+const TopRightAnimationSVGWrapper = styled(SVGWrapper)`
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+`;
+
+const TextOverlay = styled(motion.div)`
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+`;
+
+const ImageWrapper = styled(motion.div)`
+    position: absolute;
+    border-radius: 0;
+    overflow: hidden;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // pointer-events: none;
+
+    img {
+        object-fit: cover;
+        width: 121px;
+        height: 182px;
+    }
+
+    &.image-1 {
+        top: 5%;
+        right: 30%;
+    }
+
+    &.image-2 {
+        top: 15%;
+        right: 10%;
+    }
+
+    &.image-3 {
+        bottom: 5%;
+        left: 5%;
+    }
+
+    &.image-4 {
+        bottom: 23%;
+        left: 35%;
+    }
+
+    @media (max-width: 1024px) {
+        img {
+            width: 100px;
+            height: 150px;
+        }
+        &.image-1 {
+            top: 5%;
+            right: 35%;
+        }
+
+        &.image-2 {
+            top: 15%;
+            right: 10%;
+        }
+
+        &.image-3 {
+            bottom: 25%;
+            left: 5%;
+        }
+
+        &.image-4 {
+            bottom: 10%;
+            left: 25%;
+        }
+    }
+
+    @media (max-width: 768px) {
+        width: 74px;
+        height: 107px;
+        &.image-1 {
+            top: 5%;
+            right: 35%;
+        }
+
+        &.image-2 {
+            top: 2%;
+            right: 5%;
+        }
+
+        &.image-3 {
+            bottom: 5%;
+            left: 1%;
+        }
+
+        &.image-4 {
+            bottom: 8%;
+            left: 30%;
+        }
+    }
+`;
+
+const imageVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+        opacity: 1,
+        scale: 1,
+        transition: {
+            duration: 0.6,
+            ease: "easeOut",
+        },
+    },
+};
+
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.25,
+            delayChildren: 0.2,
+        },
+    },
+};
+
+const titleWordVariants = {
+    hidden: { y: 100, opacity: 0 },
+    visible: {
+        y: 0,
+        opacity: 1,
+        transition: { duration: 0.8, ease: "easeOut" },
+    },
+};
+
+const subtitleVariants = {
+    hidden: { y: 30, opacity: 0 },
+    visible: {
+        y: 0,
+        opacity: 1,
+        transition: { duration: 0.8, ease: "easeOut" },
+    },
+};
+
+export default function IntroSection() {
+    return (
+        <Container
+            as={motion.section}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={containerVariants}
+        >
+            <SVGContainer>
+                <AnimationSVGWrapper
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="644"
+                    height="407"
+                    viewBox="0 0 644 407"
+                    fill="none"
+                    preserveAspectRatio="none"
+                    animationDuration={3}
+                >
+                    <path
+                        d="M642.552 499.727C642.552 499.727 642.321 411.659 642.321 370.527C642.321 339.063 649.947 220.684 614.078 170.321C553.179 84.8135 419.907 72.1747 411.338 128.457C406.705 158.886 491.839 213.184 411.338 261.225C370.834 285.397 319.75 273.055 280.898 234.832C200.582 155.816 341.798 62.7294 293.255 8.0679C259.583 -29.8481 189.108 84.8115 146.276 128.457C116.187 159.117 114.45 169.073 79.2249 190.343C55.5515 204.638 27.4986 210.65 0 208.642"
+                        stroke="black"
+                        strokeWidth="1"
+                        vectorEffect="non-scaling-stroke"
+                    />
+                </AnimationSVGWrapper>
+            </SVGContainer>
+            <TopRightSVGContainer>
+                <TopRightAnimationSVGWrapper
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="682"
+                    height="308"
+                    viewBox="0 0 682 308"
+                    fill="none"
+                    preserveAspectRatio="none"
+                    animationDuration={3}
+                >
+                    <path
+                        d="M26.1383 -38.5C26.1383 -38.5 -31.5479 101.979 26.1383 143.5C67.6596 173.386 114.124 176.963 161.639 158C209.153 139.037 218.721 95.7096 250.138 57.5C287.139 12.5 350.616 22.5099 395.138 57.5C451.789 102.022 343.215 192.046 395.138 242C445.092 290.058 539.003 302.611 572.638 242C591.303 208.365 553.009 176.581 572.638 143.5C605.719 87.749 694.859 95.6886 738.638 143.5C778.725 187.279 691.226 259.784 738.638 295.5C774.354 322.404 853.138 295.5 853.138 295.5"
+                        stroke="black"
+                        strokeWidth="1"
+                        vectorEffect="non-scaling-stroke"
+                    />
+                </TopRightAnimationSVGWrapper>
+            </TopRightSVGContainer>
+            <TextOverlay>
+                <ContentWrapper>
+                    <TitleContainer
+                        initial="hidden"
+                        animate="visible"
+                        variants={{
+                            hidden: { opacity: 0 },
+                            visible: {
+                                opacity: 1,
+                                transition: {
+                                    staggerChildren: 0.15,
+                                    delayChildren: 0.2,
+                                },
+                            },
+                        }}
+                    >
+                        <TitleWordWrapper className="the">
+                            <TitleWord
+                                className="the"
+                                variants={titleWordVariants}
+                            >
+                                THE
+                            </TitleWord>
+                        </TitleWordWrapper>
+
+                        <TitleWordWrapper className="new-nexus">
+                            <TitleWord
+                                className="new-nexus"
+                                variants={titleWordVariants}
+                            >
+                                NEW&nbsp;NEXUS
+                            </TitleWord>
+                        </TitleWordWrapper>
+
+                        <TitleWordWrapper className="of">
+                            <TitleWord
+                                className="of"
+                                variants={titleWordVariants}
+                            >
+                                OF
+                            </TitleWord>
+                        </TitleWordWrapper>
+
+                        <GlobalRiskWrapper>
+                            <TitleWordWrapper className="global">
+                                <TitleWord
+                                    className="global"
+                                    variants={titleWordVariants}
+                                >
+                                    GLOBAL
+                                </TitleWord>
+                            </TitleWordWrapper>
+
+                            <TitleWordWrapper className="risk">
+                                <TitleWord
+                                    className="risk"
+                                    variants={titleWordVariants}
+                                >
+                                    RISK
+                                </TitleWord>
+                            </TitleWordWrapper>
+                        </GlobalRiskWrapper>
+                        <br />
+                        <SubtitleWrapper>
+                            <Subtitle variants={subtitleVariants}>
+                                The biggest threats to global stability are no
+                                longer emerging, they're converging – here's
+                                what the future risk landscape reveals
+                            </Subtitle>
+                        </SubtitleWrapper>
+                    </TitleContainer>
+                    {/* Images - positioned absolutely over content */}
+                    <motion.div
+                        initial="hidden"
+                        animate="visible"
+                        variants={{
+                            hidden: { opacity: 0 },
+                            visible: {
+                                opacity: 1,
+                                transition: {
+                                    staggerChildren: 0.6,
+                                    delayChildren: 0.2,
+                                },
+                            },
+                        }}
+                    >
+                        <ImageWrapper
+                            className="image-1"
+                            variants={imageVariants}
+                        >
+                            <img
+                                src={getAssetPath(
+                                    "/images/intro/e739ec907ac7bb647895a44f468ff46cc5d464a9.jpg"
+                                )}
+                                alt="Climate activism"
+                            />
+                        </ImageWrapper>
+                        <ImageWrapper
+                            className="image-2"
+                            variants={imageVariants}
+                        >
+                            <img
+                                src={getAssetPath(
+                                    "/images/intro/e59b14d8dde0f0f5dd99111d4463af7435d86470.jpg"
+                                )}
+                                alt="Infrastructure landscape"
+                            />
+                        </ImageWrapper>
+                        <ImageWrapper
+                            className="image-3"
+                            variants={imageVariants}
+                        >
+                            <img
+                                src={getAssetPath(
+                                    "/images/intro/33826e4e78dae38a1d28a7819c4065f5bb46fb42.jpg"
+                                )}
+                                alt="Supporting image"
+                            />
+                        </ImageWrapper>
+                        <ImageWrapper
+                            className="image-4"
+                            variants={imageVariants}
+                        >
+                            <img
+                                src={getAssetPath(
+                                    "/images/intro/5dbe58bd6bd15101ac8c2ceca6dc43380c7b1b17.jpg"
+                                )}
+                                alt="Supporting image"
+                            />
+                        </ImageWrapper>
+                    </motion.div>
+                </ContentWrapper>
+            </TextOverlay>
+        </Container>
+    );
+}

@@ -1,0 +1,224 @@
+import LottieScrolljack from "./LottieScrolljack";
+import SectionTitleGroup from "./shared/SectionTitleGroup";
+import HeaderAnimationWrapper from "./HeaderAnimationWrapper";
+import {
+    AboveTopLeftCircle,
+    BackgroundContainer,
+    Container,
+    ContentWrapper,
+    SVGWrapper,
+    IntroLoopSVG,
+    HalfWidthLeftSVGContainer,
+    BottomCenterCircle,
+    HalfWidthLeftParagraph,
+    TopLeftCircle,
+    Paragraph,
+    FullWidthSVGWrapper,
+    HalfWidthRightParagraph,
+    HalfWidthRightSVGContainer,
+    TopRightCircle,
+} from "./shared/SectionLayout";
+import OverlayImage from "./shared/OverlayImage";
+
+const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.6, ease: "easeOut" },
+    },
+};
+
+export default function RiskPerceptionsSection({
+    backgroundColor = "#ed5027",
+}) {
+    return (
+        <BackgroundContainer
+            backgroundColor={backgroundColor}
+            id="risk-perceptions"
+        >
+            <Container>
+                <ContentWrapper>
+                    <SectionTitleGroup
+                        chapter="Chapter three"
+                        title="Risk perceptions around the world"
+                    />
+
+                    <HeaderAnimationWrapper
+                        filename="AXA_HEAD_03_HALVED"
+                        enableScrollSync={true}
+                    />
+
+                    <HalfWidthLeftSVGContainer>
+                        <IntroLoopSVG />
+                    </HalfWidthLeftSVGContainer>
+
+                    <HalfWidthLeftParagraph backgroundColor={backgroundColor}>
+                        <AboveTopLeftCircle />
+                        <Paragraph>
+                            Adding to this matrix of complexity, perceived risks
+                            vary between regions. Against a backdrop of
+                            significant shifts in global prosperity over the
+                            past three decades driven by the increasing wealth
+                            of China and other parts of Asia, the majority of
+                            both <b>experts (74 per cent)</b> and the{" "}
+                            <b>general population (59 per cent)</b> believe that
+                            their countries face “a deep and worrying social
+                            divide” or that people have “fewer and fewer common
+                            values and aspirations”.
+                        </Paragraph>
+                        <OverlayImage
+                            src="/images/s4/1.jpg"
+                            decorative
+                            desktop={{ top: "30%", left: "140%" }}
+                            tablet={{ top: "150%", left: "80%" }}
+                            mobile={{ top: "119%", left: "30%" }}
+                        />
+                    </HalfWidthLeftParagraph>
+                    <SVGWrapper
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 839 499"
+                        fill="none"
+                        preserveAspectRatio="none"
+                        height="500px"
+                        tabletHeight="400px"
+                        mobileHeight="200px"
+                    >
+                        <path
+                            d="M528.13 0.5H738.5C793.728 0.5 838.5 45.2715 838.5 100.5V156.125C838.5 211.354 793.728 256.125 738.5 256.125H100.5C45.2715 256.125 0.5 300.897 0.5 356.125V398.5C0.5 453.728 45.2715 498.5 100.5 498.5H419.5"
+                            stroke="black"
+                            strokeWidth="1"
+                            vectorEffect="non-scaling-stroke"
+                        />
+                    </SVGWrapper>
+                    <div style={{ width: "100%", position: "relative" }}>
+                        <BottomCenterCircle />
+                    </div>
+                </ContentWrapper>
+                <LottieScrolljack
+                    animations="AXA_Scrolly_DP05.json"
+                    backgroundColor={backgroundColor}
+                    loop={false}
+                    initialFrame={0.08}
+                    initialFrameMobile={0.1}
+                />
+                <ContentWrapper>
+                    <HalfWidthLeftSVGContainer>
+                        <IntroLoopSVG />
+                    </HalfWidthLeftSVGContainer>
+
+                    <HalfWidthLeftParagraph backgroundColor={backgroundColor}>
+                        <AboveTopLeftCircle />
+                        <Paragraph>
+                            Fuelling this perception of a deepening social
+                            division are concerns about rising economic and
+                            social inequality as well as political and
+                            ideological divisions. But concerns about{" "}
+                            <b>fragmentation</b> vary widely by region: these
+                            numbers are much higher among the general population
+                            in Europe and the US (65 per cent and 66 per cent,
+                            respectively) than in the Asia-Pacific region, where
+                            only 37 per cent of people worry about a deep social
+                            divide.
+                        </Paragraph>
+                        <OverlayImage
+                            src="/images/s4/2.jpg"
+                            decorative
+                            desktop={{ top: "145%", left: "20%" }}
+                            tablet={{ top: "132%", left: "20%" }}
+                            mobile={{ top: "117%", left: "30%" }}
+                        />
+                    </HalfWidthLeftParagraph>
+                    <FullWidthSVGWrapper
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="1038"
+                        height="466"
+                        viewBox="0 0 1038 466"
+                        fill="none"
+                        preserveAspectRatio="none"
+                        tabletHeight="300px"
+                        mobileHeight="200px"
+                    >
+                        <path
+                            d="M447.071 0.5H937.5C992.729 0.5 1037.5 45.2715 1037.5 100.5V139.186C1037.5 194.415 992.728 239.186 937.5 239.186H100.5C45.2715 239.186 0.5 283.958 0.5 339.186V365.5C0.5 420.729 45.2715 465.5 100.5 465.5H398"
+                            stroke="black"
+                            strokeWidth="1"
+                            vectorEffect="non-scaling-stroke"
+                        />
+                    </FullWidthSVGWrapper>
+                    <HalfWidthRightParagraph backgroundColor={backgroundColor}>
+                        <TopLeftCircle left="-20px" />
+                        <Paragraph>
+                            In addition, the report reveals that there is{" "}
+                            <b>less overlap</b> with previous years{" "}
+                            <b>between experts and general population</b>, with
+                            just six out of the 10 top risks common to both.
+                        </Paragraph>
+                        <OverlayImage
+                            src="/images/s4/3.jpg"
+                            decorative
+                            desktop={{ top: "180%", left: "50%" }}
+                            tablet={{ top: "185%", left: "70%" }}
+                            mobile={{ display: "none" }}
+                        />
+                    </HalfWidthRightParagraph>
+                    <HalfWidthRightSVGContainer>
+                        <SVGWrapper
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 484 181"
+                            fill="none"
+                            preserveAspectRatio="none"
+                            height="200px"
+                            tabletHeight="150px"
+                            mobileHeight="100px"
+                        >
+                            <path
+                                d="M392.5 0.5C442.068 0.5 483 40.6824 483 90.25C483 139.818 442.818 180 393.25 180H0"
+                                stroke="black"
+                                strokeWidth="1"
+                                vectorEffect="non-scaling-stroke"
+                            />
+                        </SVGWrapper>
+                    </HalfWidthRightSVGContainer>
+                    <HalfWidthLeftParagraph backgroundColor={backgroundColor}>
+                        <Paragraph variants={itemVariants}>
+                            This partly reflects the rise in other concerns
+                            among the general population that have more of an
+                            immediate impact on their daily lives. But it could
+                            also be a function of the difficulty most people
+                            have in perceiving risk associated with relatively
+                            slower-moving phenomena, such as climate change and
+                            biodiversity loss.
+                            <br />
+                            <br />
+                            Indeed, on environmental issues beyond climate
+                            change, experts are more focused on{" "}
+                            <b>
+                                natural resources and biodiversity risks (6th)
+                            </b>{" "}
+                            and <b>energy risks (8th)</b> while the general
+                            population is more concerned with{" "}
+                            <b>pollution (9th)</b>. Yet in regions such as
+                            Central America and South America, where
+                            biodiversity risks are more visible for the wider
+                            population than for people in other regions, the
+                            public ranked biodiversity risks 4th – in line with
+                            the experts' ranking.
+                        </Paragraph>
+                        <TopRightCircle />
+                        <br />
+                        <br />
+                    </HalfWidthLeftParagraph>
+                </ContentWrapper>
+                <LottieScrolljack
+                    animations="AXA_Scrolly_DP06.json"
+                    backgroundColor={backgroundColor}
+                    loop={true}
+                    initialFrame={0.15}
+                />
+                <br />
+                <br />
+            </Container>
+        </BackgroundContainer>
+    );
+}
