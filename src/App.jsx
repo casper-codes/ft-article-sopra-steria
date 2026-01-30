@@ -1,27 +1,61 @@
 import "./App.css";
 import styled from "styled-components";
+import TabNavigation from "./components/TabNavigation";
+import TabSection from "./components/TabSection";
 import IntroSection from "./components/IntroSection";
-import RisksSection from "./components/RisksSection";
-import PolycrisisSection from "./components/PolycrisisSection";
-import NexusInActionSection from "./components/NexusInActionSection";
-import RiskPerceptionsSection from "./components/RiskPerceptionsSection";
-import PreparingForComplexitySection from "./components/PreparingForComplexitySection";
-import CollaborativeApproachSection from "./components/CollaborativeApproachSection";
-import SectionMenu from "./components/SectionMenu";
+import { useState } from "react";
 
 const AppContainer = styled.div``;
 
+// Tab content configuration
+const tabs = [
+    {
+        id: "tab1",
+        label: "Tab One",
+        backgroundColor: "#2B5F9E", // Placeholder blue
+        slides: [
+            { title: "Slide 1.1", content: "Content for slide 1.1" },
+            { title: "Slide 1.2", content: "Content for slide 1.2" },
+            { title: "Slide 1.3", content: "Content for slide 1.3" },
+        ],
+    },
+    {
+        id: "tab2",
+        label: "Tab Two",
+        backgroundColor: "#8B4789", // Placeholder purple
+        slides: [
+            { title: "Slide 2.1", content: "Content for slide 2.1" },
+            { title: "Slide 2.2", content: "Content for slide 2.2" },
+            { title: "Slide 2.3", content: "Content for slide 2.3" },
+        ],
+    },
+    {
+        id: "tab3",
+        label: "Tab Three",
+        backgroundColor: "#2E8B57", // Placeholder green
+        slides: [
+            { title: "Slide 3.1", content: "Content for slide 3.1" },
+            { title: "Slide 3.2", content: "Content for slide 3.2" },
+            { title: "Slide 3.3", content: "Content for slide 3.3" },
+        ],
+    },
+];
+
 function App() {
+    const [activeTab, setActiveTab] = useState(0);
+
     return (
         <AppContainer>
-            <SectionMenu />
             <IntroSection />
-            <RisksSection backgroundColor="#f2f0ea" />
-            <PolycrisisSection backgroundColor="#b6c1d3" />
-            <NexusInActionSection backgroundColor="#fde432" />
-            <RiskPerceptionsSection backgroundColor="#ed5027" />
-            <PreparingForComplexitySection backgroundColor="#d7d7d7" />
-            <CollaborativeApproachSection backgroundColor="#f0eedf" />
+            <TabNavigation
+                tabs={tabs}
+                activeTab={activeTab}
+                onTabChange={setActiveTab}
+            />
+            <TabSection
+                tab={tabs[activeTab]}
+                key={tabs[activeTab].id}
+            />
         </AppContainer>
     );
 }
