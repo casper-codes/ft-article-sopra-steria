@@ -6,44 +6,84 @@ const Container = styled.section`
     width: 100%;
     min-height: 100vh;
     padding: 120px 40px 80px;
-    background: #1a1a2e;
+    background: #0d1117;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
+    overflow: hidden;
 
     ${media.mobile(`
         padding: 100px 20px 60px;
     `)}
 `;
 
+// Placeholder for background image - will be replaced with actual asset
+const BackgroundOverlay = styled.div`
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(13, 17, 23, 0.3) 0%,
+        rgba(13, 17, 23, 0.6) 50%,
+        rgba(13, 17, 23, 0.9) 100%
+    );
+    z-index: 1;
+`;
+
 const ContentWrapper = styled.div`
-    max-width: 900px;
-    text-align: center;
+    max-width: 1100px;
+    width: 100%;
     z-index: 2;
+    display: flex;
+    flex-direction: column;
+    min-height: 60vh;
+    justify-content: space-between;
+
+    ${media.mobile(`
+        min-height: 70vh;
+    `)}
 `;
 
-const Eyebrow = styled(motion.p)`
-    font-family: "dm-sans", "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: rgba(255, 255, 255, 0.7);
-    margin-bottom: 24px;
+const TopContent = styled.div`
+    text-align: left;
 `;
 
-const Title = styled(motion.h1)`
+const BottomContent = styled.div`
+    text-align: right;
+`;
+
+const MainTitle = styled(motion.h1)`
     font-family: freight-big-pro, Georgia, serif;
-    font-size: 64px;
+    font-size: 72px;
     font-weight: 400;
-    color: #fff;
-    line-height: 1.1;
-    margin-bottom: 32px;
+    color: #E8D44D;
+    line-height: 1.05;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: -1px;
 
     ${media.tablet(`
-        font-size: 48px;
+        font-size: 56px;
+    `)}
+
+    ${media.mobile(`
+        font-size: 40px;
+    `)}
+`;
+
+const BigQuestion = styled(motion.h2)`
+    font-family: freight-big-pro, Georgia, serif;
+    font-size: 72px;
+    font-weight: 400;
+    color: #E8D44D;
+    line-height: 1.1;
+    margin: 0;
+    text-transform: uppercase;
+
+    ${media.tablet(`
+        font-size: 56px;
     `)}
 
     ${media.mobile(`
@@ -51,39 +91,48 @@ const Title = styled(motion.h1)`
     `)}
 `;
 
-const Subtitle = styled(motion.p)`
+const Standfirst = styled(motion.p)`
     font-family: "dm-sans", "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-size: 20px;
+    font-size: 16px;
     color: rgba(255, 255, 255, 0.85);
     line-height: 1.6;
-    max-width: 600px;
-    margin: 0 auto 48px;
+    max-width: 500px;
+    margin: 32px 0 0 0;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 
     ${media.mobile(`
-        font-size: 16px;
+        font-size: 14px;
+        max-width: 100%;
     `)}
 `;
 
 const ScrollIndicator = styled(motion.div)`
     position: absolute;
     bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 40px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 8px;
     color: rgba(255, 255, 255, 0.5);
-    font-size: 12px;
+    font-size: 11px;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    z-index: 2;
+
+    ${media.mobile(`
+        left: 20px;
+        bottom: 30px;
+    `)}
 `;
 
 const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
         opacity: 1,
-        transition: { staggerChildren: 0.2, delayChildren: 0.3 }
+        transition: { staggerChildren: 0.15, delayChildren: 0.3 }
     }
 };
 
@@ -99,22 +148,38 @@ const itemVariants = {
 export default function IntroSection() {
     return (
         <Container>
+            <BackgroundOverlay />
             <ContentWrapper>
-                <motion.div
-                    initial="hidden"
-                    animate="visible"
-                    variants={containerVariants}
-                >
-                    <Eyebrow variants={itemVariants}>
-                        FT Partner Content
-                    </Eyebrow>
-                    <Title variants={itemVariants}>
-                        Sopra Steria
-                    </Title>
-                    <Subtitle variants={itemVariants}>
-                        Placeholder subtitle - content to be added from Figma designs.
-                    </Subtitle>
-                </motion.div>
+                <TopContent>
+                    <motion.div
+                        initial="hidden"
+                        animate="visible"
+                        variants={containerVariants}
+                    >
+                        <MainTitle variants={itemVariants}>
+                            Digital<br />
+                            Disruption<br />
+                            Diaries:
+                        </MainTitle>
+                        <Standfirst variants={itemVariants}>
+                            Three hypothetical stories expose how cyber attacks could swiftly disrupt and destabilise daily life – and explore the solutions and measures required to protect our most critical systems
+                        </Standfirst>
+                    </motion.div>
+                </TopContent>
+                <BottomContent>
+                    <motion.div
+                        initial="hidden"
+                        animate="visible"
+                        variants={containerVariants}
+                    >
+                        <BigQuestion variants={itemVariants}>
+                            What<br />
+                            if Europe's<br />
+                            networks<br />
+                            went dark?
+                        </BigQuestion>
+                    </motion.div>
+                </BottomContent>
             </ContentWrapper>
             <ScrollIndicator
                 initial={{ opacity: 0 }}
@@ -122,9 +187,6 @@ export default function IntroSection() {
                 transition={{ delay: 1.5, duration: 0.5 }}
             >
                 <span>Scroll to explore</span>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M12 5v14M19 12l-7 7-7-7" />
-                </svg>
             </ScrollIndicator>
         </Container>
     );

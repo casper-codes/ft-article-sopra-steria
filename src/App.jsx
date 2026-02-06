@@ -1,61 +1,94 @@
 import "./App.css";
 import styled from "styled-components";
-import TabNavigation from "./components/TabNavigation";
-import TabSection from "./components/TabSection";
 import IntroSection from "./components/IntroSection";
-import { useState } from "react";
+import TabNavigation from "./components/TabNavigation";
+import {
+    EnergyChapter,
+    FinanceChapter,
+    TransportChapter,
+    ConclusionSection
+} from "./components/chapters";
+import { useState, useRef, useEffect } from "react";
 
 const AppContainer = styled.div``;
 
-// Tab content configuration
+const ChapterContainer = styled.div`
+    scroll-margin-top: 60px;
+`;
+
+// Tab configuration for navigation
 const tabs = [
     {
-        id: "tab1",
-        label: "Tab One",
-        backgroundColor: "#2B5F9E", // Placeholder blue
-        slides: [
-            { title: "Slide 1.1", content: "Content for slide 1.1" },
-            { title: "Slide 1.2", content: "Content for slide 1.2" },
-            { title: "Slide 1.3", content: "Content for slide 1.3" },
-        ],
+        id: "energy",
+        label: "Energy",
+        shortLabel: "ENER",
     },
     {
-        id: "tab2",
-        label: "Tab Two",
-        backgroundColor: "#8B4789", // Placeholder purple
-        slides: [
-            { title: "Slide 2.1", content: "Content for slide 2.1" },
-            { title: "Slide 2.2", content: "Content for slide 2.2" },
-            { title: "Slide 2.3", content: "Content for slide 2.3" },
-        ],
+        id: "finance",
+        label: "Finance",
+        shortLabel: "FINAN",
     },
     {
-        id: "tab3",
-        label: "Tab Three",
-        backgroundColor: "#2E8B57", // Placeholder green
-        slides: [
-            { title: "Slide 3.1", content: "Content for slide 3.1" },
-            { title: "Slide 3.2", content: "Content for slide 3.2" },
-            { title: "Slide 3.3", content: "Content for slide 3.3" },
-        ],
+        id: "transport",
+        label: "Transport",
+        shortLabel: "SPORT",
     },
 ];
 
 function App() {
     const [activeTab, setActiveTab] = useState(0);
+    const chapterRefs = useRef([]);
+
+    // Handle tab click - scroll to chapter
+    const handleTabChange = (index) => {
+        setActiveTab(index);
+        chapterRefs.current[index]?.scrollIntoView({ behavior: "smooth" });
+    };
+
+    // Update active tab based on scroll position
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollPosition = window.scrollY + 200;
+            
+            chapterRefs.current.forEach((ref, index) => {
+                if (ref) {
+                    const offsetTop = ref.offsetTop;
+                    const offsetBottom = offsetTop + ref.offsetHeight;
+                    
+                    if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
+                        setActiveTab(index);
+                    }
+                }
+            });
+        };
+
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     return (
         <AppContainer>
             <IntroSection />
+            
             <TabNavigation
                 tabs={tabs}
                 activeTab={activeTab}
-                onTabChange={setActiveTab}
+                onTabChange={handleTabChange}
             />
-            <TabSection
-                tab={tabs[activeTab]}
-                key={tabs[activeTab].id}
-            />
+            
+            <ChapterContainer ref={el => chapterRefs.current[0] = el}>
+                <EnergyChapter />
+            </ChapterContainer>
+            
+            <ChapterContainer ref={el => chapterRefs.current[1] = el}>
+                <FinanceChapter />
+            </ChapterContainer>
+            
+            <ChapterContainer ref={el => chapterRefs.current[2] = el}>
+                <TransportChapter />
+            </ChapterContainer>
+            
+            <ConclusionSection />
         </AppContainer>
     );
 }
