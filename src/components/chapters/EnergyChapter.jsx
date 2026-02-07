@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { media } from "../../utils/breakpoints";
+import { getAssetPath } from "../../utils/assetPath";
 import { ChapterIntro } from "../shared";
 import {
     NarrativeSlide,
@@ -9,16 +10,26 @@ import {
 } from "../slides";
 import SlideQuote from "../slides/SlideQuote";
 
-// Image paths — replace with actual assets
-const IMAGES = {
-    osloCityscape: "/images/energy/oslo-cityscape.jpg",
-    hackerScene: "/images/energy/hacker-scene.jpg",
-    globe: "/images/energy/globe-ascii.jpg",
-    elevator: "/images/energy/elevator-buttons.jpg",
-    signalLost: "/images/energy/signal-lost.jpg",
-    glitchyCityscape: "/images/energy/glitchy-cityscape.jpg",
-    womanScreens: "/images/energy/woman-screens.jpg",
-    escalator: "/images/energy/escalator-crowd.jpg",
+const VIDEOS = {
+    osloCityscape: "/videos/ch1/ch1_1.mp4",
+    hackerScene: "/videos/ch1/ch1_2_desktop.mp4",
+    globe: "/videos/ch1/ch1_3.mp4",
+    elevator: "/videos/ch1/ch1_4.mp4",
+    signalLost: "/videos/ch1/ch1_5.mp4",
+    glitchyCityscape: "/videos/ch1/ch1_6.mp4",
+    womanScreens: "/videos/ch1/ch1_7.mp4",
+    escalator: "/videos/ch1/ch1_8.mp4",
+};
+
+const POSTERS = {
+    osloCityscape: "/videos/posters/ch1/ch1_1.jpg",
+    hackerScene: "/videos/posters/ch1/ch1_2_desktop.jpg",
+    globe: "/videos/posters/ch1/ch1_3.jpg",
+    elevator: "/videos/posters/ch1/ch1_4.jpg",
+    signalLost: "/videos/posters/ch1/ch1_5.jpg",
+    glitchyCityscape: "/videos/posters/ch1/ch1_6.jpg",
+    womanScreens: "/videos/posters/ch1/ch1_7.jpg",
+    escalator: "/videos/posters/ch1/ch1_8.jpg",
 };
 
 const Chapter = styled.div`
@@ -40,16 +51,24 @@ const HeroSection = styled.section`
     `)}
 `;
 
-const HeroBackground = styled.div`
+const HeroVideo = styled.video`
     position: absolute;
     inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+`;
+
+const HeroOverlay = styled.div`
+    position: absolute;
+    inset: 0;
+    z-index: 1;
     background: linear-gradient(
         180deg,
         rgba(13, 17, 23, 0.4) 0%,
         rgba(13, 17, 23, 0.2) 40%,
         rgba(13, 17, 23, 0.4) 100%
     );
-    z-index: 1;
 `;
 
 const DataCallout = styled.div`
@@ -112,7 +131,12 @@ export default function EnergyChapter() {
         <Chapter>
             {/* Hero / Chapter Intro */}
             <HeroSection>
-                <HeroBackground />
+                <HeroVideo
+                    src={getAssetPath(VIDEOS.osloCityscape)}
+                    poster={getAssetPath(POSTERS.osloCityscape)}
+                    autoPlay loop muted playsInline
+                />
+                <HeroOverlay />
                 <div style={{ position: 'relative', zIndex: 2 }}>
                     <ChapterIntro
                         chapter="CHAPTER_ONE"
@@ -123,7 +147,8 @@ export default function EnergyChapter() {
 
             {/* S1 — Oslo intro */}
             <NarrativeSlide
-                backgroundImage={IMAGES.osloCityscape}
+                backgroundVideo={VIDEOS.osloCityscape}
+                poster={POSTERS.osloCityscape}
                 heading="TUESDAY / OSLO, NORWAY"
                 textPosition="top"
             >
@@ -142,14 +167,15 @@ export default function EnergyChapter() {
 
             {/* S3 — Full bleed hacker scene */}
             <FullBleedImage
-                src={IMAGES.hackerScene}
-                alt="Person silhouetted at multiple computer screens"
+                videoSrc={VIDEOS.hackerScene}
+                poster={POSTERS.hackerScene}
             />
 
             {/* S4 — 5:00pm DDoS attack */}
             <NarrativeSlide
                 timestamp="5:00pm"
-                backgroundImage={IMAGES.globe}
+                backgroundVideo={VIDEOS.globe}
+                poster={POSTERS.globe}
                 textPosition="top"
             >
                 <p>
@@ -165,7 +191,8 @@ export default function EnergyChapter() {
             {/* S5 — 5:10pm elevator */}
             <NarrativeSlide
                 timestamp="5:10pm"
-                backgroundImage={IMAGES.elevator}
+                backgroundVideo={VIDEOS.elevator}
+                poster={POSTERS.elevator}
                 textPosition="top"
             >
                 <p>
@@ -186,7 +213,8 @@ export default function EnergyChapter() {
             {/* S6 — 5:15pm signal lost */}
             <NarrativeSlide
                 timestamp="5:15pm"
-                backgroundImage={IMAGES.signalLost}
+                backgroundVideo={VIDEOS.signalLost}
+                poster={POSTERS.signalLost}
                 textPosition="top"
             >
                 <p>
@@ -244,7 +272,8 @@ export default function EnergyChapter() {
             {/* S10 — 5:20pm blackouts */}
             <NarrativeSlide
                 timestamp="5:20pm"
-                backgroundImage={IMAGES.glitchyCityscape}
+                backgroundVideo={VIDEOS.glitchyCityscape}
+                poster={POSTERS.glitchyCityscape}
                 textPosition="bottom"
             >
                 <p>
@@ -270,7 +299,8 @@ export default function EnergyChapter() {
             {/* S12 — 7:00pm C-suite */}
             <NarrativeSlide
                 timestamp="7:00pm"
-                backgroundImage={IMAGES.womanScreens}
+                backgroundVideo={VIDEOS.womanScreens}
+                poster={POSTERS.womanScreens}
                 textPosition="bottom"
                 highlightText
             >
@@ -333,7 +363,8 @@ export default function EnergyChapter() {
             <NarrativeSlide
                 timestamp="8:00pm"
                 heading="WORK CONTINUES THROUGH THE NIGHT"
-                backgroundImage={IMAGES.escalator}
+                backgroundVideo={VIDEOS.escalator}
+                poster={POSTERS.escalator}
                 textPosition="top"
             >
                 <p>
@@ -345,7 +376,8 @@ export default function EnergyChapter() {
             {/* S17 — 2:00am */}
             <NarrativeSlide
                 timestamp="2:00am"
-                backgroundImage={IMAGES.escalator}
+                backgroundVideo={VIDEOS.escalator}
+                poster={POSTERS.escalator}
                 textPosition="top"
             >
                 <p>
@@ -357,7 +389,8 @@ export default function EnergyChapter() {
             {/* S18 — 8:00am */}
             <NarrativeSlide
                 timestamp="8:00am"
-                backgroundImage={IMAGES.escalator}
+                backgroundVideo={VIDEOS.escalator}
+                poster={POSTERS.escalator}
                 textPosition="top"
             >
                 <p>

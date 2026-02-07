@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { media } from "../../utils/breakpoints";
+import { getAssetPath } from "../../utils/assetPath";
 import { ChapterIntro } from "../shared";
 import {
     NarrativeSlide,
@@ -11,16 +12,26 @@ import SlideQuote from "../slides/SlideQuote";
 const ACCENT = "#c999ff";
 const GRID_COLOR = "rgba(201, 153, 255, 0.15)";
 
-// Image paths — replace with actual assets
-const IMAGES = {
-    portOfDover: "/images/transport/port-of-dover.jpg",
-    satNav: "/images/transport/sat-nav.jpg",
-    truckDepot: "/images/transport/truck-depot.jpg",
-    airportBoard: "/images/transport/airport-board.jpg",
-    truckRoad: "/images/transport/truck-road.jpg",
-    satellite: "/images/transport/satellite.jpg",
-    mapDark: "/images/transport/map-dark.jpg",
-    trainStation: "/images/transport/train-station.jpg",
+const VIDEOS = {
+    portOfDover: "/videos/ch3/ch3_1.mp4",
+    satNav: "/videos/ch3/ch3_2.mp4",
+    truckDepot: "/videos/ch3/ch3_3.mp4",
+    airportBoard: "/videos/ch3/ch3_4.mp4",
+    truckRoad: "/videos/ch3/ch3_5.mp4",
+    satellite: "/videos/ch3/ch3_6.mp4",
+    mapDark: "/videos/ch3/ch3_7.mp4",
+    trainStation: "/videos/ch3/ch3_8.mp4",
+};
+
+const POSTERS = {
+    portOfDover: "/videos/posters/ch3/ch3_1.jpg",
+    satNav: "/videos/posters/ch3/ch3_2.jpg",
+    truckDepot: "/videos/posters/ch3/ch3_3.jpg",
+    airportBoard: "/videos/posters/ch3/ch3_4.jpg",
+    truckRoad: "/videos/posters/ch3/ch3_5.jpg",
+    satellite: "/videos/posters/ch3/ch3_6.jpg",
+    mapDark: "/videos/posters/ch3/ch3_7.jpg",
+    trainStation: "/videos/posters/ch3/ch3_8.jpg",
 };
 
 const Chapter = styled.div`
@@ -42,24 +53,23 @@ const HeroSection = styled.section`
     `)}
 `;
 
-const HeroBackground = styled.div`
+const HeroVideo = styled.video`
     position: absolute;
     inset: 0;
-    background-image: url(${IMAGES.portOfDover});
-    background-size: cover;
-    background-position: center;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+`;
 
-    &::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-            180deg,
-            rgba(0, 0, 0, 0.5) 0%,
-            rgba(0, 0, 0, 0.2) 40%,
-            rgba(0, 0, 0, 0.6) 100%
-        );
-    }
+const HeroOverlay = styled.div`
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.5) 0%,
+        rgba(0, 0, 0, 0.2) 40%,
+        rgba(0, 0, 0, 0.6) 100%
+    );
 `;
 
 const DataCallout = styled.div`
@@ -122,7 +132,12 @@ export default function TransportChapter() {
         <Chapter>
             {/* T1 — Hero / Chapter Intro */}
             <HeroSection>
-                <HeroBackground />
+                <HeroVideo
+                    src={getAssetPath(VIDEOS.portOfDover)}
+                    poster={getAssetPath(POSTERS.portOfDover)}
+                    autoPlay loop muted playsInline
+                />
+                <HeroOverlay />
                 <div style={{ position: 'relative', zIndex: 2 }}>
                     <ChapterIntro
                         chapter="CHAPTER_THREE"
@@ -133,7 +148,8 @@ export default function TransportChapter() {
 
             {/* T2 — Port of Dover intro */}
             <NarrativeSlide
-                backgroundImage={IMAGES.portOfDover}
+                backgroundVideo={VIDEOS.portOfDover}
+                poster={POSTERS.portOfDover}
                 heading="MONDAY / PORT OF DOVER, UK"
                 textPosition="top"
                 accentColor={ACCENT}
@@ -152,7 +168,8 @@ export default function TransportChapter() {
             {/* T3 — 8:00am sat-nav freezes */}
             <NarrativeSlide
                 timestamp="8:00am"
-                backgroundImage={IMAGES.satNav}
+                backgroundVideo={VIDEOS.satNav}
+                poster={POSTERS.satNav}
                 textPosition="top"
                 highlightText
                 accentColor={ACCENT}
@@ -167,7 +184,8 @@ export default function TransportChapter() {
             {/* T4 — 8:15am depot issues */}
             <NarrativeSlide
                 timestamp="8:15am"
-                backgroundImage={IMAGES.truckDepot}
+                backgroundVideo={VIDEOS.truckDepot}
+                poster={POSTERS.truckDepot}
                 textPosition="top"
                 highlightText
                 accentColor={ACCENT}
@@ -185,7 +203,8 @@ export default function TransportChapter() {
             {/* T5 — 9:00am GPS jamming */}
             <NarrativeSlide
                 timestamp="9:00am"
-                backgroundImage={IMAGES.airportBoard}
+                backgroundVideo={VIDEOS.airportBoard}
+                poster={POSTERS.airportBoard}
                 textPosition="top"
                 highlightText
                 accentColor={ACCENT}
@@ -252,7 +271,8 @@ export default function TransportChapter() {
             <NarrativeSlide
                 timestamp="3:00pm"
                 heading="WHEN DISRUPTION CROSSES BORDERS"
-                backgroundImage={IMAGES.truckRoad}
+                backgroundVideo={VIDEOS.truckRoad}
+                poster={POSTERS.truckRoad}
                 textPosition="top"
                 accentColor={ACCENT}
             >
@@ -265,7 +285,8 @@ export default function TransportChapter() {
             {/* T10 — 3:00pm military jet GPS disturbance */}
             <NarrativeSlide
                 timestamp="3:00pm"
-                backgroundImage={IMAGES.satellite}
+                backgroundVideo={VIDEOS.satellite}
+                poster={POSTERS.satellite}
                 textPosition="top"
                 accentColor={ACCENT}
             >
@@ -279,7 +300,8 @@ export default function TransportChapter() {
             {/* T11 — 3:30pm airports security measures */}
             <NarrativeSlide
                 timestamp="3:30pm"
-                backgroundImage={IMAGES.satellite}
+                backgroundVideo={VIDEOS.satellite}
+                poster={POSTERS.satellite}
                 textPosition="top"
                 accentColor={ACCENT}
             >
@@ -371,7 +393,8 @@ export default function TransportChapter() {
             <NarrativeSlide
                 timestamp="6:00pm"
                 heading="CHAOS CONTINUES INTO THE EVENING"
-                backgroundImage={IMAGES.mapDark}
+                backgroundVideo={VIDEOS.mapDark}
+                poster={POSTERS.mapDark}
                 textPosition="top"
                 accentColor={ACCENT}
             >
@@ -384,7 +407,8 @@ export default function TransportChapter() {
             {/* T18 — 7:00pm train delayed */}
             <NarrativeSlide
                 timestamp="7:00pm"
-                backgroundImage={IMAGES.mapDark}
+                backgroundVideo={VIDEOS.mapDark}
+                poster={POSTERS.mapDark}
                 textPosition="top"
                 accentColor={ACCENT}
             >
@@ -397,7 +421,8 @@ export default function TransportChapter() {
             {/* T19 — 7:30pm trains cancelled */}
             <NarrativeSlide
                 timestamp="7:30pm"
-                backgroundImage={IMAGES.trainStation}
+                backgroundVideo={VIDEOS.trainStation}
+                poster={POSTERS.trainStation}
                 textPosition="top"
                 highlightText
                 accentColor={ACCENT}

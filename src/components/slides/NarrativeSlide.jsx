@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { media } from "../../utils/breakpoints";
+import { getAssetPath } from "../../utils/assetPath";
 import TimestampBadge from "./TimestampBadge";
 
 const Slide = styled.section`
@@ -31,6 +32,27 @@ const BackgroundImage = styled.div`
             rgba(0, 0, 0, 0.6) 100%
         );
     }
+`;
+
+const BackgroundVideo = styled.video`
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+`;
+
+const VideoOverlay = styled.div`
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.5) 0%,
+        rgba(0, 0, 0, 0.2) 40%,
+        rgba(0, 0, 0, 0.6) 100%
+    );
 `;
 
 const Content = styled.div`
@@ -102,6 +124,8 @@ export default function NarrativeSlide({
     children,
     textPosition = "top",
     backgroundImage,
+    backgroundVideo,
+    poster,
     highlightText = false,
     backgroundColor,
     accentColor,
@@ -110,7 +134,21 @@ export default function NarrativeSlide({
 
     return (
         <Slide $bg={backgroundColor}>
-            {backgroundImage && <BackgroundImage $src={backgroundImage} />}
+            {backgroundVideo ? (
+                <>
+                    <BackgroundVideo
+                        src={getAssetPath(backgroundVideo)}
+                        poster={poster ? getAssetPath(poster) : undefined}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                    />
+                    <VideoOverlay />
+                </>
+            ) : (
+                backgroundImage && <BackgroundImage $src={backgroundImage} />
+            )}
             <Content $position={textPosition}>
                 {timestamp && (
                     <TimestampWrapper>

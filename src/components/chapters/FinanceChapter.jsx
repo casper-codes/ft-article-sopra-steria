@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { media } from "../../utils/breakpoints";
+import { getAssetPath } from "../../utils/assetPath";
 import { ChapterIntro } from "../shared";
 import {
     NarrativeSlide,
@@ -12,16 +13,26 @@ import SlideQuote from "../slides/SlideQuote";
 const ACCENT = "#8eb8ff";
 const GRID_COLOR = "rgba(142, 184, 255, 0.15)";
 
-// Image paths — replace with actual assets
-const IMAGES = {
-    madridCityscape: "/images/finance/madrid-cityscape.jpg",
-    supermarket: "/images/finance/supermarket.jpg",
-    supermarketBlurred: "/images/finance/supermarket-blurred.jpg",
-    warehousePhone: "/images/finance/warehouse-phone.jpg",
-    ironGate: "/images/finance/iron-gate.jpg",
-    phoneInHand: "/images/finance/phone-in-hand.jpg",
-    warehouse: "/images/finance/warehouse.jpg",
-    idVerification: "/images/finance/id-verification.jpg",
+const VIDEOS = {
+    madridCityscape: "/videos/ch2/ch2_1.mp4",
+    supermarket: "/videos/ch2/ch2_2_glitch.mp4",
+    supermarketBlurred: "/videos/ch2/ch2_3.mp4",
+    warehousePhone: "/videos/ch2/ch2_4_desktop.mp4",
+    ironGate: "/videos/ch2/ch2_5.mp4",
+    phoneInHand: "/videos/ch2/ch2_6_desktop.mp4",
+    warehouse: "/videos/ch2/ch2_7.mp4",
+    idVerification: "/videos/ch2/ch2_8.mp4",
+};
+
+const POSTERS = {
+    madridCityscape: "/videos/posters/ch2/ch2_1.jpg",
+    supermarket: "/videos/posters/ch2/ch2_2_glitch.jpg",
+    supermarketBlurred: "/videos/posters/ch2/ch2_3.jpg",
+    warehousePhone: "/videos/posters/ch2/ch2_4_desktop.jpg",
+    ironGate: "/videos/posters/ch2/ch2_5.jpg",
+    phoneInHand: "/videos/posters/ch2/ch2_6_desktop.jpg",
+    warehouse: "/videos/posters/ch2/ch2_7.jpg",
+    idVerification: "/videos/posters/ch2/ch2_8.jpg",
 };
 
 const Chapter = styled.div`
@@ -43,24 +54,23 @@ const HeroSection = styled.section`
     `)}
 `;
 
-const HeroBackground = styled.div`
+const HeroVideo = styled.video`
     position: absolute;
     inset: 0;
-    background-image: url(${IMAGES.madridCityscape});
-    background-size: cover;
-    background-position: center;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+`;
 
-    &::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-            180deg,
-            rgba(0, 0, 0, 0.5) 0%,
-            rgba(0, 0, 0, 0.2) 40%,
-            rgba(0, 0, 0, 0.6) 100%
-        );
-    }
+const HeroOverlay = styled.div`
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.5) 0%,
+        rgba(0, 0, 0, 0.2) 40%,
+        rgba(0, 0, 0, 0.6) 100%
+    );
 `;
 
 const DataCallout = styled.div`
@@ -123,7 +133,12 @@ export default function FinanceChapter() {
         <Chapter>
             {/* F1 — Hero / Chapter Intro */}
             <HeroSection>
-                <HeroBackground />
+                <HeroVideo
+                    src={getAssetPath(VIDEOS.madridCityscape)}
+                    poster={getAssetPath(POSTERS.madridCityscape)}
+                    autoPlay loop muted playsInline
+                />
+                <HeroOverlay />
                 <div style={{ position: 'relative', zIndex: 2 }}>
                     <ChapterIntro
                         chapter="CHAPTER_TWO"
@@ -134,7 +149,8 @@ export default function FinanceChapter() {
 
             {/* F2 — Madrid intro */}
             <NarrativeSlide
-                backgroundImage={IMAGES.madridCityscape}
+                backgroundVideo={VIDEOS.madridCityscape}
+                poster={POSTERS.madridCityscape}
                 heading="THURSDAY / MADRID, SPAIN"
                 textPosition="top"
                 accentColor={ACCENT}
@@ -151,7 +167,8 @@ export default function FinanceChapter() {
 
             {/* F3 — Supermarket escalation */}
             <NarrativeSlide
-                backgroundImage={IMAGES.supermarket}
+                backgroundVideo={VIDEOS.supermarket}
+                poster={POSTERS.supermarket}
                 textPosition="top"
                 highlightText
                 accentColor={ACCENT}
@@ -167,7 +184,8 @@ export default function FinanceChapter() {
             {/* F4 — 12:00pm store manager clicks link */}
             <NarrativeSlide
                 timestamp="12:00pm"
-                backgroundImage={IMAGES.supermarket}
+                backgroundVideo={VIDEOS.supermarket}
+                poster={POSTERS.supermarket}
                 textPosition="top"
                 highlightText
                 accentColor={ACCENT}
@@ -182,7 +200,8 @@ export default function FinanceChapter() {
             {/* F5 — 12:20pm POS malware */}
             <NarrativeSlide
                 timestamp="12:20pm"
-                backgroundImage={IMAGES.supermarketBlurred}
+                backgroundVideo={VIDEOS.supermarketBlurred}
+                poster={POSTERS.supermarketBlurred}
                 textPosition="top"
                 highlightText
                 accentColor={ACCENT}
@@ -197,7 +216,8 @@ export default function FinanceChapter() {
             {/* F6 — 1:05pm contacts IT helpdesk */}
             <NarrativeSlide
                 timestamp="1:05pm"
-                backgroundImage={IMAGES.warehousePhone}
+                backgroundVideo={VIDEOS.warehousePhone}
+                poster={POSTERS.warehousePhone}
                 textPosition="top"
                 highlightText
                 accentColor={ACCENT}
@@ -324,7 +344,8 @@ export default function FinanceChapter() {
             <NarrativeSlide
                 timestamp="3:00pm"
                 heading="FROM A COMPANY BREACH TO MAJOR DISRUPTION"
-                backgroundImage={IMAGES.ironGate}
+                backgroundVideo={VIDEOS.ironGate}
+                poster={POSTERS.ironGate}
                 textPosition="top"
                 accentColor={ACCENT}
             >
@@ -334,16 +355,17 @@ export default function FinanceChapter() {
                 </p>
             </NarrativeSlide>
 
-            {/* F15 — Full bleed phone image */}
+            {/* F15 — Full bleed phone video */}
             <FullBleedImage
-                src={IMAGES.phoneInHand}
-                alt="Person holding a phone"
+                videoSrc={VIDEOS.phoneInHand}
+                poster={POSTERS.phoneInHand}
             />
 
             {/* F16 — 6:30pm media reports */}
             <NarrativeSlide
                 timestamp="6:30pm"
-                backgroundImage={IMAGES.phoneInHand}
+                backgroundVideo={VIDEOS.phoneInHand}
+                poster={POSTERS.phoneInHand}
                 textPosition="top"
                 accentColor={ACCENT}
             >
@@ -417,7 +439,8 @@ export default function FinanceChapter() {
             <NarrativeSlide
                 timestamp="7:00am"
                 heading="THE NEXT DAY"
-                backgroundImage={IMAGES.warehouse}
+                backgroundVideo={VIDEOS.warehouse}
+                poster={POSTERS.warehouse}
                 textPosition="top"
                 accentColor={ACCENT}
             >
@@ -430,7 +453,8 @@ export default function FinanceChapter() {
             {/* F22 — 2:00pm banks tighten fraud checks */}
             <NarrativeSlide
                 timestamp="2:00pm"
-                backgroundImage={IMAGES.idVerification}
+                backgroundVideo={VIDEOS.idVerification}
+                poster={POSTERS.idVerification}
                 textPosition="top"
                 accentColor={ACCENT}
             >
