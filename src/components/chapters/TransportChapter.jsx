@@ -80,19 +80,16 @@ const DataCallout = styled.div`
     max-width: 600px;
 
     p {
-        font-family: 'logic-monospace', monospace;
-        font-size: 24px;
-        font-weight: 400;
-        line-height: 1.25;
-        letter-spacing: -0.96px;
-        color: #000;
+        font-family: 'Space Mono', monospace;
+        font-size: 27px;
+        line-height: 1.35;
+        letter-spacing: -0.54px;
+        color: #fff;
         text-transform: uppercase;
         margin: 0 0 16px;
 
         ${media.mobile(`
-            font-size: 19px;
-            letter-spacing: -0.76px;
-            line-height: 1.35;
+            font-size: 20px;
         `)}
     }
 `;
