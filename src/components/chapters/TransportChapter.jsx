@@ -6,6 +6,7 @@ import {
     NarrativeSlide,
     EditorialSlide,
     DataGridSlide,
+    StickySlide,
 } from "../slides";
 import SlideQuote from "../slides/SlideQuote";
 
@@ -133,7 +134,7 @@ export default function TransportChapter() {
     return (
         <Chapter>
             {/* T1 — Hero / Chapter Intro */}
-            <HeroSection>
+            <StickySlide><HeroSection>
                 <HeroVideo
                     src={getAssetPath(VIDEOS.portOfDover)}
                     poster={getAssetPath(POSTERS.portOfDover)}
@@ -146,10 +147,10 @@ export default function TransportChapter() {
                         subtitle="How hidden vulnerabilities grind a country's transport network to a halt"
                     />
                 </div>
-            </HeroSection>
+            </HeroSection></StickySlide>
 
             {/* T2 — Port of Dover intro */}
-            <NarrativeSlide
+            <StickySlide><NarrativeSlide
                 backgroundVideo={VIDEOS.portOfDover}
                 poster={POSTERS.portOfDover}
                 heading="MONDAY / PORT OF DOVER, UK"
@@ -165,10 +166,10 @@ export default function TransportChapter() {
                     creep into navigation systems &ndash; this is the first sign
                     of a broader attack targeting transport nationwide.
                 </p>
-            </NarrativeSlide>
+            </NarrativeSlide></StickySlide>
 
             {/* T3 — 8:00am sat-nav freezes */}
-            <NarrativeSlide
+            <StickySlide><NarrativeSlide
                 timestamp="8:00am"
                 backgroundVideo={VIDEOS.satNav}
                 poster={POSTERS.satNav}
@@ -181,10 +182,10 @@ export default function TransportChapter() {
                     his sat-nav, only for the screen to freeze.
                 </p>
                 <p>He keeps tapping, but nothing displays.</p>
-            </NarrativeSlide>
+            </NarrativeSlide></StickySlide>
 
             {/* T4 — 8:15am depot issues */}
-            <NarrativeSlide
+            <StickySlide><NarrativeSlide
                 timestamp="8:15am"
                 backgroundVideo={VIDEOS.truckDepot}
                 poster={POSTERS.truckDepot}
@@ -200,10 +201,10 @@ export default function TransportChapter() {
                     Thousands of pounds of revenue could be lost from a late
                     departure.
                 </p>
-            </NarrativeSlide>
+            </NarrativeSlide></StickySlide>
 
             {/* T5 — 9:00am GPS jamming */}
-            <NarrativeSlide
+            <StickySlide><NarrativeSlide
                 timestamp="9:00am"
                 backgroundVideo={VIDEOS.airportBoard}
                 poster={POSTERS.airportBoard}
@@ -216,10 +217,10 @@ export default function TransportChapter() {
                     <strong>GPS jamming</strong> to block signals and interfere
                     with the GPS network, disrupting travel in the UK.
                 </p>
-            </NarrativeSlide>
+            </NarrativeSlide></StickySlide>
 
             {/* T6 — Editorial: GPS vulnerability + Lecoq quote */}
-            <EditorialSlide
+            <StickySlide><EditorialSlide
                 sectionTitle="HACKERS EXPLOIT EMERGING VULNERABILITIES"
                 backgroundColor={ACCENT}
                 headingColor={ACCENT}
@@ -238,10 +239,10 @@ export default function TransportChapter() {
                     Transport is the second most targeted sector in the EU, with
                     the majority of attacks concentrated in air and logistics.
                 </p>
-            </EditorialSlide>
+            </EditorialSlide></StickySlide>
 
             {/* T7 — Data grid: EU transport incidents */}
-            <DataGridSlide
+            <StickySlide><DataGridSlide
                 sectionTitle="HACKERS EXPLOIT EMERGING VULNERABILITIES"
                 headingColor={ACCENT}
                 gridColor={GRID_COLOR}
@@ -256,10 +257,10 @@ export default function TransportChapter() {
                         Source: ENISA 2025 Report
                     </DataAttribution>
                 </DataCallout>
-            </DataGridSlide>
+            </DataGridSlide></StickySlide>
 
             {/* T8 — Editorial: Garczynski quote */}
-            <EditorialSlide
+            <StickySlide><EditorialSlide
                 sectionTitle="HACKERS EXPLOIT EMERGING VULNERABILITIES"
                 backgroundColor={ACCENT}
                 headingColor={ACCENT}
@@ -269,10 +270,10 @@ export default function TransportChapter() {
                     name="Stefan Garczynski"
                     role="Managing Security Architect, Sopra Steria"
                 />
-            </EditorialSlide>
+            </EditorialSlide></StickySlide>
 
             {/* T9 — 3:00pm deliveries at slower pace */}
-            <NarrativeSlide
+            <StickySlide><NarrativeSlide
                 timestamp="3:00pm"
                 heading="WHEN DISRUPTION CROSSES BORDERS"
                 backgroundVideo={VIDEOS.truckRoad}
@@ -284,10 +285,10 @@ export default function TransportChapter() {
                     The driver makes deliveries, albeit at a slower pace, using
                     maps and institutional knowledge.
                 </p>
-            </NarrativeSlide>
+            </NarrativeSlide></StickySlide>
 
             {/* T10 — 3:00pm military jet GPS disturbance */}
-            <NarrativeSlide
+            <StickySlide><NarrativeSlide
                 timestamp="3:00pm"
                 backgroundVideo={VIDEOS.satellite}
                 poster={POSTERS.satellite}
@@ -299,10 +300,10 @@ export default function TransportChapter() {
                     military jet carrying an MP over Russian airspace. Early
                     reports suggest it was a GPS disturbance.
                 </p>
-            </NarrativeSlide>
+            </NarrativeSlide></StickySlide>
 
             {/* T11 — 3:30pm airports security measures */}
-            <NarrativeSlide
+            <StickySlide><NarrativeSlide
                 timestamp="3:30pm"
                 backgroundVideo={VIDEOS.satellite}
                 poster={POSTERS.satellite}
@@ -313,10 +314,10 @@ export default function TransportChapter() {
                     UK airports implement additional security measures, delaying
                     arrivals and departures.
                 </p>
-            </NarrativeSlide>
+            </NarrativeSlide></StickySlide>
 
             {/* T12 — Editorial: GPS reliance + 13 EU states */}
-            <EditorialSlide
+            <StickySlide><EditorialSlide
                 sectionTitle="SEEKING SECURITY IN DIGITAL SOVEREIGNTY"
                 backgroundColor={ACCENT}
                 headingColor={ACCENT}
@@ -333,10 +334,10 @@ export default function TransportChapter() {
                     (GNSS) technologies to accelerate Europe&rsquo;s digital
                     sovereignty.
                 </p>
-            </EditorialSlide>
+            </EditorialSlide></StickySlide>
 
             {/* T13 — Editorial: Julia Carver intro */}
-            <EditorialSlide
+            <StickySlide><EditorialSlide
                 sectionTitle="SEEKING SECURITY IN DIGITAL SOVEREIGNTY"
                 backgroundColor={ACCENT}
                 headingColor={ACCENT}
@@ -347,10 +348,10 @@ export default function TransportChapter() {
                     Leiden University, explains that the EU&rsquo;s vision of
                     digital sovereignty emphasises self-determination.
                 </p>
-            </EditorialSlide>
+            </EditorialSlide></StickySlide>
 
             {/* T14 — Editorial: Julia Carver quote */}
-            <EditorialSlide
+            <StickySlide><EditorialSlide
                 sectionTitle="SEEKING SECURITY IN DIGITAL SOVEREIGNTY"
                 backgroundColor={ACCENT}
                 headingColor={ACCENT}
@@ -360,10 +361,10 @@ export default function TransportChapter() {
                     name="Julia Carver"
                     role="Assistant Professor, Leiden University"
                 />
-            </EditorialSlide>
+            </EditorialSlide></StickySlide>
 
             {/* T15 — Editorial: legal perspective + inline Fahey quote */}
-            <EditorialSlide
+            <StickySlide><EditorialSlide
                 sectionTitle="SEEKING SECURITY IN DIGITAL SOVEREIGNTY"
                 backgroundColor={ACCENT}
                 headingColor={ACCENT}
@@ -378,10 +379,10 @@ export default function TransportChapter() {
                     London. &ldquo;It&rsquo;s rooted in internal market law,
                     while the threats themselves are cross-border.&rdquo;
                 </p>
-            </EditorialSlide>
+            </EditorialSlide></StickySlide>
 
             {/* T16 — Editorial: Elaine Fahey quote */}
-            <EditorialSlide
+            <StickySlide><EditorialSlide
                 sectionTitle="SEEKING SECURITY IN DIGITAL SOVEREIGNTY"
                 backgroundColor={ACCENT}
                 headingColor={ACCENT}
@@ -391,10 +392,10 @@ export default function TransportChapter() {
                     name="Elaine Fahey"
                     role="Professor of EU Law, City St George's, University of London"
                 />
-            </EditorialSlide>
+            </EditorialSlide></StickySlide>
 
             {/* T17 — 6:00pm overtime */}
-            <NarrativeSlide
+            <StickySlide><NarrativeSlide
                 timestamp="6:00pm"
                 heading="CHAOS CONTINUES INTO THE EVENING"
                 backgroundVideo={VIDEOS.mapDark}
@@ -406,10 +407,10 @@ export default function TransportChapter() {
                     Drivers are told they will need to work overtime to recoup
                     the company&rsquo;s revenue losses.
                 </p>
-            </NarrativeSlide>
+            </NarrativeSlide></StickySlide>
 
             {/* T18 — 7:00pm train delayed */}
-            <NarrativeSlide
+            <StickySlide><NarrativeSlide
                 timestamp="7:00pm"
                 backgroundVideo={VIDEOS.mapDark}
                 poster={POSTERS.mapDark}
@@ -420,10 +421,10 @@ export default function TransportChapter() {
                     As the driver heads home, his usual train is delayed by two
                     hours.
                 </p>
-            </NarrativeSlide>
+            </NarrativeSlide></StickySlide>
 
             {/* T19 — 7:30pm trains cancelled */}
-            <NarrativeSlide
+            <StickySlide><NarrativeSlide
                 timestamp="7:30pm"
                 backgroundVideo={VIDEOS.trainStation}
                 poster={POSTERS.trainStation}
@@ -440,10 +441,10 @@ export default function TransportChapter() {
                     Cyber analysts believe a foreign entity is behind the travel
                     chaos throughout the country.
                 </p>
-            </NarrativeSlide>
+            </NarrativeSlide></StickySlide>
 
             {/* T20 — Solutions data grid */}
-            <DataGridSlide
+            <StickySlide><DataGridSlide
                 sectionTitle="THE SOLUTIONS"
                 headingColor={ACCENT}
                 gridColor={GRID_COLOR}
@@ -464,7 +465,7 @@ export default function TransportChapter() {
                         <p>Zero-trust architectures</p>
                     </SolutionBox>
                 </SolutionBoxes>
-            </DataGridSlide>
+            </DataGridSlide></StickySlide>
         </Chapter>
     );
 }

@@ -5,3 +5,4 @@ export { default as DataGridSlide } from "./DataGridSlide";
 export { default as SectionHeadingBar } from "./SectionHeadingBar";
 export { default as SlideQuote } from "./SlideQuote";
 export { default as TimestampBadge } from "./TimestampBadge";
+export { default as StickySlide } from "./StickySlide";

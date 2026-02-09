@@ -7,6 +7,7 @@ import {
     EditorialSlide,
     FullBleedImage,
     DataGridSlide,
+    StickySlide,
 } from "../slides";
 import SlideQuote from "../slides/SlideQuote";
 
@@ -132,7 +133,7 @@ export default function EnergyChapter() {
     return (
         <Chapter>
             {/* Hero / Chapter Intro */}
-            <HeroSection>
+            <StickySlide appearInPlace><HeroSection>
                 <HeroVideo
                     src={getAssetPath(VIDEOS.osloCityscape)}
                     poster={getAssetPath(POSTERS.osloCityscape)}
@@ -145,10 +146,10 @@ export default function EnergyChapter() {
                         subtitle="When vital infrastructure is held hostage by hacktivists"
                     />
                 </div>
-            </HeroSection>
+            </HeroSection></StickySlide>
 
             {/* S1 — Oslo intro */}
-            <NarrativeSlide
+            <StickySlide appearInPlace><NarrativeSlide
                 backgroundVideo={VIDEOS.osloCityscape}
                 poster={POSTERS.osloCityscape}
                 heading="TUESDAY / OSLO, NORWAY"
@@ -165,16 +166,16 @@ export default function EnergyChapter() {
                     in for the evening shift and is immediately locked out of the
                     grid's control system. Something is seriously wrong.
                 </p>
-            </NarrativeSlide>
+            </NarrativeSlide></StickySlide>
 
             {/* S3 — Full bleed hacker scene */}
-            <FullBleedImage
+            <StickySlide appearInPlace><FullBleedImage
                 videoSrc={VIDEOS.hackerScene}
                 poster={POSTERS.hackerScene}
-            />
+            /></StickySlide>
 
             {/* S4 — 5:00pm DDoS attack */}
-            <NarrativeSlide
+            <StickySlide appearInPlace><NarrativeSlide
                 timestamp="5:00pm"
                 backgroundVideo={VIDEOS.globe}
                 poster={POSTERS.globe}
@@ -188,10 +189,10 @@ export default function EnergyChapter() {
                     targeting smart meters, they are overwhelming the central
                     servers that power the grids.
                 </p>
-            </NarrativeSlide>
+            </NarrativeSlide></StickySlide>
 
             {/* S5 — 5:10pm elevator */}
-            <NarrativeSlide
+            <StickySlide appearInPlace><NarrativeSlide
                 timestamp="5:10pm"
                 backgroundVideo={VIDEOS.elevator}
                 poster={POSTERS.elevator}
@@ -210,10 +211,10 @@ export default function EnergyChapter() {
                     battery. But the WiFi and internal servers are down. The
                     trading floor, normally alive with data, is blank.
                 </p>
-            </NarrativeSlide>
+            </NarrativeSlide></StickySlide>
 
             {/* S6 — 5:15pm signal lost */}
-            <NarrativeSlide
+            <StickySlide appearInPlace><NarrativeSlide
                 timestamp="5:15pm"
                 backgroundVideo={VIDEOS.signalLost}
                 poster={POSTERS.signalLost}
@@ -224,10 +225,10 @@ export default function EnergyChapter() {
                     and internet services are down. People across Oslo start to
                     panic.
                 </p>
-            </NarrativeSlide>
+            </NarrativeSlide></StickySlide>
 
             {/* S7 — Evolving threat intro */}
-            <EditorialSlide sectionTitle="AN EVOLVING THREAT LANDSCAPE">
+            <StickySlide appearInPlace><EditorialSlide sectionTitle="AN EVOLVING THREAT LANDSCAPE">
                 <p>
                     Energy powers everything. But as energy networks become
                     "smarter", with automated load balancing, remote sensors and
@@ -239,10 +240,10 @@ export default function EnergyChapter() {
                     operational technology that controls physical infrastructure
                     directly — not just IT systems.
                 </p>
-            </EditorialSlide>
+            </EditorialSlide></StickySlide>
 
             {/* S8 — Cyber attacks data grid */}
-            <DataGridSlide
+            <StickySlide appearInPlace><DataGridSlide
                 sectionTitle="AN EVOLVING THREAT LANDSCAPE"
                 backgroundVideo={VIDEOS.dataPoint}
                 poster={POSTERS.dataPoint}
@@ -257,10 +258,10 @@ export default function EnergyChapter() {
                         industry
                     </DataAttribution>
                 </DataCallout>
-            </DataGridSlide>
+            </DataGridSlide></StickySlide>
 
             {/* S9 — Sopra Steria + Robert M Lee quote */}
-            <EditorialSlide sectionTitle="AN EVOLVING THREAT LANDSCAPE">
+            <StickySlide appearInPlace><EditorialSlide sectionTitle="AN EVOLVING THREAT LANDSCAPE">
                 <p>
                     Sopra Steria, a technology and consulting company that
                     provides cybersecurity services, identified in its State of
@@ -273,10 +274,10 @@ export default function EnergyChapter() {
                     name="Robert M Lee"
                     role="Leading expert in operational technology security, CEO of Dragos"
                 />
-            </EditorialSlide>
+            </EditorialSlide></StickySlide>
 
             {/* S10 — 5:20pm blackouts */}
-            <NarrativeSlide
+            <StickySlide appearInPlace><NarrativeSlide
                 timestamp="5:20pm"
                 backgroundVideo={VIDEOS.glitchyCityscape}
                 poster={POSTERS.glitchyCityscape}
@@ -287,10 +288,10 @@ export default function EnergyChapter() {
                     the intensity of a sustained attack, safety shutdowns are
                     being triggered across energy grids, causing blackouts.
                 </p>
-            </NarrativeSlide>
+            </NarrativeSlide></StickySlide>
 
             {/* S11 — 5:30pm phone torches */}
-            <NarrativeSlide
+            <StickySlide appearInPlace><NarrativeSlide
                 timestamp="5:30pm"
                 textPosition="bottom"
                 backgroundColor="#000"
@@ -300,10 +301,10 @@ export default function EnergyChapter() {
                     and towards the lobby. Confusion is widespread; every building
                     is impacted.
                 </p>
-            </NarrativeSlide>
+            </NarrativeSlide></StickySlide>
 
             {/* S12 — 7:00pm C-suite */}
-            <NarrativeSlide
+            <StickySlide appearInPlace><NarrativeSlide
                 timestamp="7:00pm"
                 backgroundVideo={VIDEOS.womanScreens}
                 poster={POSTERS.womanScreens}
@@ -316,10 +317,10 @@ export default function EnergyChapter() {
                     including monitoring tools, have been compromised. Engineers
                     no longer have real-time visibility.
                 </p>
-            </NarrativeSlide>
+            </NarrativeSlide></StickySlide>
 
             {/* S13 — Operating while under attack */}
-            <EditorialSlide sectionTitle="OPERATING WHILE UNDER ATTACK">
+            <StickySlide appearInPlace><EditorialSlide sectionTitle="OPERATING WHILE UNDER ATTACK">
                 <p>
                     Most of the investment in cybersecurity in the energy sector
                     has gone into prevention rather than visibility and
@@ -331,10 +332,10 @@ export default function EnergyChapter() {
                     name="Robert M Lee"
                     role="Leading expert in operational technology security, CEO of Dragos"
                 />
-            </EditorialSlide>
+            </EditorialSlide></StickySlide>
 
             {/* S14 — Policymakers */}
-            <EditorialSlide sectionTitle="OPERATING WHILE UNDER ATTACK">
+            <StickySlide appearInPlace><EditorialSlide sectionTitle="OPERATING WHILE UNDER ATTACK">
                 <p>
                     Europe's policymakers are starting to recognise the risks. In
                     2025, the European Commission signed a €36mn agreement with
@@ -348,10 +349,10 @@ export default function EnergyChapter() {
                     name="Jørgen Rørvik"
                     role="Director of Cybersecurity and Connectivity, Sopra Steria Nordics"
                 />
-            </EditorialSlide>
+            </EditorialSlide></StickySlide>
 
             {/* S15 — Islands architecture */}
-            <EditorialSlide sectionTitle="OPERATING WHILE UNDER ATTACK">
+            <StickySlide appearInPlace><EditorialSlide sectionTitle="OPERATING WHILE UNDER ATTACK">
                 <p>
                     This can include breaking the grid into "islands", which can
                     distribute power locally, to prevent cascading failures, or
@@ -363,10 +364,10 @@ export default function EnergyChapter() {
                     name="Jørgen Rørvik"
                     role="Director of Cybersecurity and Connectivity, Sopra Steria Nordics"
                 />
-            </EditorialSlide>
+            </EditorialSlide></StickySlide>
 
             {/* S16 — 8:00pm work through the night */}
-            <NarrativeSlide
+            <StickySlide appearInPlace><NarrativeSlide
                 timestamp="8:00pm"
                 heading="WORK CONTINUES THROUGH THE NIGHT"
                 backgroundVideo={VIDEOS.escalator}
@@ -377,10 +378,10 @@ export default function EnergyChapter() {
                     Policymakers, emergency services and cybersecurity experts
                     gather to implement emergency procedures.
                 </p>
-            </NarrativeSlide>
+            </NarrativeSlide></StickySlide>
 
             {/* S17 — 2:00am */}
-            <NarrativeSlide
+            <StickySlide appearInPlace><NarrativeSlide
                 timestamp="2:00am"
                 backgroundVideo={VIDEOS.escalator}
                 poster={POSTERS.escalator}
@@ -390,10 +391,10 @@ export default function EnergyChapter() {
                     Cyber experts work with internet service providers to divert
                     malicious traffic and implement recovery protocols.
                 </p>
-            </NarrativeSlide>
+            </NarrativeSlide></StickySlide>
 
             {/* S18 — 8:00am */}
-            <NarrativeSlide
+            <StickySlide appearInPlace><NarrativeSlide
                 timestamp="8:00am"
                 backgroundVideo={VIDEOS.escalator}
                 poster={POSTERS.escalator}
@@ -403,10 +404,10 @@ export default function EnergyChapter() {
                     Power has returned, but public services reel from the human
                     and financial cost of this major incident.
                 </p>
-            </NarrativeSlide>
+            </NarrativeSlide></StickySlide>
 
             {/* S19 — Solutions data grid */}
-            <DataGridSlide
+            <StickySlide appearInPlace><DataGridSlide
                 sectionTitle="THE SOLUTIONS"
                 headingColor="#fff"
                 backgroundVideo={VIDEOS.dataPoint}
@@ -429,7 +430,7 @@ export default function EnergyChapter() {
                         <p>A threat-driven approach beyond compliance</p>
                     </SolutionBox>
                 </SolutionBoxes>
-            </DataGridSlide>
+            </DataGridSlide></StickySlide>
         </Chapter>
     );
 }

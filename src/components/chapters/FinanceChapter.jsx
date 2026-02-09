@@ -7,6 +7,7 @@ import {
     EditorialSlide,
     FullBleedImage,
     DataGridSlide,
+    StickySlide,
 } from "../slides";
 import SlideQuote from "../slides/SlideQuote";
 
@@ -132,7 +133,7 @@ export default function FinanceChapter() {
     return (
         <Chapter>
             {/* F1 — Hero / Chapter Intro */}
-            <HeroSection>
+            <StickySlide><HeroSection>
                 <HeroVideo
                     src={getAssetPath(VIDEOS.madridCityscape)}
                     poster={getAssetPath(POSTERS.madridCityscape)}
@@ -145,10 +146,10 @@ export default function FinanceChapter() {
                         subtitle="How a single email could crash a continent's payment systems"
                     />
                 </div>
-            </HeroSection>
+            </HeroSection></StickySlide>
 
             {/* F2 — Madrid intro */}
-            <NarrativeSlide
+            <StickySlide><NarrativeSlide
                 backgroundVideo={VIDEOS.madridCityscape}
                 poster={POSTERS.madridCityscape}
                 heading="THURSDAY / MADRID, SPAIN"
@@ -163,10 +164,10 @@ export default function FinanceChapter() {
                     It begins quietly, with a distracted employee and a
                     convincingly urgent email.
                 </p>
-            </NarrativeSlide>
+            </NarrativeSlide></StickySlide>
 
             {/* F3 — Supermarket escalation */}
-            <NarrativeSlide
+            <StickySlide><NarrativeSlide
                 backgroundVideo={VIDEOS.supermarket}
                 poster={POSTERS.supermarket}
                 textPosition="top"
@@ -179,10 +180,10 @@ export default function FinanceChapter() {
                     spreading from one store to thousands and damage reaching far
                     beyond one retailer.
                 </p>
-            </NarrativeSlide>
+            </NarrativeSlide></StickySlide>
 
             {/* F4 — 12:00pm store manager clicks link */}
-            <NarrativeSlide
+            <StickySlide><NarrativeSlide
                 timestamp="12:00pm"
                 backgroundVideo={VIDEOS.supermarket}
                 poster={POSTERS.supermarket}
@@ -195,10 +196,10 @@ export default function FinanceChapter() {
                     inventory portal in an &ldquo;urgent&rdquo; email from a
                     supposed HQ executive.
                 </p>
-            </NarrativeSlide>
+            </NarrativeSlide></StickySlide>
 
             {/* F5 — 12:20pm POS malware */}
-            <NarrativeSlide
+            <StickySlide><NarrativeSlide
                 timestamp="12:20pm"
                 backgroundVideo={VIDEOS.supermarketBlurred}
                 poster={POSTERS.supermarketBlurred}
@@ -211,10 +212,10 @@ export default function FinanceChapter() {
                     malware to the retailer&rsquo;s POS system. Sensitive
                     payment data is sent in batches to an external server.
                 </p>
-            </NarrativeSlide>
+            </NarrativeSlide></StickySlide>
 
             {/* F6 — 1:05pm contacts IT helpdesk */}
-            <NarrativeSlide
+            <StickySlide><NarrativeSlide
                 timestamp="1:05pm"
                 backgroundVideo={VIDEOS.warehousePhone}
                 poster={POSTERS.warehousePhone}
@@ -226,10 +227,10 @@ export default function FinanceChapter() {
                     Concerned about the email chain, the store manager contacts
                     the IT helpdesk.
                 </p>
-            </NarrativeSlide>
+            </NarrativeSlide></StickySlide>
 
             {/* F7 — 1:35pm payment systems fail */}
-            <NarrativeSlide
+            <StickySlide><NarrativeSlide
                 timestamp="1:35pm"
                 backgroundColor="#000"
                 textPosition="top"
@@ -239,10 +240,10 @@ export default function FinanceChapter() {
                     As the malware overloads resources, payment systems across
                     stores fail.
                 </p>
-            </NarrativeSlide>
+            </NarrativeSlide></StickySlide>
 
             {/* F8 — 2:00pm helpdesk flooded */}
-            <NarrativeSlide
+            <StickySlide><NarrativeSlide
                 timestamp="2:00pm"
                 backgroundColor="#000"
                 textPosition="top"
@@ -252,10 +253,10 @@ export default function FinanceChapter() {
                     The helpdesk is flooded with reports from stores experiencing
                     outages.
                 </p>
-            </NarrativeSlide>
+            </NarrativeSlide></StickySlide>
 
             {/* F9 — Editorial: phishing attacks */}
-            <EditorialSlide
+            <StickySlide><EditorialSlide
                 sectionTitle="WHEN HUMAN BEHAVIOUR BECOMES THE ENTRY POINT"
                 backgroundColor={ACCENT}
                 headingColor={ACCENT}
@@ -273,10 +274,10 @@ export default function FinanceChapter() {
                     flawless, personalised phishing emails free of spelling
                     errors or awkward phrasing.
                 </p>
-            </EditorialSlide>
+            </EditorialSlide></StickySlide>
 
             {/* F10 — Editorial: AI + inline Arsenio quote */}
-            <EditorialSlide
+            <StickySlide><EditorialSlide
                 sectionTitle="WHEN HUMAN BEHAVIOUR BECOMES THE ENTRY POINT"
                 backgroundColor={ACCENT}
                 headingColor={ACCENT}
@@ -289,10 +290,10 @@ export default function FinanceChapter() {
                     right message,&rdquo; says Arsenio P&eacute;rez Gavira,
                     Cybersecurity Manager at Sopra Steria Spain.
                 </p>
-            </EditorialSlide>
+            </EditorialSlide></StickySlide>
 
             {/* F11 — Editorial: Arsenio quote */}
-            <EditorialSlide
+            <StickySlide><EditorialSlide
                 sectionTitle="WHEN HUMAN BEHAVIOUR BECOMES THE ENTRY POINT"
                 backgroundColor={ACCENT}
                 headingColor={ACCENT}
@@ -302,10 +303,10 @@ export default function FinanceChapter() {
                     name="Arsenio Pérez Gavira"
                     role="Cybersecurity Manager, Sopra Steria Spain"
                 />
-            </EditorialSlide>
+            </EditorialSlide></StickySlide>
 
             {/* F12 — Editorial: 60% + training */}
-            <EditorialSlide
+            <StickySlide><EditorialSlide
                 sectionTitle="WHEN HUMAN BEHAVIOUR BECOMES THE ENTRY POINT"
                 backgroundColor={ACCENT}
                 headingColor={ACCENT}
@@ -320,10 +321,10 @@ export default function FinanceChapter() {
                     scenario-based and department-specific simulations to respond
                     to attacks in real time.
                 </p>
-            </EditorialSlide>
+            </EditorialSlide></StickySlide>
 
             {/* F13 — Editorial: 41% data point */}
-            <EditorialSlide
+            <StickySlide><EditorialSlide
                 sectionTitle="WHEN HUMAN BEHAVIOUR BECOMES THE ENTRY POINT"
                 backgroundColor={ACCENT}
                 headingColor={ACCENT}
@@ -338,10 +339,10 @@ export default function FinanceChapter() {
                         World Economic Forum&rsquo;s 2024 Cybersecurity Outlook
                     </DataAttribution>
                 </DataCallout>
-            </EditorialSlide>
+            </EditorialSlide></StickySlide>
 
             {/* F14 — 3:00pm stores close */}
-            <NarrativeSlide
+            <StickySlide><NarrativeSlide
                 timestamp="3:00pm"
                 heading="FROM A COMPANY BREACH TO MAJOR DISRUPTION"
                 backgroundVideo={VIDEOS.ironGate}
@@ -353,16 +354,16 @@ export default function FinanceChapter() {
                     All of the retailer&rsquo;s stores close as payments and
                     inventory systems fail.
                 </p>
-            </NarrativeSlide>
+            </NarrativeSlide></StickySlide>
 
             {/* F15 — Full bleed phone video */}
-            <FullBleedImage
+            <StickySlide><FullBleedImage
                 videoSrc={VIDEOS.phoneInHand}
                 poster={POSTERS.phoneInHand}
-            />
+            /></StickySlide>
 
             {/* F16 — 6:30pm media reports */}
-            <NarrativeSlide
+            <StickySlide><NarrativeSlide
                 timestamp="6:30pm"
                 backgroundVideo={VIDEOS.phoneInHand}
                 poster={POSTERS.phoneInHand}
@@ -373,10 +374,10 @@ export default function FinanceChapter() {
                     The first media reports break as customers report phishing
                     attacks.
                 </p>
-            </NarrativeSlide>
+            </NarrativeSlide></StickySlide>
 
             {/* F17 — Editorial: interconnected systems */}
-            <EditorialSlide
+            <StickySlide><EditorialSlide
                 sectionTitle="WHEN SYSTEMS CONNECT, FAILURE IS EXPONENTIAL"
                 backgroundColor={ACCENT}
                 headingColor={ACCENT}
@@ -391,10 +392,10 @@ export default function FinanceChapter() {
                     The cost of these attacks is high: both financially and in
                     terms of customer trust.
                 </p>
-            </EditorialSlide>
+            </EditorialSlide></StickySlide>
 
             {/* F18 — Editorial: M&S £300mn */}
-            <EditorialSlide
+            <StickySlide><EditorialSlide
                 sectionTitle="WHEN SYSTEMS CONNECT, FAILURE IS EXPONENTIAL"
                 backgroundColor={ACCENT}
                 headingColor={ACCENT}
@@ -405,10 +406,10 @@ export default function FinanceChapter() {
                     following a cyber incident that stole customer data and
                     disrupted operations and product availability.
                 </p>
-            </EditorialSlide>
+            </EditorialSlide></StickySlide>
 
             {/* F19 — Editorial: inline Stefan quote */}
-            <EditorialSlide
+            <StickySlide><EditorialSlide
                 sectionTitle="WHEN SYSTEMS CONNECT, FAILURE IS EXPONENTIAL"
                 backgroundColor={ACCENT}
                 headingColor={ACCENT}
@@ -420,10 +421,10 @@ export default function FinanceChapter() {
                     gaps,&rdquo; says Stefan Garczynski, Managing Security
                     Architect at Sopra Steria.
                 </p>
-            </EditorialSlide>
+            </EditorialSlide></StickySlide>
 
             {/* F20 — Editorial: Stefan quote */}
-            <EditorialSlide
+            <StickySlide><EditorialSlide
                 sectionTitle="WHEN SYSTEMS CONNECT, FAILURE IS EXPONENTIAL"
                 backgroundColor={ACCENT}
                 headingColor={ACCENT}
@@ -433,10 +434,10 @@ export default function FinanceChapter() {
                     name="Stefan Garczynski"
                     role="Managing Security Architect, Sopra Steria"
                 />
-            </EditorialSlide>
+            </EditorialSlide></StickySlide>
 
             {/* F21 — 7:00am the next day */}
-            <NarrativeSlide
+            <StickySlide><NarrativeSlide
                 timestamp="7:00am"
                 heading="THE NEXT DAY"
                 backgroundVideo={VIDEOS.warehouse}
@@ -448,10 +449,10 @@ export default function FinanceChapter() {
                     It emerges that supplier credentials were exploited. Other
                     European retailers are targeted.
                 </p>
-            </NarrativeSlide>
+            </NarrativeSlide></StickySlide>
 
             {/* F22 — 2:00pm banks tighten fraud checks */}
-            <NarrativeSlide
+            <StickySlide><NarrativeSlide
                 timestamp="2:00pm"
                 backgroundVideo={VIDEOS.idVerification}
                 poster={POSTERS.idVerification}
@@ -459,10 +460,10 @@ export default function FinanceChapter() {
                 accentColor={ACCENT}
             >
                 <p>Banks introduce tighter fraud checks.</p>
-            </NarrativeSlide>
+            </NarrativeSlide></StickySlide>
 
             {/* F23 — Solutions data grid */}
-            <DataGridSlide
+            <StickySlide><DataGridSlide
                 sectionTitle="THE SOLUTIONS"
                 headingColor={ACCENT}
                 gridColor={GRID_COLOR}
@@ -487,7 +488,7 @@ export default function FinanceChapter() {
                         <p>Cross-sector drills</p>
                     </SolutionBox>
                 </SolutionBoxes>
-            </DataGridSlide>
+            </DataGridSlide></StickySlide>
         </Chapter>
     );
 }
