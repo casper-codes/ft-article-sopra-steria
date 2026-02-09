@@ -133,7 +133,7 @@ export default function FinanceChapter() {
     return (
         <Chapter>
             {/* F1 — Hero / Chapter Intro */}
-            <StickySlide><HeroSection>
+            <StickySlide appearInPlace><HeroSection>
                 <HeroVideo
                     src={getAssetPath(VIDEOS.madridCityscape)}
                     poster={getAssetPath(POSTERS.madridCityscape)}
@@ -149,7 +149,7 @@ export default function FinanceChapter() {
             </HeroSection></StickySlide>
 
             {/* F2 — Madrid intro */}
-            <StickySlide><NarrativeSlide
+            <StickySlide appearInPlace><NarrativeSlide
                 backgroundVideo={VIDEOS.madridCityscape}
                 poster={POSTERS.madridCityscape}
                 heading="THURSDAY / MADRID, SPAIN"
@@ -167,7 +167,7 @@ export default function FinanceChapter() {
             </NarrativeSlide></StickySlide>
 
             {/* F3 — Supermarket escalation */}
-            <StickySlide><NarrativeSlide
+            <StickySlide appearInPlace><NarrativeSlide
                 backgroundVideo={VIDEOS.supermarket}
                 poster={POSTERS.supermarket}
                 textPosition="top"
@@ -183,7 +183,7 @@ export default function FinanceChapter() {
             </NarrativeSlide></StickySlide>
 
             {/* F4 — 12:00pm store manager clicks link */}
-            <StickySlide><NarrativeSlide
+            <StickySlide appearInPlace><NarrativeSlide
                 timestamp="12:00pm"
                 backgroundVideo={VIDEOS.supermarket}
                 poster={POSTERS.supermarket}
@@ -199,7 +199,7 @@ export default function FinanceChapter() {
             </NarrativeSlide></StickySlide>
 
             {/* F5 — 12:20pm POS malware */}
-            <StickySlide><NarrativeSlide
+            <StickySlide appearInPlace><NarrativeSlide
                 timestamp="12:20pm"
                 backgroundVideo={VIDEOS.supermarketBlurred}
                 poster={POSTERS.supermarketBlurred}
@@ -215,7 +215,7 @@ export default function FinanceChapter() {
             </NarrativeSlide></StickySlide>
 
             {/* F6 — 1:05pm contacts IT helpdesk */}
-            <StickySlide><NarrativeSlide
+            <StickySlide appearInPlace><NarrativeSlide
                 timestamp="1:05pm"
                 backgroundVideo={VIDEOS.warehousePhone}
                 poster={POSTERS.warehousePhone}
@@ -230,7 +230,7 @@ export default function FinanceChapter() {
             </NarrativeSlide></StickySlide>
 
             {/* F7 — 1:35pm payment systems fail */}
-            <StickySlide><NarrativeSlide
+            <StickySlide appearInPlace><NarrativeSlide
                 timestamp="1:35pm"
                 backgroundColor="#000"
                 textPosition="top"
@@ -243,7 +243,7 @@ export default function FinanceChapter() {
             </NarrativeSlide></StickySlide>
 
             {/* F8 — 2:00pm helpdesk flooded */}
-            <StickySlide><NarrativeSlide
+            <StickySlide appearInPlace><NarrativeSlide
                 timestamp="2:00pm"
                 backgroundColor="#000"
                 textPosition="top"
@@ -256,7 +256,7 @@ export default function FinanceChapter() {
             </NarrativeSlide></StickySlide>
 
             {/* F9 — Editorial: phishing attacks */}
-            <StickySlide><EditorialSlide
+            <StickySlide appearInPlace><EditorialSlide
                 sectionTitle="WHEN HUMAN BEHAVIOUR BECOMES THE ENTRY POINT"
                 backgroundColor={ACCENT}
                 headingColor={ACCENT}
@@ -277,7 +277,7 @@ export default function FinanceChapter() {
             </EditorialSlide></StickySlide>
 
             {/* F10 — Editorial: AI + inline Arsenio quote */}
-            <StickySlide><EditorialSlide
+            <StickySlide appearInPlace><EditorialSlide
                 sectionTitle="WHEN HUMAN BEHAVIOUR BECOMES THE ENTRY POINT"
                 backgroundColor={ACCENT}
                 headingColor={ACCENT}
@@ -293,7 +293,7 @@ export default function FinanceChapter() {
             </EditorialSlide></StickySlide>
 
             {/* F11 — Editorial: Arsenio quote */}
-            <StickySlide><EditorialSlide
+            <StickySlide appearInPlace><EditorialSlide
                 sectionTitle="WHEN HUMAN BEHAVIOUR BECOMES THE ENTRY POINT"
                 backgroundColor={ACCENT}
                 headingColor={ACCENT}
@@ -306,7 +306,7 @@ export default function FinanceChapter() {
             </EditorialSlide></StickySlide>
 
             {/* F12 — Editorial: 60% + training */}
-            <StickySlide><EditorialSlide
+            <StickySlide appearInPlace><EditorialSlide
                 sectionTitle="WHEN HUMAN BEHAVIOUR BECOMES THE ENTRY POINT"
                 backgroundColor={ACCENT}
                 headingColor={ACCENT}
@@ -324,7 +324,7 @@ export default function FinanceChapter() {
             </EditorialSlide></StickySlide>
 
             {/* F13 — Editorial: 41% data point */}
-            <StickySlide><EditorialSlide
+            <StickySlide appearInPlace><EditorialSlide
                 sectionTitle="WHEN HUMAN BEHAVIOUR BECOMES THE ENTRY POINT"
                 backgroundColor={ACCENT}
                 headingColor={ACCENT}
@@ -342,7 +342,7 @@ export default function FinanceChapter() {
             </EditorialSlide></StickySlide>
 
             {/* F14 — 3:00pm stores close */}
-            <StickySlide><NarrativeSlide
+            <StickySlide appearInPlace><NarrativeSlide
                 timestamp="3:00pm"
                 heading="FROM A COMPANY BREACH TO MAJOR DISRUPTION"
                 backgroundVideo={VIDEOS.ironGate}
@@ -357,13 +357,13 @@ export default function FinanceChapter() {
             </NarrativeSlide></StickySlide>
 
             {/* F15 — Full bleed phone video */}
-            <StickySlide><FullBleedImage
+            <StickySlide appearInPlace><FullBleedImage
                 videoSrc={VIDEOS.phoneInHand}
                 poster={POSTERS.phoneInHand}
             /></StickySlide>
 
             {/* F16 — 6:30pm media reports */}
-            <StickySlide><NarrativeSlide
+            <StickySlide appearInPlace><NarrativeSlide
                 timestamp="6:30pm"
                 backgroundVideo={VIDEOS.phoneInHand}
                 poster={POSTERS.phoneInHand}
@@ -377,7 +377,7 @@ export default function FinanceChapter() {
             </NarrativeSlide></StickySlide>
 
             {/* F17 — Editorial: interconnected systems */}
-            <StickySlide><EditorialSlide
+            <StickySlide appearInPlace><EditorialSlide
                 sectionTitle="WHEN SYSTEMS CONNECT, FAILURE IS EXPONENTIAL"
                 backgroundColor={ACCENT}
                 headingColor={ACCENT}
@@ -395,7 +395,7 @@ export default function FinanceChapter() {
             </EditorialSlide></StickySlide>
 
             {/* F18 — Editorial: M&S £300mn */}
-            <StickySlide><EditorialSlide
+            <StickySlide appearInPlace><EditorialSlide
                 sectionTitle="WHEN SYSTEMS CONNECT, FAILURE IS EXPONENTIAL"
                 backgroundColor={ACCENT}
                 headingColor={ACCENT}
@@ -409,7 +409,7 @@ export default function FinanceChapter() {
             </EditorialSlide></StickySlide>
 
             {/* F19 — Editorial: inline Stefan quote */}
-            <StickySlide><EditorialSlide
+            <StickySlide appearInPlace><EditorialSlide
                 sectionTitle="WHEN SYSTEMS CONNECT, FAILURE IS EXPONENTIAL"
                 backgroundColor={ACCENT}
                 headingColor={ACCENT}
@@ -424,7 +424,7 @@ export default function FinanceChapter() {
             </EditorialSlide></StickySlide>
 
             {/* F20 — Editorial: Stefan quote */}
-            <StickySlide><EditorialSlide
+            <StickySlide appearInPlace><EditorialSlide
                 sectionTitle="WHEN SYSTEMS CONNECT, FAILURE IS EXPONENTIAL"
                 backgroundColor={ACCENT}
                 headingColor={ACCENT}
@@ -437,7 +437,7 @@ export default function FinanceChapter() {
             </EditorialSlide></StickySlide>
 
             {/* F21 — 7:00am the next day */}
-            <StickySlide><NarrativeSlide
+            <StickySlide appearInPlace><NarrativeSlide
                 timestamp="7:00am"
                 heading="THE NEXT DAY"
                 backgroundVideo={VIDEOS.warehouse}
@@ -452,7 +452,7 @@ export default function FinanceChapter() {
             </NarrativeSlide></StickySlide>
 
             {/* F22 — 2:00pm banks tighten fraud checks */}
-            <StickySlide><NarrativeSlide
+            <StickySlide appearInPlace><NarrativeSlide
                 timestamp="2:00pm"
                 backgroundVideo={VIDEOS.idVerification}
                 poster={POSTERS.idVerification}
@@ -463,7 +463,7 @@ export default function FinanceChapter() {
             </NarrativeSlide></StickySlide>
 
             {/* F23 — Solutions data grid */}
-            <StickySlide><DataGridSlide
+            <StickySlide appearInPlace><DataGridSlide
                 sectionTitle="THE SOLUTIONS"
                 headingColor={ACCENT}
                 gridColor={GRID_COLOR}

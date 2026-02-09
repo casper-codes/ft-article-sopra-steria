@@ -134,7 +134,7 @@ export default function TransportChapter() {
     return (
         <Chapter>
             {/* T1 — Hero / Chapter Intro */}
-            <StickySlide><HeroSection>
+            <StickySlide appearInPlace><HeroSection>
                 <HeroVideo
                     src={getAssetPath(VIDEOS.portOfDover)}
                     poster={getAssetPath(POSTERS.portOfDover)}
@@ -150,7 +150,7 @@ export default function TransportChapter() {
             </HeroSection></StickySlide>
 
             {/* T2 — Port of Dover intro */}
-            <StickySlide><NarrativeSlide
+            <StickySlide appearInPlace><NarrativeSlide
                 backgroundVideo={VIDEOS.portOfDover}
                 poster={POSTERS.portOfDover}
                 heading="MONDAY / PORT OF DOVER, UK"
@@ -169,7 +169,7 @@ export default function TransportChapter() {
             </NarrativeSlide></StickySlide>
 
             {/* T3 — 8:00am sat-nav freezes */}
-            <StickySlide><NarrativeSlide
+            <StickySlide appearInPlace><NarrativeSlide
                 timestamp="8:00am"
                 backgroundVideo={VIDEOS.satNav}
                 poster={POSTERS.satNav}
@@ -185,7 +185,7 @@ export default function TransportChapter() {
             </NarrativeSlide></StickySlide>
 
             {/* T4 — 8:15am depot issues */}
-            <StickySlide><NarrativeSlide
+            <StickySlide appearInPlace><NarrativeSlide
                 timestamp="8:15am"
                 backgroundVideo={VIDEOS.truckDepot}
                 poster={POSTERS.truckDepot}
@@ -204,7 +204,7 @@ export default function TransportChapter() {
             </NarrativeSlide></StickySlide>
 
             {/* T5 — 9:00am GPS jamming */}
-            <StickySlide><NarrativeSlide
+            <StickySlide appearInPlace><NarrativeSlide
                 timestamp="9:00am"
                 backgroundVideo={VIDEOS.airportBoard}
                 poster={POSTERS.airportBoard}
@@ -220,7 +220,7 @@ export default function TransportChapter() {
             </NarrativeSlide></StickySlide>
 
             {/* T6 — Editorial: GPS vulnerability + Lecoq quote */}
-            <StickySlide><EditorialSlide
+            <StickySlide appearInPlace><EditorialSlide
                 sectionTitle="HACKERS EXPLOIT EMERGING VULNERABILITIES"
                 backgroundColor={ACCENT}
                 headingColor={ACCENT}
@@ -242,7 +242,7 @@ export default function TransportChapter() {
             </EditorialSlide></StickySlide>
 
             {/* T7 — Data grid: EU transport incidents */}
-            <StickySlide><DataGridSlide
+            <StickySlide appearInPlace><DataGridSlide
                 sectionTitle="HACKERS EXPLOIT EMERGING VULNERABILITIES"
                 headingColor={ACCENT}
                 gridColor={GRID_COLOR}
@@ -260,7 +260,7 @@ export default function TransportChapter() {
             </DataGridSlide></StickySlide>
 
             {/* T8 — Editorial: Garczynski quote */}
-            <StickySlide><EditorialSlide
+            <StickySlide appearInPlace><EditorialSlide
                 sectionTitle="HACKERS EXPLOIT EMERGING VULNERABILITIES"
                 backgroundColor={ACCENT}
                 headingColor={ACCENT}
@@ -273,7 +273,7 @@ export default function TransportChapter() {
             </EditorialSlide></StickySlide>
 
             {/* T9 — 3:00pm deliveries at slower pace */}
-            <StickySlide><NarrativeSlide
+            <StickySlide appearInPlace><NarrativeSlide
                 timestamp="3:00pm"
                 heading="WHEN DISRUPTION CROSSES BORDERS"
                 backgroundVideo={VIDEOS.truckRoad}
@@ -288,7 +288,7 @@ export default function TransportChapter() {
             </NarrativeSlide></StickySlide>
 
             {/* T10 — 3:00pm military jet GPS disturbance */}
-            <StickySlide><NarrativeSlide
+            <StickySlide appearInPlace><NarrativeSlide
                 timestamp="3:00pm"
                 backgroundVideo={VIDEOS.satellite}
                 poster={POSTERS.satellite}
@@ -303,7 +303,7 @@ export default function TransportChapter() {
             </NarrativeSlide></StickySlide>
 
             {/* T11 — 3:30pm airports security measures */}
-            <StickySlide><NarrativeSlide
+            <StickySlide appearInPlace><NarrativeSlide
                 timestamp="3:30pm"
                 backgroundVideo={VIDEOS.satellite}
                 poster={POSTERS.satellite}
@@ -317,7 +317,7 @@ export default function TransportChapter() {
             </NarrativeSlide></StickySlide>
 
             {/* T12 — Editorial: GPS reliance + 13 EU states */}
-            <StickySlide><EditorialSlide
+            <StickySlide appearInPlace><EditorialSlide
                 sectionTitle="SEEKING SECURITY IN DIGITAL SOVEREIGNTY"
                 backgroundColor={ACCENT}
                 headingColor={ACCENT}
@@ -337,7 +337,7 @@ export default function TransportChapter() {
             </EditorialSlide></StickySlide>
 
             {/* T13 — Editorial: Julia Carver intro */}
-            <StickySlide><EditorialSlide
+            <StickySlide appearInPlace><EditorialSlide
                 sectionTitle="SEEKING SECURITY IN DIGITAL SOVEREIGNTY"
                 backgroundColor={ACCENT}
                 headingColor={ACCENT}
@@ -351,7 +351,7 @@ export default function TransportChapter() {
             </EditorialSlide></StickySlide>
 
             {/* T14 — Editorial: Julia Carver quote */}
-            <StickySlide><EditorialSlide
+            <StickySlide appearInPlace><EditorialSlide
                 sectionTitle="SEEKING SECURITY IN DIGITAL SOVEREIGNTY"
                 backgroundColor={ACCENT}
                 headingColor={ACCENT}
@@ -364,7 +364,7 @@ export default function TransportChapter() {
             </EditorialSlide></StickySlide>
 
             {/* T15 — Editorial: legal perspective + inline Fahey quote */}
-            <StickySlide><EditorialSlide
+            <StickySlide appearInPlace><EditorialSlide
                 sectionTitle="SEEKING SECURITY IN DIGITAL SOVEREIGNTY"
                 backgroundColor={ACCENT}
                 headingColor={ACCENT}
@@ -382,7 +382,7 @@ export default function TransportChapter() {
             </EditorialSlide></StickySlide>
 
             {/* T16 — Editorial: Elaine Fahey quote */}
-            <StickySlide><EditorialSlide
+            <StickySlide appearInPlace><EditorialSlide
                 sectionTitle="SEEKING SECURITY IN DIGITAL SOVEREIGNTY"
                 backgroundColor={ACCENT}
                 headingColor={ACCENT}
@@ -395,7 +395,7 @@ export default function TransportChapter() {
             </EditorialSlide></StickySlide>
 
             {/* T17 — 6:00pm overtime */}
-            <StickySlide><NarrativeSlide
+            <StickySlide appearInPlace><NarrativeSlide
                 timestamp="6:00pm"
                 heading="CHAOS CONTINUES INTO THE EVENING"
                 backgroundVideo={VIDEOS.mapDark}
@@ -410,7 +410,7 @@ export default function TransportChapter() {
             </NarrativeSlide></StickySlide>
 
             {/* T18 — 7:00pm train delayed */}
-            <StickySlide><NarrativeSlide
+            <StickySlide appearInPlace><NarrativeSlide
                 timestamp="7:00pm"
                 backgroundVideo={VIDEOS.mapDark}
                 poster={POSTERS.mapDark}
@@ -424,7 +424,7 @@ export default function TransportChapter() {
             </NarrativeSlide></StickySlide>
 
             {/* T19 — 7:30pm trains cancelled */}
-            <StickySlide><NarrativeSlide
+            <StickySlide appearInPlace><NarrativeSlide
                 timestamp="7:30pm"
                 backgroundVideo={VIDEOS.trainStation}
                 poster={POSTERS.trainStation}
@@ -444,7 +444,7 @@ export default function TransportChapter() {
             </NarrativeSlide></StickySlide>
 
             {/* T20 — Solutions data grid */}
-            <StickySlide><DataGridSlide
+            <StickySlide appearInPlace><DataGridSlide
                 sectionTitle="THE SOLUTIONS"
                 headingColor={ACCENT}
                 gridColor={GRID_COLOR}
