@@ -10,6 +10,8 @@ const NavContainer = styled.nav`
     background: rgba(19, 19, 19, 0.5);
     backdrop-filter: blur(4px);
     padding: 8px 240px 12px;
+    transform: translateY(${({ $visible }) => $visible ? '0' : '100%'});
+    transition: transform 0.4s ease;
 
     ${media.tablet(`
         padding: 8px 80px 12px;
@@ -60,9 +62,9 @@ const TabButton = styled.button`
     `)}
 `;
 
-export default function TabNavigation({ tabs, activeTab, onTabChange }) {
+export default function TabNavigation({ tabs, activeTab, onTabChange, visible = true }) {
     return (
-        <NavContainer>
+        <NavContainer $visible={visible}>
             <TabList>
                 {tabs.map((tab, index) => (
                     <TabButton

@@ -40,6 +40,7 @@ const tabs = [
 
 function App() {
     const [activeTab, setActiveTab] = useState(0);
+    const [navVisible, setNavVisible] = useState(false);
     const chapterRefs = useRef([]);
 
     // Handle tab click - scroll to chapter
@@ -48,10 +49,19 @@ function App() {
         chapterRefs.current[index]?.scrollIntoView({ behavior: "smooth" });
     };
 
-    // Update active tab based on scroll position
+    // Update active tab and nav visibility based on scroll position
     useEffect(() => {
         const handleScroll = () => {
             const scrollPosition = window.scrollY + 200;
+
+            // Show nav only between start of chapter 1 and end of chapter 3
+            const firstChapter = chapterRefs.current[0];
+            const lastChapter = chapterRefs.current[2];
+            if (firstChapter && lastChapter) {
+                const chaptersStart = firstChapter.offsetTop;
+                const chaptersEnd = lastChapter.offsetTop + lastChapter.offsetHeight;
+                setNavVisible(scrollPosition >= chaptersStart && window.scrollY + window.innerHeight <= chaptersEnd);
+            }
 
             chapterRefs.current.forEach((ref, index) => {
                 if (ref) {
@@ -83,6 +93,7 @@ function App() {
                 tabs={tabs}
                 activeTab={activeTab}
                 onTabChange={handleTabChange}
+                visible={navVisible}
             />
 
             <ChapterContainer ref={(el) => (chapterRefs.current[0] = el)}>
