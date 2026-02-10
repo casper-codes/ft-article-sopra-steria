@@ -54,6 +54,9 @@ const Subtitle = styled.h2`
     max-width: 408px;
     background: #000;
     padding: 4px 8px;
+    display: inline;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
 
     ${media.tablet(`
         font-size: 25px;

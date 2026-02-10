@@ -82,9 +82,14 @@ const Heading = styled.h2`
     margin: 0 0 16px;
     line-height: 1.2;
     letter-spacing: 0;
-    background: #000;
-    padding: 4px 8px;
-    width: fit-content;
+
+    span {
+        background: #000;
+        padding: 4px 8px;
+        display: inline;
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+    }
 
     ${media.tablet(`
         font-size: 25px;
@@ -172,7 +177,7 @@ export default function NarrativeSlide({
                         <TimestampBadge time={timestamp} color={accentColor} />
                     </TimestampWrapper>
                 )}
-                {heading && <Heading>{heading}</Heading>}
+                {heading && <Heading><span>{heading}</span></Heading>}
                 <BodyWrapper>{children}</BodyWrapper>
             </Content>
         </Slide>

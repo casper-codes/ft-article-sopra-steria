@@ -51,6 +51,11 @@ const ContentArea = styled.div`
     strong {
         font-weight: 700;
     }
+
+    a {
+        color: inherit;
+        text-decoration: underline;
+    }
 `;
 
 export default function EditorialSlide({ sectionTitle, children, backgroundColor, headingColor }) {

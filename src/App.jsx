@@ -60,8 +60,12 @@ function App() {
             const lastChapter = chapterRefs.current[2];
             if (firstChapter && lastChapter) {
                 const chaptersStart = firstChapter.offsetTop;
-                const chaptersEnd = lastChapter.offsetTop + lastChapter.offsetHeight;
-                setNavVisible(scrollPosition >= chaptersStart && window.scrollY + window.innerHeight <= chaptersEnd);
+                const chaptersEnd =
+                    lastChapter.offsetTop + lastChapter.offsetHeight;
+                setNavVisible(
+                    scrollPosition >= chaptersStart &&
+                        window.scrollY + window.innerHeight <= chaptersEnd,
+                );
             }
 
             chapterRefs.current.forEach((ref, index) => {
