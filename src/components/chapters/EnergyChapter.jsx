@@ -208,6 +208,7 @@ export default function EnergyChapter() {
                     <div style={{ position: "relative", zIndex: 2 }}>
                         <ChapterIntro
                             chapter="CHAPTER_ONE"
+                            title="ENERGY"
                             subtitle="When vital infrastructure is held hostage by hacktivists"
                         />
                     </div>

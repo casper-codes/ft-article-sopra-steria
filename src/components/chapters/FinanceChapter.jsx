@@ -147,7 +147,8 @@ export default function FinanceChapter() {
                     <div style={{ position: "relative", zIndex: 2 }}>
                         <ChapterIntro
                             chapter="CHAPTER_TWO"
-                            subtitle="How a single email could crash a continent’s payment systems"
+                            title="FINANCE"
+                            subtitle="How a single email could crash a continent's payment systems"
                         />
                     </div>
                 </HeroSection>

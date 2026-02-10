@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from "react";
 import styled, { keyframes } from "styled-components";
 import { motion } from "framer-motion";
 import { media } from "../../utils/breakpoints";
@@ -10,7 +11,7 @@ const Container = styled(motion.div)`
 `;
 
 const ChapterLabel = styled.p`
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-size: 30px;
     font-weight: 500;
     text-transform: uppercase;
@@ -35,16 +36,27 @@ const blink = keyframes`
     50% { opacity: 0; }
 `;
 
-const CursorBlock = styled.div`
-    width: 20px;
-    height: 4px;
-    background: #ffffff;
-    animation: ${blink} 1s step-end infinite;
-    margin: 4px 0;
+const Cursor = styled.span`
+    display: inline-block;
+    width: 2px;
+    height: 0.8em;
+    background: #000;
+    margin-left: 4px;
+    margin-bottom: 6px;
+    vertical-align: middle;
+    animation: ${blink} 0.7s step-end infinite;
+`;
+
+const TitleLabel = styled(ChapterLabel)`
+    color: #000;
+    background: #fff;
+    padding: 2px 8px;
+    margin: 4px 2px;
+    margin-bottom: 8px;
 `;
 
 const Subtitle = styled.h2`
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-size: 30px;
     font-weight: 400;
     text-transform: uppercase;
@@ -73,9 +85,9 @@ const containerVariants = {
         opacity: 1,
         transition: {
             staggerChildren: 0.15,
-            delayChildren: 0.1
-        }
-    }
+            delayChildren: 0.1,
+        },
+    },
 };
 
 const itemVariants = {
@@ -83,8 +95,8 @@ const itemVariants = {
     visible: {
         opacity: 1,
         y: 0,
-        transition: { duration: 0.5, ease: "easeOut" }
-    }
+        transition: { duration: 0.5, ease: "easeOut" },
+    },
 };
 
 /**
@@ -94,7 +106,44 @@ const itemVariants = {
  * @param {string} chapter - Chapter label (e.g., "CHAPTER_ONE")
  * @param {string} subtitle - Chapter subtitle/title
  */
-export default function ChapterIntro({ chapter, subtitle }) {
+export default function ChapterIntro({ chapter, title, subtitle }) {
+    const [typedTitle, setTypedTitle] = useState("");
+    const [hasStarted, setHasStarted] = useState(false);
+    const titleRef = useRef(null);
+
+    useEffect(() => {
+        if (!title) return;
+        const el = titleRef.current;
+        if (!el) return;
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting && !hasStarted) {
+                    setHasStarted(true);
+                }
+            },
+            { threshold: 0.5 },
+        );
+
+        observer.observe(el);
+        return () => observer.disconnect();
+    }, [title, hasStarted]);
+
+    useEffect(() => {
+        if (!hasStarted || !title) return;
+
+        const fullText = `_${title}`;
+        let i = 0;
+
+        const interval = setInterval(() => {
+            i++;
+            setTypedTitle(fullText.slice(0, i));
+            if (i >= fullText.length) clearInterval(interval);
+        }, 150);
+
+        return () => clearInterval(interval);
+    }, [hasStarted, title]);
+
     return (
         <Container
             initial="hidden"
@@ -105,9 +154,14 @@ export default function ChapterIntro({ chapter, subtitle }) {
             <motion.div variants={itemVariants}>
                 <ChapterLabel>{chapter}</ChapterLabel>
             </motion.div>
-            <motion.div variants={itemVariants}>
-                <CursorBlock />
-            </motion.div>
+            {title && (
+                <motion.div variants={itemVariants}>
+                    <TitleLabel ref={titleRef}>
+                        {typedTitle}
+                        <Cursor />
+                    </TitleLabel>
+                </motion.div>
+            )}
             <motion.div variants={itemVariants}>
                 <Subtitle>&gt; {subtitle}</Subtitle>
             </motion.div>

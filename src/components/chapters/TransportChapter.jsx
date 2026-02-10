@@ -125,7 +125,8 @@ export default function TransportChapter() {
                     <div style={{ position: "relative", zIndex: 2 }}>
                         <ChapterIntro
                             chapter="CHAPTER_THREE"
-                            subtitle="How hidden vulnerabilities grind a country’s transport network to a halt"
+                            title="TRANSPORT"
+                            subtitle="How hidden vulnerabilities grind a country's transport network to a halt"
                         />
                     </div>
                 </HeroSection>
