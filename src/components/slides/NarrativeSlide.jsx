@@ -127,7 +127,7 @@ const Body = styled.div`
 
 const HighlightedBody = styled(Body)`
     p {
-        background: rgba(0, 0, 0, 0.7);
+        background: #000;
         display: inline;
         padding: 2px 4px;
         box-decoration-break: clone;

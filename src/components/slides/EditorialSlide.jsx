@@ -56,7 +56,7 @@ const ContentArea = styled.div`
 export default function EditorialSlide({ sectionTitle, children, backgroundColor, headingColor }) {
     return (
         <Slide $bg={backgroundColor}>
-            <SectionHeadingBar color={headingColor}>{sectionTitle}</SectionHeadingBar>
+            {sectionTitle && <SectionHeadingBar color={headingColor}>{sectionTitle}</SectionHeadingBar>}
             <ContentArea>{children}</ContentArea>
         </Slide>
     );

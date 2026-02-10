@@ -1,19 +1,29 @@
+import styled from "styled-components";
 import {
     EditorialSlide,
+    SectionHeadingBar,
 } from "../slides";
 import SlideQuote from "../slides/SlideQuote";
 
 const BG = "#d96a38";
 const HEADING_COLOR = "#dc7941";
 
+const StickyHeader = styled.div`
+    position: sticky;
+    top: 0;
+    z-index: 100;
+`;
+
 export default function ConclusionSection() {
     return (
-        <>
+        <div>
+            <StickyHeader>
+                <SectionHeadingBar color={HEADING_COLOR}>THE LESSON IS CLEAR</SectionHeadingBar>
+            </StickyHeader>
+
             {/* C1 — Opening statement */}
             <EditorialSlide
-                sectionTitle="THE LESSON IS CLEAR"
                 backgroundColor={BG}
-                headingColor={HEADING_COLOR}
             >
                 <p>
                     Cyber threats do not respect borders, digital or physical.
@@ -22,9 +32,7 @@ export default function ConclusionSection() {
 
             {/* C2 — Hypothetical scenarios */}
             <EditorialSlide
-                sectionTitle="THE LESSON IS CLEAR"
                 backgroundColor={BG}
-                headingColor={HEADING_COLOR}
             >
                 <p>
                     From corrupted payment infrastructure in Madrid to a
@@ -38,9 +46,7 @@ export default function ConclusionSection() {
 
             {/* C3 — Cross-border response */}
             <EditorialSlide
-                sectionTitle="THE LESSON IS CLEAR"
                 backgroundColor={BG}
-                headingColor={HEADING_COLOR}
             >
                 <p>
                     The sophistication of these attacks demands an equally
@@ -60,9 +66,7 @@ export default function ConclusionSection() {
 
             {/* C4 — Closing quote */}
             <EditorialSlide
-                sectionTitle="THE LESSON IS CLEAR"
                 backgroundColor={BG}
-                headingColor={HEADING_COLOR}
             >
                 <SlideQuote
                     quote="It's no longer a case of if an attack will happen, but when. To stay ahead of threats evolving in both complexity and scale, Europe must act not just with urgency, but with unity"
@@ -70,6 +74,6 @@ export default function ConclusionSection() {
                     role="Cybersecurity Director, Sopra Steria"
                 />
             </EditorialSlide>
-        </>
+        </div>
     );
 }
