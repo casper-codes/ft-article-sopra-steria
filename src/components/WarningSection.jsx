@@ -38,7 +38,7 @@ const WarningBox = styled(motion.div)`
 `;
 
 const WarningText = styled.p`
-    font-family: 'Space Mono', monospace;
+    font-family: "Space Mono", monospace;
     font-size: 19px;
     font-weight: 500;
     color: #f7ff95;
@@ -64,8 +64,10 @@ export default function WarningSection() {
                 transition={{ duration: 0.6 }}
             >
                 <WarningText>
-                    Flashing lights warning:<br />
-                    the following content contains small glitch effects that may affect those with photosensitive epilepsy
+                    Flashing lights warning:
+                    <br />
+                    the following content contains small glitch effects that may
+                    affect those with photosensitive epilepsy
                 </WarningText>
             </WarningBox>
         </Container>

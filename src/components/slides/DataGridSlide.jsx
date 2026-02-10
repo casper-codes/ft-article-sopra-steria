@@ -38,7 +38,7 @@ const ContentArea = styled.div`
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     padding: 60px 80px;
     max-width: 846px;
@@ -83,7 +83,7 @@ export default function DataGridSlide({ sectionTitle, headingColor, gridColor, b
                 />
             )}
             <GridOverlay $gridColor={gridColor} />
-            <SectionHeadingBar color={headingColor}>{sectionTitle}</SectionHeadingBar>
+            {sectionTitle && <SectionHeadingBar color={headingColor}>{sectionTitle}</SectionHeadingBar>}
             <ContentArea>{children}</ContentArea>
         </Slide>
     );

@@ -215,9 +215,7 @@ export default function IntroSection() {
                             variants={containerVariants}
                         >
                             <BigQuestion variants={itemVariants}>
-                                what
-                                <br />
-                                if Europe's networks went dark?
+                                what if Europe's networks went dark?
                             </BigQuestion>
                         </motion.div>
                     </RightColumn>
@@ -227,7 +225,7 @@ export default function IntroSection() {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1.5, duration: 0.5 }}
                 >
-                    scroll to explore
+                    SCROLL TO EXPLORE
                 </ScrollIndicator>
             </ContentWrapper>
         </Container>

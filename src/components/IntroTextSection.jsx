@@ -14,7 +14,7 @@ const Container = styled.section`
 `;
 
 const TextBlock = styled(motion.div)`
-    font-family: 'Space Mono', monospace;
+    font-family: "Space Mono", monospace;
     font-size: 21px;
     font-weight: 400;
     color: #000000;
@@ -53,14 +53,19 @@ export default function IntroTextSection() {
                 transition={{ duration: 0.8 }}
             >
                 <p>
-                    <strong>That is all it takes</strong> to bring down networks, disrupt lives and cause a cascade of harm in today's hyper-connected world.
+                    <strong>That is all it takes</strong> to bring down
+                    networks, disrupt lives and cause a cascade of harm in
+                    today’s hyper-connected world.
                 </p>
                 <p>
-                    Against this backdrop, what could happen if three key European industries – <strong>energy</strong>, <strong>finance</strong> and <strong>transport</strong> – come under fire?
+                    Against this backdrop, what could happen if three key
+                    European industries – <strong>energy</strong>,{" "}
+                    <strong>finance</strong> and <strong>transport</strong> –
+                    come under fire?
                 </p>
                 <p>
-                    And what solutions exist to protect society in this<br />
-                    new age of digital warfare?
+                    And what solutions exist to protect society in this new age
+                    of digital warfare?
                 </p>
             </TextBlock>
         </Container>

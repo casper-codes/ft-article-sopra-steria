@@ -74,23 +74,37 @@ const HeroOverlay = styled.div`
     );
 `;
 
-const DataCallout = styled.div`
+const DataInfo = styled.div`
     text-align: center;
-    max-width: 600px;
+    max-width: 364px;
+    background: #f7ff95;
+    padding: 8px 12px;
 
     p {
-        font-family: "Space Mono", monospace;
-        font-size: 27px;
-        line-height: 1.35;
-        letter-spacing: -0.54px;
-        color: #fff;
-        text-transform: uppercase;
-        margin: 0 0 16px;
+        font-family: "logic-monospace", monospace;
+        font-size: 21px;
+        font-weight: 400;
+        line-height: 1.25;
+        letter-spacing: -0.84px;
+        color: #000;
+        margin: 0;
 
         ${media.mobile(`
-            font-size: 20px;
+            font-size: 18px;
         `)}
     }
+`;
+
+const DataCenter = styled.div`
+    font-family: 'logic-monospace', monospace;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.25;
+    letter-spacing: -0.96px;
+    color: #000;
+    text-align: center;
+    background: ${({ $bg }) => $bg || '#f7ff95'};
+    padding: 8px 12px;
 `;
 
 const DataAttribution = styled.p`
@@ -99,6 +113,9 @@ const DataAttribution = styled.p`
         font-weight: 700;
         text-transform: none;
         letter-spacing: 0;
+        color: #000;
+        background: #f7ff95;
+        padding: 4px 12px;
     }
 `;
 
@@ -158,20 +175,23 @@ export default function EnergyChapter() {
                 <NarrativeSlide
                     backgroundVideo={VIDEOS.osloCityscape}
                     poster={POSTERS.osloCityscape}
-                    heading="TUESDAY / OSLO, NORWAY"
+                    heading={
+                        <>
+                            TUESDAY
+                            <br />
+                            OSLO, NORWAY
+                        </>
+                    }
                     textPosition="top"
                 >
                     <p>
                         The sun sets early in December, and by mid-afternoon the
-                        city is slipping into darkness. As workers wrap up for
-                        the day, the grid that keeps Norway – and several
-                        neighbouring countries – running begins to falter.
+                        city is slipping into darkness.
                     </p>
                     <p>
-                        A lead engineer at one of Norway's top energy companies
-                        logs in for the evening shift and is immediately locked
-                        out of the grid's control system. Something is seriously
-                        wrong.
+                        As workers wrap up for the day, the grid that keeps
+                        Norway – and several neighbouring countries – running
+                        begins to falter.
                     </p>
                 </NarrativeSlide>
             </StickySlide>
@@ -182,6 +202,24 @@ export default function EnergyChapter() {
                     videoSrc={VIDEOS.hackerScene}
                     poster={POSTERS.hackerScene}
                 />
+            </StickySlide>
+            {/* S3b — 5:00pm DDoS attack */}
+            <StickySlide appearInPlace>
+                <NarrativeSlide
+                    timestamp="4:45pm"
+                    backgroundVideo={VIDEOS.globe}
+                    poster={POSTERS.globe}
+                    textPosition="top"
+                >
+                    <p>
+                        A lead engineer at one of Norway’s top energy companies
+                        logs in for the evening shift and is immediately locked
+                        out of the grid’s control system.
+                    </p>
+                    <br />
+                    <br />
+                    <p>Something is seriously wrong.</p>
+                </NarrativeSlide>
             </StickySlide>
 
             {/* S4 — 5:00pm DDoS attack */}
@@ -195,8 +233,12 @@ export default function EnergyChapter() {
                     <p>
                         Remotely, a hacktivist group is in the process of
                         systematically taking out the smart grids of the
-                        country's leading energy providers via a{" "}
+                        country’s leading energy providers via a{" "}
                         <strong>distributed denial-of-service attack</strong>.
+                    </p>
+                    <br />
+                    <br />
+                    <p>
                         By targeting smart meters, they are overwhelming the
                         central servers that power the grids.
                     </p>
@@ -213,18 +255,19 @@ export default function EnergyChapter() {
                 >
                     <p>
                         Across town, the CTO of a prominent investment firm is
-                        ready to leave for the day. She presses the elevator
-                        button on the 14th floor of the company's building, but
-                        nothing happens.
+                        ready to leave for the day.
                     </p>
+                    <br />
+                    <br />
+                    <p>
+                        She presses the elevator button on the 14th floor of the
+                        company’s building, but nothing happens.
+                    </p>
+                    <br />
+                    <br />
                     <p>
                         Moments later, the entire floor is plunged into
                         darkness.
-                    </p>
-                    <p>
-                        Employees try their laptops, which are still running on
-                        battery. But the WiFi and internal servers are down. The
-                        trading floor, normally alive with data, is blank.
                     </p>
                 </NarrativeSlide>
             </StickySlide>
@@ -238,27 +281,26 @@ export default function EnergyChapter() {
                     textPosition="top"
                 >
                     <p>
-                        Outside, the city's skyline no longer shines brightly.
-                        Mobile and internet services are down. People across
-                        Oslo start to panic.
+                        Outside, the city’s skyline no longer shines brightly.
+                        Mobile and internet services are down.
                     </p>
+                    <br />
+                    <br />
+                    <p>People across Oslo start to panic.</p>
                 </NarrativeSlide>
             </StickySlide>
 
             {/* S7 — Evolving threat intro */}
             <StickySlide>
                 <EditorialSlide sectionTitle="AN EVOLVING THREAT LANDSCAPE">
+                    <p>Energy powers everything.</p>
+                    <br />
+                    <br />
                     <p>
-                        Energy powers everything. But as energy networks become
-                        "smarter", with automated load balancing, remote sensors
-                        and increasing reliance on digital infrastructure, cyber
-                        criminals can find novel ways of exploiting cracks in
-                        the system.
-                    </p>
-                    <p>
-                        A growing number of sophisticated attackers are
-                        targeting operational technology that controls physical
-                        infrastructure directly — not just IT systems.
+                        But as energy networks become “smarter”, with automated
+                        load balancing, remote sensors and increasing reliance
+                        on digital infrastructure, cyber criminals can find
+                        novel ways of exploiting cracks in the system.
                     </p>
                 </EditorialSlide>
             </StickySlide>
@@ -267,20 +309,22 @@ export default function EnergyChapter() {
             <StickySlide appearInPlace>
                 <DataGridSlide
                     sectionTitle="AN EVOLVING THREAT LANDSCAPE"
+                    headingColor="#f7ff95"
                     backgroundColor="#f7ff95"
                     backgroundVideo={VIDEOS.dataPoint}
                     poster={POSTERS.dataPoint}
                 >
-                    <DataCallout>
-                        <p>
-                            Cyber attacks <strong>doubled</strong> between 2020
-                            and 2022 in <strong>Europe's power sector</strong>
-                        </p>
-                        <DataAttribution>
-                            Eurelectric, a federation for the European
-                            electricity industry
-                        </DataAttribution>
-                    </DataCallout>
+                    <DataInfo>
+                        Cyber attacks <strong>doubled</strong> between 2020 and
+                        2022 in <strong>Europe's power sector</strong> with
+                    </DataInfo>
+                    <DataCenter $bg="#fff">
+                        48 attacks on Europe's energy infrastructure
+                    </DataCenter>
+                    <DataAttribution>
+                        in 2022, according to Eurelectric, a federation for the
+                        European electricity industry.
+                    </DataAttribution>
                 </DataGridSlide>
             </StickySlide>
 
