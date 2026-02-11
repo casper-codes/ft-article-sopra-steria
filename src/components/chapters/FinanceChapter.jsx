@@ -104,7 +104,6 @@ const DataAttribution = styled.p`
     }
 `;
 
-
 function ScrollSyncHeroVideo({ scrollProgress, src, poster }) {
     const videoRef = useScrollVideo(scrollProgress);
     return (
@@ -123,7 +122,7 @@ export default function FinanceChapter() {
     return (
         <Chapter>
             {/* F1 — Hero / Chapter Intro */}
-            <StickySlide appearInPlace trackHeight="300vh">
+            <StickySlide trackHeight="300vh">
                 {({ scrollYProgress }) => (
                     <HeroSection>
                         <ScrollSyncHeroVideo
@@ -162,7 +161,8 @@ export default function FinanceChapter() {
                     >
                         <p>
                             In Madrid, a single phishing email sets off a chain
-                            reaction that brings payment systems to a standstill.
+                            reaction that brings payment systems to a
+                            standstill.
                         </p>
                         <br />
                         <br />
@@ -186,10 +186,10 @@ export default function FinanceChapter() {
                         accentColor={ACCENT}
                     >
                         <p>
-                            Within hours, an issue at a local supermarket in Madrid
-                            escalates into a multi-million-euro crisis, with malware
-                            spreading from one store to thousands and damage
-                            reaching far beyond one retailer.
+                            Within hours, an issue at a local supermarket in
+                            Madrid escalates into a multi-million-euro crisis,
+                            with malware spreading from one store to thousands
+                            and damage reaching far beyond one retailer.
                         </p>
                     </NarrativeSlide>
                 )}
@@ -208,9 +208,10 @@ export default function FinanceChapter() {
                         accentColor={ACCENT}
                     >
                         <p>
-                            A stressed store manager clicks a link to a lookalike
-                            inventory portal in an &ldquo;urgent&rdquo; email from a
-                            supposed HQ executive.
+                            A stressed store manager clicks a link to a
+                            lookalike inventory portal in an
+                            &ldquo;urgent&rdquo; email from a supposed HQ
+                            executive.
                         </p>
                     </NarrativeSlide>
                 )}
@@ -229,14 +230,14 @@ export default function FinanceChapter() {
                         accentColor={ACCENT}
                     >
                         <p>
-                            Cyber attackers can now traverse the network and deploy
-                            malware to the retailer's POS system.
+                            Cyber attackers can now traverse the network and
+                            deploy malware to the retailer's POS system.
                         </p>
                         <br />
                         <br />
                         <p>
-                            Sensitive payment data is sent in batches to an external
-                            server.
+                            Sensitive payment data is sent in batches to an
+                            external server.
                         </p>
                     </NarrativeSlide>
                 )}
@@ -428,8 +429,8 @@ export default function FinanceChapter() {
                         accentColor={ACCENT}
                     >
                         <p>
-                            Internal forensics reveals loyalty card and e-receipt
-                            data were compromised.
+                            Internal forensics reveals loyalty card and
+                            e-receipt data were compromised.
                         </p>
                     </NarrativeSlide>
                 )}
@@ -535,7 +536,9 @@ export default function FinanceChapter() {
                         textPosition="top"
                         accentColor={ACCENT}
                     >
-                        <p>It emerges that supplier credentials were exploited.</p>
+                        <p>
+                            It emerges that supplier credentials were exploited.
+                        </p>
                     </NarrativeSlide>
                 )}
             </StickySlide>

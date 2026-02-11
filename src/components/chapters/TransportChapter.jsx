@@ -83,7 +83,6 @@ const HeroOverlay = styled.div`
     );
 `;
 
-
 function ScrollSyncHeroVideo({ scrollProgress, src, poster }) {
     const videoRef = useScrollVideo(scrollProgress);
     return (
@@ -102,7 +101,7 @@ export default function TransportChapter() {
     return (
         <Chapter>
             {/* T1 — Hero / Chapter Intro */}
-            <StickySlide appearInPlace trackHeight="300vh">
+            <StickySlide trackHeight="300vh">
                 {({ scrollYProgress }) => (
                     <HeroSection>
                         <ScrollSyncHeroVideo
@@ -140,16 +139,17 @@ export default function TransportChapter() {
                         accentColor={ACCENT}
                     >
                         <p>
-                            At a major UK port, logistics drivers prepare for the
-                            day ahead while commuters gather at stations across the
-                            country.
+                            At a major UK port, logistics drivers prepare for
+                            the day ahead while commuters gather at stations
+                            across the country.
                         </p>
                         <br />
                         <br />
                         <p>
-                            But just as the morning rush begins, unexpected glitches
-                            creep into navigation systems – this is the first sign
-                            of a broader attack targeting transport nationwide.
+                            But just as the morning rush begins, unexpected
+                            glitches creep into navigation systems – this is the
+                            first sign of a broader attack targeting transport
+                            nationwide.
                         </p>
                     </NarrativeSlide>
                 )}
@@ -191,14 +191,14 @@ export default function TransportChapter() {
                         accentColor={ACCENT}
                     >
                         <p>
-                            Others in the depot face similar issues and management
-                            wonders why vans aren't moving.
+                            Others in the depot face similar issues and
+                            management wonders why vans aren't moving.
                         </p>
                         <br />
                         <br />
                         <p>
-                            Thousands of pounds of revenue could be lost from a late
-                            departure.
+                            Thousands of pounds of revenue could be lost from a
+                            late departure.
                         </p>
                     </NarrativeSlide>
                 )}
@@ -219,8 +219,8 @@ export default function TransportChapter() {
                         <p>
                             A foreign hacker group is using a technique called{" "}
                             <strong>GPS jamming</strong> to block signals and
-                            interfere with the GPS network, disrupting travel in the
-                            UK.
+                            interfere with the GPS network, disrupting travel in
+                            the UK.
                         </p>
                     </NarrativeSlide>
                 )}
@@ -270,7 +270,9 @@ export default function TransportChapter() {
                         scrollProgress={scrollYProgress}
                     >
                         <DataText $bg={ACCENT}>
-                            <span>EU Transport Sector Cyber Incidents (2025)</span>
+                            <span>
+                                EU Transport Sector Cyber Incidents (2025)
+                            </span>
                         </DataText>
                         {/* <DataCenter $bg="#fff"></DataCenter> */}
                         <DataAttribution $bg={"#fff"}>
@@ -308,8 +310,8 @@ export default function TransportChapter() {
                         accentColor={ACCENT}
                     >
                         <p>
-                            The driver makes deliveries, albeit at a slower pace,
-                            using maps and institutional knowledge.
+                            The driver makes deliveries, albeit at a slower
+                            pace, using maps and institutional knowledge.
                         </p>
                     </NarrativeSlide>
                 )}
@@ -327,9 +329,10 @@ export default function TransportChapter() {
                         accentColor={ACCENT}
                     >
                         <p>
-                            Over the radio, news breaks about a disruption to a UK
-                            military jet carrying an MP over Russian airspace. Early
-                            reports suggest it was a GPS disturbance.
+                            Over the radio, news breaks about a disruption to a
+                            UK military jet carrying an MP over Russian
+                            airspace. Early reports suggest it was a GPS
+                            disturbance.
                         </p>
                     </NarrativeSlide>
                 )}
@@ -477,8 +480,8 @@ export default function TransportChapter() {
                         accentColor={ACCENT}
                     >
                         <p>
-                            As the driver heads home, his usual train is delayed by
-                            two hours.
+                            As the driver heads home, his usual train is delayed
+                            by two hours.
                         </p>
                     </NarrativeSlide>
                 )}
@@ -497,15 +500,15 @@ export default function TransportChapter() {
                         accentColor={ACCENT}
                     >
                         <p>
-                            A news alert says trains have been cancelled and delayed
-                            due to a coordinated attack on the Wi-Fi networks at UK
-                            train stations.
+                            A news alert says trains have been cancelled and
+                            delayed due to a coordinated attack on the Wi-Fi
+                            networks at UK train stations.
                         </p>
                         <br />
                         <br />
                         <p>
-                            Cyber analysts believe a foreign entity is behind the
-                            travel chaos throughout the country.
+                            Cyber analysts believe a foreign entity is behind
+                            the travel chaos throughout the country.
                         </p>
                     </NarrativeSlide>
                 )}
@@ -526,14 +529,12 @@ export default function TransportChapter() {
                     </SolutionBox>
                     <SolutionBox>
                         <p>
-                            Manufacturing critical GPS and satellite
-                            components
+                            Manufacturing critical GPS and satellite components
                         </p>
                     </SolutionBox>
                     <SolutionBox>
                         <p>
-                            Promoting EU-developed navigation software and
-                            apps
+                            Promoting EU-developed navigation software and apps
                         </p>
                     </SolutionBox>
                     <SolutionBox>
