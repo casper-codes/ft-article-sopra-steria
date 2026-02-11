@@ -26,6 +26,17 @@ const ContentArea = styled.div`
         padding: 40px 20px;
     `)}
 
+    strong {
+        font-weight: 700;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: underline;
+    }
+`;
+
+export const EditorialBody = styled.div`
     p {
         font-family: 'logic-monospace', monospace;
         font-size: 24px;
@@ -46,15 +57,6 @@ const ContentArea = styled.div`
             letter-spacing: -0.76px;
             color: #222;
         `)}
-    }
-
-    strong {
-        font-weight: 700;
-    }
-
-    a {
-        color: inherit;
-        text-decoration: underline;
     }
 `;
 

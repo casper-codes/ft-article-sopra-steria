@@ -40,8 +40,10 @@ function useTextScramble(text) {
         const chars = text.split("");
         // Scramble 2-4 random characters
         const count = 2 + Math.floor(Math.random() * 3);
-        for (let i = 0; i < count; i++) {
-            const idx = Math.floor(Math.random() * chars.length);
+        const nonSpaceIndices = chars.reduce((acc, c, i) => (c !== " " ? [...acc, i] : acc), []);
+        for (let i = 0; i < count && nonSpaceIndices.length > 0; i++) {
+            const pick = Math.floor(Math.random() * nonSpaceIndices.length);
+            const idx = nonSpaceIndices.splice(pick, 1)[0];
             chars[idx] = GLITCH_CHARS[Math.floor(Math.random() * GLITCH_CHARS.length)];
         }
         setDisplay(chars.join(""));

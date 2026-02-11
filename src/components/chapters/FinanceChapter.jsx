@@ -10,6 +10,7 @@ import {
     DataGridSlide,
     StickySlide,
 } from "../slides";
+import { EditorialBody } from "../slides/EditorialSlide";
 import SlideQuote from "../slides/SlideQuote";
 import useScrollVideo from "../../hooks/useScrollVideo";
 
@@ -300,19 +301,21 @@ export default function FinanceChapter() {
                     backgroundColor={ACCENT}
                     headingColor={ACCENT}
                 >
-                    <p>
-                        Today’s <strong>phishing attacks</strong> are meticulous
-                        &ndash; they mimic corporate tone, structure and
-                        urgency. An employee’s decision to trust an email while
-                        under pressure provides the attackers with everything
-                        they need to prowl the network and access a vulnerable
-                        system.
-                    </p>
-                    <p>
-                        Artificial intelligence (AI) enables attackers to craft
-                        flawless, personalised phishing emails free of spelling
-                        errors or awkward phrasing.
-                    </p>
+                    <EditorialBody>
+                        <p>
+                            Today's <strong>phishing attacks</strong> are meticulous
+                            &ndash; they mimic corporate tone, structure and
+                            urgency. An employee's decision to trust an email while
+                            under pressure provides the attackers with everything
+                            they need to prowl the network and access a vulnerable
+                            system.
+                        </p>
+                        <p>
+                            Artificial intelligence (AI) enables attackers to craft
+                            flawless, personalised phishing emails free of spelling
+                            errors or awkward phrasing.
+                        </p>
+                    </EditorialBody>
                 </EditorialSlide>
             </StickySlide>
 
@@ -323,14 +326,16 @@ export default function FinanceChapter() {
                     backgroundColor={ACCENT}
                     headingColor={ACCENT}
                 >
-                    <p>
-                        AI enables them to use real-time company data and social
-                        media to make each message convincingly authentic.
-                        “Entire campaigns are being run by machines – targeting
-                        the right person, at the right time, with the right
-                        message,” says Arsenio Pérez Gavira, Cybersecurity
-                        Manager at Sopra Steria Spain.
-                    </p>
+                    <EditorialBody>
+                        <p>
+                            AI enables them to use real-time company data and social
+                            media to make each message convincingly authentic.
+                            "Entire campaigns are being run by machines – targeting
+                            the right person, at the right time, with the right
+                            message," says Arsenio Pérez Gavira, Cybersecurity
+                            Manager at Sopra Steria Spain.
+                        </p>
+                    </EditorialBody>
                 </EditorialSlide>
             </StickySlide>
 
@@ -356,20 +361,22 @@ export default function FinanceChapter() {
                     backgroundColor={ACCENT}
                     headingColor={ACCENT}
                 >
-                    <p>
-                        Around <strong>60 per cent</strong> of all cybersecurity
-                        incidents{" "}
-                        <a href="https://www.soprasteria.com/docs/librariesprovider2/sopra-steria-corporate/publications/en_25.08.20---sopra-steria---%C3%A9tat-de-la-cybers%C3%A9curit%C3%A9-en-2025.pdf?sfvrsn=216234db_6">
-                            reported
-                        </a>{" "}
-                        by customers to Sopra Steria’s clients were
-                        phishing-related.
-                    </p>
-                    <p>
-                        To prevent these attacks, organisations must train staff
-                        with scenario-based and department-specific simulations
-                        to respond to attacks in real time.
-                    </p>
+                    <EditorialBody>
+                        <p>
+                            Around <strong>60 per cent</strong> of all cybersecurity
+                            incidents{" "}
+                            <a href="https://www.soprasteria.com/docs/librariesprovider2/sopra-steria-corporate/publications/en_25.08.20---sopra-steria---%C3%A9tat-de-la-cybers%C3%A9curit%C3%A9-en-2025.pdf?sfvrsn=216234db_6">
+                                reported
+                            </a>{" "}
+                            by customers to Sopra Steria's clients were
+                            phishing-related.
+                        </p>
+                        <p>
+                            To prevent these attacks, organisations must train staff
+                            with scenario-based and department-specific simulations
+                            to respond to attacks in real time.
+                        </p>
+                    </EditorialBody>
                 </EditorialSlide>
             </StickySlide>
 
@@ -462,17 +469,19 @@ export default function FinanceChapter() {
                     backgroundColor={ACCENT}
                     headingColor={ACCENT}
                 >
-                    <p>
-                        The attack exposes the fragility of interconnected
-                        systems. Attackers launch fresh intrusions from the
-                        breach, while banks compound the disruption with
-                        tightened security that leads consumer spending to grind
-                        to a halt.
-                    </p>
-                    <p>
-                        The cost of these attacks is high: both financially and
-                        in terms of customer trust.
-                    </p>
+                    <EditorialBody>
+                        <p>
+                            The attack exposes the fragility of interconnected
+                            systems. Attackers launch fresh intrusions from the
+                            breach, while banks compound the disruption with
+                            tightened security that leads consumer spending to grind
+                            to a halt.
+                        </p>
+                        <p>
+                            The cost of these attacks is high: both financially and
+                            in terms of customer trust.
+                        </p>
+                    </EditorialBody>
                 </EditorialSlide>
             </StickySlide>
 
@@ -483,12 +492,14 @@ export default function FinanceChapter() {
                     backgroundColor={ACCENT}
                     headingColor={ACCENT}
                 >
-                    <p>
-                        In 2025, UK retailer Marks & Spencer estimated that
-                        there had been a <strong>£300mn</strong> hit to profits
-                        following a cyber incident that stole customer data and
-                        disrupted operations and product availability.
-                    </p>
+                    <EditorialBody>
+                        <p>
+                            In 2025, UK retailer Marks & Spencer estimated that
+                            there had been a <strong>£300mn</strong> hit to profits
+                            following a cyber incident that stole customer data and
+                            disrupted operations and product availability.
+                        </p>
+                    </EditorialBody>
                 </EditorialSlide>
             </StickySlide>
 
@@ -499,13 +510,15 @@ export default function FinanceChapter() {
                     backgroundColor={ACCENT}
                     headingColor={ACCENT}
                 >
-                    <p>
-                        “With everything being connected, or wanting to be
-                        connected to every other system, firms must examine
-                        their architecture and make sure there aren’t any
-                        security gaps,” says Stefan Garczynski, Managing
-                        Security Architect at Sopra Steria.
-                    </p>
+                    <EditorialBody>
+                        <p>
+                            "With everything being connected, or wanting to be
+                            connected to every other system, firms must examine
+                            their architecture and make sure there aren't any
+                            security gaps," says Stefan Garczynski, Managing
+                            Security Architect at Sopra Steria.
+                        </p>
+                    </EditorialBody>
                 </EditorialSlide>
             </StickySlide>
 

@@ -8,6 +8,7 @@ import {
     DataGridSlide,
     StickySlide,
 } from "../slides";
+import { EditorialBody } from "../slides/EditorialSlide";
 import SlideQuote from "../slides/SlideQuote";
 import {
     DataCenter,
@@ -233,27 +234,29 @@ export default function TransportChapter() {
                     backgroundColor={ACCENT}
                     headingColor={ACCENT}
                 >
-                    <p>
-                        While the Global Positioning System (GPS) has been a
-                        trusted navigation system since the mid-1990s, it’s far
-                        from invulnerable.
-                    </p>
-                    <SlideQuote
-                        quote={
-                            <>
-                                <strong>Jamming</strong> can block the signals,
-                                while <strong>spoofing</strong> tricks systems
-                                into misreading locations
-                            </>
-                        }
-                        name="Fabien Lecoq"
-                        role="Cybersecurity Director, Sopra Steria"
-                    />
-                    <p>
-                        Transport is the second most targeted sector in the EU,
-                        with the majority of attacks concentrated in air and
-                        logistics.
-                    </p>
+                    <EditorialBody>
+                        <p>
+                            While the Global Positioning System (GPS) has been a
+                            trusted navigation system since the mid-1990s, it's far
+                            from invulnerable.
+                        </p>
+                        <SlideQuote
+                            quote={
+                                <>
+                                    <strong>Jamming</strong> can block the signals,
+                                    while <strong>spoofing</strong> tricks systems
+                                    into misreading locations
+                                </>
+                            }
+                            name="Fabien Lecoq"
+                            role="Cybersecurity Director, Sopra Steria"
+                        />
+                        <p>
+                            Transport is the second most targeted sector in the EU,
+                            with the majority of attacks concentrated in air and
+                            logistics.
+                        </p>
+                    </EditorialBody>
                 </EditorialSlide>
             </StickySlide>
 
@@ -364,20 +367,22 @@ export default function TransportChapter() {
                     backgroundColor={ACCENT}
                     headingColor={ACCENT}
                 >
-                    <p>
-                        Europe’s reliance on GPS – a US-owned satellite service
-                        – poses a strategic risk in times of global tension.
-                    </p>
-                    <p>
-                        13 EU member states have already{" "}
-                        <a href="https://navisp.esa.int/news/article/13%20EU%20Member%20States%20call%20for%20common%20actions%20in%20response%20to%20GNSS%20jamming%20and%20spoofing%20threats">
-                            called
-                        </a>{" "}
-                        on the European Commission to accelerate the deployment
-                        of interference-resistant Global Navigation Satellite
-                        System (GNSS) technologies to accelerate Europe’s
-                        digital sovereignty.
-                    </p>
+                    <EditorialBody>
+                        <p>
+                            Europe's reliance on GPS – a US-owned satellite service
+                            – poses a strategic risk in times of global tension.
+                        </p>
+                        <p>
+                            13 EU member states have already{" "}
+                            <a href="https://navisp.esa.int/news/article/13%20EU%20Member%20States%20call%20for%20common%20actions%20in%20response%20to%20GNSS%20jamming%20and%20spoofing%20threats">
+                                called
+                            </a>{" "}
+                            on the European Commission to accelerate the deployment
+                            of interference-resistant Global Navigation Satellite
+                            System (GNSS) technologies to accelerate Europe's
+                            digital sovereignty.
+                        </p>
+                    </EditorialBody>
                 </EditorialSlide>
             </StickySlide>
 
@@ -388,12 +393,14 @@ export default function TransportChapter() {
                     backgroundColor={ACCENT}
                     headingColor={ACCENT}
                 >
-                    <p>
-                        Julia Carver, an assistant professor focusing on
-                        Europe’s cybersecurity policy and strategic affairs at
-                        Leiden University, explains that the EU’s vision of
-                        digital sovereignty emphasises self-determination.
-                    </p>
+                    <EditorialBody>
+                        <p>
+                            Julia Carver, an assistant professor focusing on
+                            Europe's cybersecurity policy and strategic affairs at
+                            Leiden University, explains that the EU's vision of
+                            digital sovereignty emphasises self-determination.
+                        </p>
+                    </EditorialBody>
                 </EditorialSlide>
             </StickySlide>
 
@@ -419,17 +426,19 @@ export default function TransportChapter() {
                     backgroundColor={ACCENT}
                     headingColor={ACCENT}
                 >
-                    <p>
-                        But from a legal perspective, digital sovereignty is
-                        tricky.
-                    </p>
-                    <p>
-                        “Digital sovereignty sounds compelling, but, in legal
-                        terms, it goes in many directions,” says Elaine Fahey,
-                        Professor of EU Law at City St George’s, University of
-                        London. “It’s rooted in internal market law, while the
-                        threats themselves are cross-border.”
-                    </p>
+                    <EditorialBody>
+                        <p>
+                            But from a legal perspective, digital sovereignty is
+                            tricky.
+                        </p>
+                        <p>
+                            "Digital sovereignty sounds compelling, but, in legal
+                            terms, it goes in many directions," says Elaine Fahey,
+                            Professor of EU Law at City St George's, University of
+                            London. "It's rooted in internal market law, while the
+                            threats themselves are cross-border."
+                        </p>
+                    </EditorialBody>
                 </EditorialSlide>
             </StickySlide>
 

@@ -16,6 +16,7 @@ import {
     DataGridSlide,
     StickySlide,
 } from "../slides";
+import { EditorialBody } from "../slides/EditorialSlide";
 import SlideQuote from "../slides/SlideQuote";
 import useTextScramble from "../../hooks/useTextScramble";
 import useScrollVideo from "../../hooks/useScrollVideo";
@@ -81,31 +82,6 @@ const HeroOverlay = styled.div`
         rgba(13, 17, 23, 0.2) 40%,
         rgba(13, 17, 23, 0.4) 100%
     );
-`;
-
-const DataCenterStyled = styled.div`
-    font-family: "logic-monospace", monospace;
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 1.25;
-    max-width: 400px;
-    letter-spacing: -0.96px;
-    color: #000;
-    text-align: center;
-
-    span {
-        background: ${({ $bg }) => $bg || "#f7ff95"};
-        padding: 4px 8px;
-        display: inline;
-        box-decoration-break: clone;
-        -webkit-box-decoration-break: clone;
-    }
-
-    ${media.mobile(`
-        font-size: 19px;
-        line-height: 1.35;
-        letter-spacing: -0.76px;
-    `)}
 `;
 
 function ScrollSyncHeroVideo({ scrollProgress, src, poster }) {
@@ -280,15 +256,17 @@ export default function EnergyChapter() {
             {/* S7 — Evolving threat intro */}
             <StickySlide>
                 <EditorialSlide sectionTitle="AN EVOLVING THREAT LANDSCAPE">
-                    <p>Energy powers everything.</p>
-                    <br />
-                    <br />
-                    <p>
-                        But as energy networks become “smarter”, with automated
-                        load balancing, remote sensors and increasing reliance
-                        on digital infrastructure, cyber criminals can find
-                        novel ways of exploiting cracks in the system.
-                    </p>
+                    <EditorialBody>
+                        <p>Energy powers everything.</p>
+                        <br />
+                        <br />
+                        <p>
+                            But as energy networks become "smarter", with automated
+                            load balancing, remote sensors and increasing reliance
+                            on digital infrastructure, cyber criminals can find
+                            novel ways of exploiting cracks in the system.
+                        </p>
+                    </EditorialBody>
                 </EditorialSlide>
             </StickySlide>
 
@@ -302,7 +280,8 @@ export default function EnergyChapter() {
                         lottieAnimation={{
                             mobile: "/videos/ch1/SOPRA_DigitalDisruption_DP1_M.json",
                             tablet: "/videos/ch1/SOPRA_DigitalDisruption_DP1_D.json",
-                            desktop: "/videos/ch1/SOPRA_DigitalDisruption_DP1_D.json",
+                            desktop:
+                                "/videos/ch1/SOPRA_DigitalDisruption_DP1_D.json",
                         }}
                         scrollProgress={scrollYProgress}
                     >
@@ -329,13 +308,15 @@ export default function EnergyChapter() {
             {/* S9 — Sopra Steria + Robert M Lee quote */}
             <StickySlide appearInPlace>
                 <EditorialSlide sectionTitle="AN EVOLVING THREAT LANDSCAPE">
-                    <p>
-                        Sopra Steria, a technology and consulting company that
-                        provides cybersecurity services, identified in its State
-                        of Cybersecurity 2025 report that Advanced Persistent
-                        Threat (APT) groups are increasingly collaborating with
-                        cyber criminals, particularly on destructive attacks.
-                    </p>
+                    <EditorialBody>
+                        <p>
+                            Sopra Steria, a technology and consulting company that
+                            provides cybersecurity services, identified in its State
+                            of Cybersecurity 2025 report that Advanced Persistent
+                            Threat (APT) groups are increasingly collaborating with
+                            cyber criminals, particularly on destructive attacks.
+                        </p>
+                    </EditorialBody>
                 </EditorialSlide>
             </StickySlide>
             <StickySlide appearInPlace>
@@ -408,13 +389,15 @@ export default function EnergyChapter() {
             {/* S13 — Operating while under attack */}
             <StickySlide appearInPlace>
                 <EditorialSlide sectionTitle="OPERATING WHILE UNDER ATTACK">
-                    <p>
-                        Most of the investment in cybersecurity in the energy
-                        sector has gone into prevention rather than visibility
-                        and monitoring. This presents challenges for root-cause
-                        analysis and improving prevention strategies, explains
-                        Lee.
-                    </p>
+                    <EditorialBody>
+                        <p>
+                            Most of the investment in cybersecurity in the energy
+                            sector has gone into prevention rather than visibility
+                            and monitoring. This presents challenges for root-cause
+                            analysis and improving prevention strategies, explains
+                            Lee.
+                        </p>
+                    </EditorialBody>
                 </EditorialSlide>
             </StickySlide>
             <StickySlide appearInPlace>
@@ -430,14 +413,16 @@ export default function EnergyChapter() {
             {/* S14 — Policymakers */}
             <StickySlide appearInPlace>
                 <EditorialSlide sectionTitle="OPERATING WHILE UNDER ATTACK">
-                    <p>
-                        Europe's policymakers are starting to recognise the
-                        risks. In 2025, the European Commission signed a €36mn
-                        agreement with the EU's Agency for Cybersecurity (ENISA)
-                        to administer a reserve that can be used by critical
-                        sectors – including energy – to support the response and
-                        recovery from cyber incidents.
-                    </p>
+                    <EditorialBody>
+                        <p>
+                            Europe's policymakers are starting to recognise the
+                            risks. In 2025, the European Commission signed a €36mn
+                            agreement with the EU's Agency for Cybersecurity (ENISA)
+                            to administer a reserve that can be used by critical
+                            sectors – including energy – to support the response and
+                            recovery from cyber incidents.
+                        </p>
+                    </EditorialBody>
                 </EditorialSlide>
             </StickySlide>
             <StickySlide appearInPlace>
@@ -453,34 +438,38 @@ export default function EnergyChapter() {
             {/* S15 — Islands architecture */}
             <StickySlide appearInPlace>
                 <EditorialSlide sectionTitle="OPERATING WHILE UNDER ATTACK">
-                    <p>
-                        This can include breaking the grid into "islands", which
-                        can distribute power locally, to prevent cascading
-                        failures, or building a parallel network for monitoring
-                        and management to prevent loss of visibility, Rørvik
-                        says.
-                    </p>
-                    <SlideQuote
-                        quote="Within this architecture, essential assets can continue functioning, even while under sustained attack"
-                        name="Jørgen Rørvik"
-                        role="Director of Cybersecurity and Connectivity, Sopra Steria Nordics"
-                    />
+                    <EditorialBody>
+                        <p>
+                            This can include breaking the grid into "islands", which
+                            can distribute power locally, to prevent cascading
+                            failures, or building a parallel network for monitoring
+                            and management to prevent loss of visibility, Rørvik
+                            says.
+                        </p>
+                        <SlideQuote
+                            quote="Within this architecture, essential assets can continue functioning, even while under sustained attack"
+                            name="Jørgen Rørvik"
+                            role="Director of Cybersecurity and Connectivity, Sopra Steria Nordics"
+                        />
+                    </EditorialBody>
                 </EditorialSlide>
             </StickySlide>
             <StickySlide appearInPlace>
                 <EditorialSlide sectionTitle="OPERATING WHILE UNDER ATTACK">
-                    <p>
-                        This can include breaking the grid into "islands", which
-                        can distribute power locally, to prevent cascading
-                        failures, or building a parallel network for monitoring
-                        and management to prevent loss of visibility, Rørvik
-                        says.
-                    </p>
-                    <SlideQuote
-                        quote="Within this architecture, essential assets can continue functioning, even while under sustained attack"
-                        name="Jørgen Rørvik"
-                        role="Director of Cybersecurity and Connectivity, Sopra Steria Nordics"
-                    />
+                    <EditorialBody>
+                        <p>
+                            This can include breaking the grid into "islands", which
+                            can distribute power locally, to prevent cascading
+                            failures, or building a parallel network for monitoring
+                            and management to prevent loss of visibility, Rørvik
+                            says.
+                        </p>
+                        <SlideQuote
+                            quote="Within this architecture, essential assets can continue functioning, even while under sustained attack"
+                            name="Jørgen Rørvik"
+                            role="Director of Cybersecurity and Connectivity, Sopra Steria Nordics"
+                        />
+                    </EditorialBody>
                 </EditorialSlide>
             </StickySlide>
 
