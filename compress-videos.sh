@@ -175,7 +175,6 @@ for entry in "${CHAPTERS[@]}"; do
             -c:v libx264 \
             -preset slow \
             -crf "$crf" \
-            -g 1 \
             -r 24 \
             -pix_fmt yuv420p \
             -an \
