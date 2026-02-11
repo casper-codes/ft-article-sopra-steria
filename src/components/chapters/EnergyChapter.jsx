@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { media } from "../../utils/breakpoints";
 import { getAssetPath } from "../../utils/assetPath";
 import { ChapterIntro } from "../shared";
+import { DataCenter, DataText, DataAttribution, SolutionBoxes, SolutionBox } from "../shared/DataSlideComponents";
 import {
     NarrativeSlide,
     EditorialSlide,
@@ -164,33 +165,6 @@ const DataAttribution = styled.div`
     `)}
 `;
 
-const SolutionBoxes = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    width: 100%;
-    max-width: 600px;
-`;
-
-const SolutionBox = styled.div`
-    border: 1px solid #f7ff95;
-    padding: 20px 24px;
-    text-align: center;
-
-    p {
-        font-family: "Space Mono", monospace;
-        font-size: 21px;
-        line-height: 1.35;
-        letter-spacing: -0.84px;
-        color: #fff;
-        margin: 0;
-
-        ${media.mobile(`
-            font-size: 16px;
-        `)}
-    }
-`;
-
 function ScrollSyncHeroVideo({ scrollProgress, src, poster }) {
     const videoRef = useScrollVideo(scrollProgress);
     return (
@@ -246,13 +220,13 @@ export default function EnergyChapter() {
                         textPosition="top"
                     >
                         <p>
-                            The sun sets early in December, and by mid-afternoon the
-                            city is slipping into darkness.
+                            The sun sets early in December, and by mid-afternoon
+                            the city is slipping into darkness.
                         </p>
                         <p>
                             As workers wrap up for the day, the grid that keeps
-                            Norway – and several neighbouring countries – running
-                            begins to falter.
+                            Norway – and several neighbouring countries –
+                            running begins to falter.
                         </p>
                     </NarrativeSlide>
                 )}
@@ -279,9 +253,9 @@ export default function EnergyChapter() {
                         textPosition="top"
                     >
                         <p>
-                            A lead engineer at one of Norway's top energy companies
-                            logs in for the evening shift and is immediately locked
-                            out of the grid's control system.
+                            A lead engineer at one of Norway's top energy
+                            companies logs in for the evening shift and is
+                            immediately locked out of the grid's control system.
                         </p>
                         <br />
                         <br />
@@ -304,7 +278,10 @@ export default function EnergyChapter() {
                             Remotely, a hacktivist group is in the process of
                             systematically taking out the smart grids of the
                             country's leading energy providers via a{" "}
-                            <strong>distributed denial-of-service attack</strong>.
+                            <strong>
+                                distributed denial-of-service attack
+                            </strong>
+                            .
                         </p>
                         <br />
                         <br />
@@ -327,14 +304,14 @@ export default function EnergyChapter() {
                         textPosition="top"
                     >
                         <p>
-                            Across town, the CTO of a prominent investment firm is
-                            ready to leave for the day.
+                            Across town, the CTO of a prominent investment firm
+                            is ready to leave for the day.
                         </p>
                         <br />
                         <br />
                         <p>
-                            She presses the elevator button on the 14th floor of the
-                            company's building, but nothing happens.
+                            She presses the elevator button on the 14th floor of
+                            the company's building, but nothing happens.
                         </p>
                         <br />
                         <br />
@@ -357,8 +334,8 @@ export default function EnergyChapter() {
                         textPosition="top"
                     >
                         <p>
-                            Outside, the city's skyline no longer shines brightly.
-                            Mobile and internet services are down.
+                            Outside, the city's skyline no longer shines
+                            brightly. Mobile and internet services are down.
                         </p>
                         <br />
                         <br />
@@ -394,15 +371,20 @@ export default function EnergyChapter() {
                         scrollProgress={scrollYProgress}
                     >
                         <DataText>
-                            <span>Cyber attacks <strong>doubled</strong> between 2020 and
-                            2022 in <strong>Europe's power sector</strong> with</span>
+                            <span>
+                                Cyber attacks <strong>doubled</strong> between
+                                2020 and 2022 in{" "}
+                                <strong>Europe's power sector</strong> with
+                            </span>
                         </DataText>
                         <DataCenter $bg="#fff">
                             48 attacks on Europe's energy infrastructure
                         </DataCenter>
                         <DataAttribution>
-                            <span>in 2022, according to Eurelectric, a federation for the
-                            European electricity industry.</span>
+                            <span>
+                                in 2022, according to Eurelectric, a federation
+                                for the European electricity industry.
+                            </span>
                         </DataAttribution>
                     </DataGridSlide>
                 )}
@@ -418,6 +400,10 @@ export default function EnergyChapter() {
                         Threat (APT) groups are increasingly collaborating with
                         cyber criminals, particularly on destructive attacks.
                     </p>
+                </EditorialSlide>
+            </StickySlide>
+            <StickySlide appearInPlace>
+                <EditorialSlide sectionTitle="AN EVOLVING THREAT LANDSCAPE">
                     <SlideQuote
                         quote="Historically, cyber attacks have been high-consequence and low-frequency. When you get hacktivists and criminals who are able to target operational technology and who understand how to do it, you eventually get high-consequence, high-frequency events"
                         name="Robert M Lee"
@@ -437,10 +423,10 @@ export default function EnergyChapter() {
                         textPosition="bottom"
                     >
                         <p>
-                            As the grid's automated load balancers struggle to cope
-                            with the intensity of a sustained attack, safety
-                            shutdowns are being triggered across energy grids,
-                            causing blackouts.
+                            As the grid's automated load balancers struggle to
+                            cope with the intensity of a sustained attack,
+                            safety shutdowns are being triggered across energy
+                            grids, causing blackouts.
                         </p>
                     </NarrativeSlide>
                 )}
@@ -473,10 +459,10 @@ export default function EnergyChapter() {
                         highlightText
                     >
                         <p>
-                            C-suite executives across the various energy firms are
-                            struggling to get a sense of the impact as internal
-                            systems, including monitoring tools, have been
-                            compromised. Engineers no longer have real-time
+                            C-suite executives across the various energy firms
+                            are struggling to get a sense of the impact as
+                            internal systems, including monitoring tools, have
+                            been compromised. Engineers no longer have real-time
                             visibility.
                         </p>
                     </NarrativeSlide>
@@ -493,6 +479,10 @@ export default function EnergyChapter() {
                         analysis and improving prevention strategies, explains
                         Lee.
                     </p>
+                </EditorialSlide>
+            </StickySlide>
+            <StickySlide appearInPlace>
+                <EditorialSlide sectionTitle="OPERATING WHILE UNDER ATTACK">
                     <SlideQuote
                         quote="Energy systems being as complex as they are, it is much more difficult to know what actually happened"
                         name="Robert M Lee"
@@ -512,6 +502,10 @@ export default function EnergyChapter() {
                         sectors – including energy – to support the response and
                         recovery from cyber incidents.
                     </p>
+                </EditorialSlide>
+            </StickySlide>
+            <StickySlide appearInPlace>
+                <EditorialSlide sectionTitle="OPERATING WHILE UNDER ATTACK">
                     <SlideQuote
                         quote="Critical operators are moving toward defensible architectures where there's an assumption that breaches will occur"
                         name="Jørgen Rørvik"
@@ -521,6 +515,22 @@ export default function EnergyChapter() {
             </StickySlide>
 
             {/* S15 — Islands architecture */}
+            <StickySlide appearInPlace>
+                <EditorialSlide sectionTitle="OPERATING WHILE UNDER ATTACK">
+                    <p>
+                        This can include breaking the grid into "islands", which
+                        can distribute power locally, to prevent cascading
+                        failures, or building a parallel network for monitoring
+                        and management to prevent loss of visibility, Rørvik
+                        says.
+                    </p>
+                    <SlideQuote
+                        quote="Within this architecture, essential assets can continue functioning, even while under sustained attack"
+                        name="Jørgen Rørvik"
+                        role="Director of Cybersecurity and Connectivity, Sopra Steria Nordics"
+                    />
+                </EditorialSlide>
+            </StickySlide>
             <StickySlide appearInPlace>
                 <EditorialSlide sectionTitle="OPERATING WHILE UNDER ATTACK">
                     <p>
@@ -568,8 +578,8 @@ export default function EnergyChapter() {
                         textPosition="top"
                     >
                         <p>
-                            Cyber experts work with internet service providers to
-                            divert malicious traffic and implement recovery
+                            Cyber experts work with internet service providers
+                            to divert malicious traffic and implement recovery
                             protocols.
                         </p>
                     </NarrativeSlide>
@@ -587,53 +597,50 @@ export default function EnergyChapter() {
                         textPosition="top"
                     >
                         <p>
-                            Power has returned, but public services reel from the
-                            human and financial cost of this major incident.
+                            Power has returned, but public services reel from
+                            the human and financial cost of this major incident.
                         </p>
                     </NarrativeSlide>
                 )}
             </StickySlide>
 
             {/* S19 — Solutions data grid */}
-            <StickySlide appearInPlace trackHeight="300vh">
-                {({ scrollYProgress }) => (
-                    <DataGridSlide
-                        sectionTitle="THE SOLUTIONS"
-                        headingColor="#fff"
-                        backgroundColor="#f7ff95"
-                        backgroundVideo={VIDEOS.dataPoint}
-                        poster={POSTERS.dataPoint}
-                        scrollProgress={scrollYProgress}
-                    >
-                        <SolutionBoxes>
-                            <SolutionBox>
-                                <p>State-led cyber defence policies</p>
-                            </SolutionBox>
-                            <SolutionBox>
-                                <p>
-                                    Regular penetration testing and threat
-                                    simulations
-                                </p>
-                            </SolutionBox>
-                            <SolutionBox>
-                                <p>
-                                    24/7 Security Operation Centres with real-time
-                                    monitoring
-                                </p>
-                            </SolutionBox>
-                            <SolutionBox>
-                                <p>
-                                    Cross-sector coordination across energy,
-                                    telecoms and media
-                                </p>
-                            </SolutionBox>
-                            <SolutionBox>
-                                <p>A threat-driven approach beyond compliance</p>
-                            </SolutionBox>
-                        </SolutionBoxes>
-                    </DataGridSlide>
-                )}
-            </StickySlide>
+            <DataGridSlide
+                sectionTitle="THE SOLUTIONS"
+                headingColor="#fff"
+                backgroundColor="#f7ff95"
+                backgroundVideo={VIDEOS.dataPoint}
+                poster={POSTERS.dataPoint}
+            >
+                <SolutionBoxes>
+                    <SolutionBox>
+                        <p>State-led cyber defence policies</p>
+                    </SolutionBox>
+                    <SolutionBox>
+                        <p>
+                            Regular penetration testing and threat
+                            simulations
+                        </p>
+                    </SolutionBox>
+                    <SolutionBox>
+                        <p>
+                            24/7 Security Operation Centres with
+                            real-time monitoring
+                        </p>
+                    </SolutionBox>
+                    <SolutionBox>
+                        <p>
+                            Cross-sector coordination across energy,
+                            telecoms and media
+                        </p>
+                    </SolutionBox>
+                    <SolutionBox>
+                        <p>
+                            A threat-driven approach beyond compliance
+                        </p>
+                    </SolutionBox>
+                </SolutionBoxes>
+            </DataGridSlide>
         </Chapter>
     );
 }

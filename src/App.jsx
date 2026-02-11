@@ -40,10 +40,9 @@ const VideoOverlay = styled.div`
     position: absolute;
     inset: 0;
     background: linear-gradient(
-        180deg,
-        rgba(13, 17, 23, 0.3) 0%,
-        rgba(13, 17, 23, 0.6) 50%,
-        rgba(13, 17, 23, 0.9) 100%
+        0deg,
+        rgba(0, 0, 0, 0.55) 0%,
+        rgba(0, 0, 0, 0.55) 100%
     );
 `;
 

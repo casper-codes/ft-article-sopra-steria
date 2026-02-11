@@ -14,9 +14,9 @@ const ContentArea = styled.div`
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: ${({ $align }) => $align === 'bottom' ? 'flex-end' : 'center'};
     align-items: center;
-    padding: 60px 80px;
+    padding: ${({ $align }) => $align === 'bottom' ? '60px 80px 120px' : '60px 80px'};
     max-width: 846px;
     margin: 0 auto;
     width: 100%;
@@ -58,11 +58,11 @@ const ContentArea = styled.div`
     }
 `;
 
-export default function EditorialSlide({ sectionTitle, children, backgroundColor, headingColor }) {
+export default function EditorialSlide({ sectionTitle, children, backgroundColor, headingColor, contentAlign }) {
     return (
         <Slide $bg={backgroundColor}>
             {sectionTitle && <SectionHeadingBar color={headingColor}>{sectionTitle}</SectionHeadingBar>}
-            <ContentArea>{children}</ContentArea>
+            <ContentArea $align={contentAlign}>{children}</ContentArea>
         </Slide>
     );
 }

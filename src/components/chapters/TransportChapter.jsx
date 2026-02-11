@@ -13,6 +13,8 @@ import {
     DataCenter,
     DataText,
     DataAttribution,
+    SolutionBoxes,
+    SolutionBox,
 } from "../shared/DataSlideComponents";
 import useScrollVideo from "../../hooks/useScrollVideo";
 
@@ -81,32 +83,6 @@ const HeroOverlay = styled.div`
     );
 `;
 
-const SolutionBoxes = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    width: 100%;
-    max-width: 600px;
-`;
-
-const SolutionBox = styled.div`
-    border: 1px solid ${ACCENT};
-    padding: 20px 24px;
-    text-align: center;
-
-    p {
-        font-family: "Space Mono", monospace;
-        font-size: 21px;
-        line-height: 1.35;
-        letter-spacing: -0.84px;
-        color: #fff;
-        margin: 0;
-
-        ${media.mobile(`
-            font-size: 16px;
-        `)}
-    }
-`;
 
 function ScrollSyncHeroVideo({ scrollProgress, src, poster }) {
     const videoRef = useScrollVideo(scrollProgress);
@@ -536,40 +512,35 @@ export default function TransportChapter() {
             </StickySlide>
 
             {/* T20 — Solutions data grid */}
-            <StickySlide appearInPlace trackHeight="300vh">
-                {({ scrollYProgress }) => (
-                    <DataGridSlide
-                        sectionTitle="THE SOLUTIONS"
-                        headingColor={ACCENT}
-                        backgroundColor={ACCENT}
-                        gridColor={GRID_COLOR}
-                        backgroundVideo={VIDEOS.dataPoint}
-                        poster={POSTERS.dataPoint}
-                        scrollProgress={scrollYProgress}
-                    >
-                        <SolutionBoxes>
-                            <SolutionBox>
-                                <p>Expanding European investment in GNSS</p>
-                            </SolutionBox>
-                            <SolutionBox>
-                                <p>
-                                    Manufacturing critical GPS and satellite
-                                    components
-                                </p>
-                            </SolutionBox>
-                            <SolutionBox>
-                                <p>
-                                    Promoting EU-developed navigation software and
-                                    apps
-                                </p>
-                            </SolutionBox>
-                            <SolutionBox>
-                                <p>Zero-trust architectures</p>
-                            </SolutionBox>
-                        </SolutionBoxes>
-                    </DataGridSlide>
-                )}
-            </StickySlide>
+            <DataGridSlide
+                sectionTitle="THE SOLUTIONS"
+                headingColor={ACCENT}
+                backgroundColor={ACCENT}
+                gridColor={GRID_COLOR}
+                backgroundVideo={VIDEOS.dataPoint}
+                poster={POSTERS.dataPoint}
+            >
+                <SolutionBoxes>
+                    <SolutionBox>
+                        <p>Expanding European investment in GNSS</p>
+                    </SolutionBox>
+                    <SolutionBox>
+                        <p>
+                            Manufacturing critical GPS and satellite
+                            components
+                        </p>
+                    </SolutionBox>
+                    <SolutionBox>
+                        <p>
+                            Promoting EU-developed navigation software and
+                            apps
+                        </p>
+                    </SolutionBox>
+                    <SolutionBox>
+                        <p>Zero-trust architectures</p>
+                    </SolutionBox>
+                </SolutionBoxes>
+            </DataGridSlide>
         </Chapter>
     );
 }

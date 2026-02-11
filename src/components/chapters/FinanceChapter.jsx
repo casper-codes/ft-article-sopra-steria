@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { media } from "../../utils/breakpoints";
 import { getAssetPath } from "../../utils/assetPath";
 import { ChapterIntro } from "../shared";
+import { SolutionBoxes, SolutionBox } from "../shared/DataSlideComponents";
 import {
     NarrativeSlide,
     EditorialSlide,
@@ -103,32 +104,6 @@ const DataAttribution = styled.p`
     }
 `;
 
-const SolutionBoxes = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    width: 100%;
-    max-width: 600px;
-`;
-
-const SolutionBox = styled.div`
-    border: 1px solid ${ACCENT};
-    padding: 20px 24px;
-    text-align: center;
-
-    p {
-        font-family: "Space Mono", monospace;
-        font-size: 21px;
-        line-height: 1.35;
-        letter-spacing: -0.84px;
-        color: #fff;
-        margin: 0;
-
-        ${media.mobile(`
-            font-size: 16px;
-        `)}
-    }
-`;
 
 function ScrollSyncHeroVideo({ scrollProgress, src, poster }) {
     const videoRef = useScrollVideo(scrollProgress);
@@ -403,6 +378,7 @@ export default function FinanceChapter() {
                     sectionTitle="WHEN HUMAN BEHAVIOUR BECOMES THE ENTRY POINT"
                     backgroundColor={ACCENT}
                     headingColor={ACCENT}
+                    contentAlign="bottom"
                 >
                     <DataCallout>
                         <p>
@@ -410,7 +386,7 @@ export default function FinanceChapter() {
                             amount of organisations that suffered a material
                             incident in the past 12 months, and say it was
                             caused by a third party, according to the World
-                            Economic Forum’s 2024 Cybersecurity Outlook.
+                            Economic Forum's 2024 Cybersecurity Outlook.
                         </p>
                         {/* <DataAttribution>
                             World Economic Forum&rsquo;s 2024 Cybersecurity
@@ -581,35 +557,33 @@ export default function FinanceChapter() {
             </StickySlide>
 
             {/* F23 — Solutions data grid */}
-            <StickySlide appearInPlace>
-                <DataGridSlide
-                    sectionTitle="THE SOLUTIONS"
-                    headingColor={ACCENT}
-                    backgroundColor={ACCENT}
-                    gridColor={GRID_COLOR}
-                >
-                    <SolutionBoxes>
-                        <SolutionBox>
-                            <p>Zero-trust architecture</p>
-                        </SolutionBox>
-                        <SolutionBox>
-                            <p>Network segmentation</p>
-                        </SolutionBox>
-                        <SolutionBox>
-                            <p>Targeted phishing training</p>
-                        </SolutionBox>
-                        <SolutionBox>
-                            <p>Supplier security checks</p>
-                        </SolutionBox>
-                        <SolutionBox>
-                            <p>AI-driven threat monitoring</p>
-                        </SolutionBox>
-                        <SolutionBox>
-                            <p>Cross-sector drills</p>
-                        </SolutionBox>
-                    </SolutionBoxes>
-                </DataGridSlide>
-            </StickySlide>
+            <DataGridSlide
+                sectionTitle="THE SOLUTIONS"
+                headingColor={ACCENT}
+                backgroundColor={ACCENT}
+                gridColor={GRID_COLOR}
+            >
+                <SolutionBoxes>
+                    <SolutionBox>
+                        <p>Zero-trust architecture</p>
+                    </SolutionBox>
+                    <SolutionBox>
+                        <p>Network segmentation</p>
+                    </SolutionBox>
+                    <SolutionBox>
+                        <p>Targeted phishing training</p>
+                    </SolutionBox>
+                    <SolutionBox>
+                        <p>Supplier security checks</p>
+                    </SolutionBox>
+                    <SolutionBox>
+                        <p>AI-driven threat monitoring</p>
+                    </SolutionBox>
+                    <SolutionBox>
+                        <p>Cross-sector drills</p>
+                    </SolutionBox>
+                </SolutionBoxes>
+            </DataGridSlide>
         </Chapter>
     );
 }

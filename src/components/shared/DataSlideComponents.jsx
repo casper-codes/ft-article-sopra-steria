@@ -65,6 +65,37 @@ export function DataCenter({ $bg, children }) {
     );
 }
 
+export const SolutionBoxes = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    max-width: 600px;
+`;
+
+export const SolutionBox = styled.div`
+    display: flex;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border: 2px solid #fff;
+    background: #000;
+
+    p {
+        font-family: "Space Mono", monospace;
+        font-size: 21px;
+        line-height: 1.35;
+        letter-spacing: -0.84px;
+        color: #fff;
+        margin: 0;
+
+        ${media.mobile(`
+            font-size: 16px;
+        `)}
+    }
+`;
+
 export const DataAttribution = styled.div`
     font-family: "logic-monospace", monospace;
     font-size: 24px;
