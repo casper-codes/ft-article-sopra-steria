@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import styled, { keyframes } from "styled-components";
 import { motion } from "framer-motion";
 import { media } from "../../utils/breakpoints";
+import { glitchEffect } from "../../utils/glitchEffect";
 
 const Container = styled(motion.div)`
     display: flex;
@@ -21,6 +22,7 @@ const ChapterLabel = styled.p`
     max-width: 408px;
     background: #000;
     padding: 4px 8px;
+    ${glitchEffect}
 
     ${media.tablet(`
         font-size: 25px;
@@ -53,6 +55,11 @@ const TitleLabel = styled(ChapterLabel)`
     padding: 2px 8px;
     margin: 4px 2px;
     margin-bottom: 8px;
+
+    &::before,
+    &::after {
+        display: none;
+    }
 `;
 
 const Subtitle = styled.h2`
@@ -152,7 +159,7 @@ export default function ChapterIntro({ chapter, title, subtitle }) {
             variants={containerVariants}
         >
             <motion.div variants={itemVariants}>
-                <ChapterLabel>{chapter}</ChapterLabel>
+                <ChapterLabel data-text={chapter}>{chapter}</ChapterLabel>
             </motion.div>
             {title && (
                 <motion.div variants={itemVariants}>
