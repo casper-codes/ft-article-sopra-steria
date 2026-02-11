@@ -33,7 +33,7 @@ export const DataText = styled.div`
 
 const DataCenterStyled = styled.div`
     font-family: "logic-monospace", monospace;
-    font-size: 24px;
+    font-size: 32px;
     font-weight: 400;
     line-height: 1.25;
     max-width: 400px;
@@ -50,7 +50,7 @@ const DataCenterStyled = styled.div`
     }
 
     ${media.mobile(`
-        font-size: 19px;
+        font-size: 28px;
         line-height: 1.35;
         letter-spacing: -0.76px;
     `)}
@@ -105,6 +105,7 @@ export const DataAttribution = styled.div`
     color: #000;
     text-align: center;
     max-width: 480px;
+    margin-bottom: 100px;
 
     span {
         background: ${({ $bg }) => $bg || "#f7ff95"};

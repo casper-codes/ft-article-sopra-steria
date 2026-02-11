@@ -65,7 +65,7 @@ const ContentArea = styled.div`
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     padding: 60px 80px;
     max-width: 846px;
