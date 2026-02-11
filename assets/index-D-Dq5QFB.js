@@ -322,7 +322,37 @@ Error generating stack: `+c.message+`
         font-size: 15px;
         margin-bottom: 20px;
     `)}
-`;const Container$2=dt(motion.div)`
+`;function generateRandomClips(t=20,e=20,n=100,s=170){let a="";for(let l=0;l<=t;l++){const u=(l/t*e).toFixed(2),p=Math.floor(Math.random()*n),h=Math.floor(Math.random()*s);a+=`${u}% { clip: rect(${p}px, 9999px, ${h}px, 0); }
+`}return a+=`${e}% { clip: rect(0, 0, 0, 0); }
+`,a+=`100% { clip: rect(0, 0, 0, 0); }
+`,a}const glitch1=mt`${generateRandomClips(20,60)}`,glitch2=mt`${generateRandomClips(20,60)}`,glitchEffect=lt`
+    position: relative;
+
+    &::before,
+    &::after {
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: inherit;
+        overflow: hidden;
+        padding: inherit;
+    }
+
+    &::before {
+        left: -2px;
+        text-shadow: -1px 0 red;
+        animation: ${glitch1} 6s linear infinite;
+    }
+
+    &::after {
+        left: 2px;
+        text-shadow: 1px 0 blue;
+        animation: ${glitch2} 8s linear infinite;
+    }
+`,Container$2=dt(motion.div)`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -338,6 +368,7 @@ Error generating stack: `+c.message+`
     max-width: 408px;
     background: #000;
     padding: 4px 8px;
+    ${glitchEffect}
 
     ${media.tablet(`
         font-size: 25px;
@@ -346,7 +377,7 @@ Error generating stack: `+c.message+`
     ${media.mobile(`
         font-size: 21px;
     `)}
-`,blink=mt`
+`,blink$1=mt`
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
 `,Cursor=dt.span`
@@ -357,13 +388,18 @@ Error generating stack: `+c.message+`
     margin-left: 4px;
     margin-bottom: 6px;
     vertical-align: middle;
-    animation: ${blink} 0.7s step-end infinite;
+    animation: ${blink$1} 0.7s step-end infinite;
 `,TitleLabel=dt(ChapterLabel)`
     color: #000;
     background: #fff;
     padding: 2px 8px;
     margin: 4px 2px;
     margin-bottom: 8px;
+
+    &::before,
+    &::after {
+        display: none;
+    }
 `,Subtitle=dt.h2`
     font-family: "Space Grotesk", sans-serif;
     font-size: 30px;
@@ -386,7 +422,7 @@ Error generating stack: `+c.message+`
     ${media.mobile(`
         font-size: 21px;
     `)}
-`,containerVariants={hidden:{opacity:0},visible:{opacity:1,transition:{staggerChildren:.15,delayChildren:.1}}},itemVariants={hidden:{opacity:0,y:20},visible:{opacity:1,y:0,transition:{duration:.5,ease:"easeOut"}}};function ChapterIntro({chapter:t,title:e,subtitle:n}){const[s,a]=reactExports.useState(""),[l,u]=reactExports.useState(!1),p=reactExports.useRef(null);return reactExports.useEffect(()=>{if(!e)return;const h=p.current;if(!h)return;const b=new IntersectionObserver(([P])=>{P.isIntersecting&&!l&&u(!0)},{threshold:.5});return b.observe(h),()=>b.disconnect()},[e,l]),reactExports.useEffect(()=>{if(!l||!e)return;const h=`_${e}`;let b=0;const P=setInterval(()=>{b++,a(h.slice(0,b)),b>=h.length&&clearInterval(P)},150);return()=>clearInterval(P)},[l,e]),jsxRuntimeExports.jsxs(Container$2,{initial:"hidden",whileInView:"visible",viewport:{once:!0,margin:"-50px"},variants:containerVariants,children:[jsxRuntimeExports.jsx(motion.div,{variants:itemVariants,children:jsxRuntimeExports.jsx(ChapterLabel,{children:t})}),e&&jsxRuntimeExports.jsx(motion.div,{variants:itemVariants,children:jsxRuntimeExports.jsxs(TitleLabel,{ref:p,children:[s,jsxRuntimeExports.jsx(Cursor,{})]})}),jsxRuntimeExports.jsx(motion.div,{variants:itemVariants,children:jsxRuntimeExports.jsxs(Subtitle,{children:["> ",n]})})]})}dt.p`
+`,containerVariants={hidden:{opacity:0},visible:{opacity:1,transition:{staggerChildren:.15,delayChildren:.1}}},itemVariants={hidden:{opacity:0,y:20},visible:{opacity:1,y:0,transition:{duration:.5,ease:"easeOut"}}};function ChapterIntro({chapter:t,title:e,subtitle:n}){const[s,a]=reactExports.useState(""),[l,u]=reactExports.useState(!1),p=reactExports.useRef(null);return reactExports.useEffect(()=>{if(!e)return;const h=p.current;if(!h)return;const b=new IntersectionObserver(([P])=>{P.isIntersecting&&!l&&u(!0)},{threshold:.5});return b.observe(h),()=>b.disconnect()},[e,l]),reactExports.useEffect(()=>{if(!l||!e)return;const h=`_${e}`;let b=0;const P=setInterval(()=>{b++,a(h.slice(0,b)),b>=h.length&&clearInterval(P)},150);return()=>clearInterval(P)},[l,e]),jsxRuntimeExports.jsxs(Container$2,{initial:"hidden",whileInView:"visible",viewport:{once:!0,margin:"-50px"},variants:containerVariants,children:[jsxRuntimeExports.jsx(motion.div,{variants:itemVariants,children:jsxRuntimeExports.jsx(ChapterLabel,{"data-text":t,children:t})}),e&&jsxRuntimeExports.jsx(motion.div,{variants:itemVariants,children:jsxRuntimeExports.jsxs(TitleLabel,{ref:p,children:[s,jsxRuntimeExports.jsx(Cursor,{})]})}),jsxRuntimeExports.jsx(motion.div,{variants:itemVariants,children:jsxRuntimeExports.jsxs(Subtitle,{children:["> ",n]})})]})}dt.p`
     color: #000000;
     text-align: center;
     font-family: "freight-big-pro", Georgia, serif;
@@ -602,7 +638,12 @@ Error generating stack: `+c.message+`
         font-size: 15px;
         padding-left: 20px;
     `)}
-`;dt(motion.div)`
+`;const blink=mt`
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+`,Colon=dt.span`
+    animation: ${blink} 1s step-end infinite;
+`;function FlashingTime({time:t}){const e=t.indexOf(":");if(e===-1)return t;const n=t.slice(0,e),s=t.slice(e+1);return jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment,{children:[n,jsxRuntimeExports.jsx(Colon,{children:":"}),s]})}dt(motion.div)`
     display: flex;
     gap: 16px;
     margin-bottom: 24px;
@@ -1139,7 +1180,7 @@ Error generating stack: `+c.message+`
     ${media.mobile(`
         font-size: 21px;
     `)}
-`;function TimestampBadge({time:t,color:e}){return jsxRuntimeExports.jsx(Badge,{$color:e,children:t})}function useScrollVideo(t){const e=reactExports.useRef(null);return reactExports.useEffect(()=>{if(!t)return;let n;const s=t.on("change",()=>{const a=e.current;a&&(a.paused&&a.play().catch(()=>{}),clearTimeout(n),n=setTimeout(()=>{a&&!a.paused&&a.pause()},150))});return()=>{s(),clearTimeout(n)}},[t]),e}const Slide$2=dt.section`
+`;function TimestampBadge({time:t,color:e}){return jsxRuntimeExports.jsx(Badge,{$color:e,children:jsxRuntimeExports.jsx(FlashingTime,{time:t})})}function useScrollVideo(t){const e=reactExports.useRef(null);return reactExports.useEffect(()=>{if(!t)return;let n;const s=t.on("change",()=>{const a=e.current;a&&(a.paused&&a.play().catch(()=>{}),clearTimeout(n),n=setTimeout(()=>{a&&!a.paused&&a.pause()},150))});return()=>{s(),clearTimeout(n)}},[t]),e}const Slide$2=dt.section`
     position: relative;
     min-height: 100vh;
     background: ${({$bg:t})=>t||"#0d1117"};
