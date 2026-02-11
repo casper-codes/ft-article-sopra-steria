@@ -12,6 +12,7 @@ const StickyWrapper = styled.div`
 const ScrollTrack = styled.div`
     position: relative;
     height: ${(props) => props.$trackHeight};
+    margin-bottom: calc(-1 * (${(props) => props.$trackHeight} - 100vh));
 `;
 
 function useZIndexAndAppear(ref, appearInPlace) {
