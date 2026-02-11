@@ -11,7 +11,6 @@ const Container = styled.section`
     overflow: hidden;
 `;
 
-
 const ContentWrapper = styled.div`
     position: relative;
     z-index: 2;
@@ -202,7 +201,7 @@ export default function IntroSection() {
                             variants={containerVariants}
                         >
                             <BigQuestion variants={itemVariants}>
-                                what if Europe's networks went dark?
+                                what if Europe’s networks went dark?
                             </BigQuestion>
                         </motion.div>
                     </RightColumn>

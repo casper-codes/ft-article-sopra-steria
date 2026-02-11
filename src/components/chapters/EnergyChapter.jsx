@@ -175,17 +175,7 @@ export default function EnergyChapter() {
                 )}
             </StickySlide>
 
-            {/* S3 — Full bleed hacker scene */}
-            <StickySlide trackHeight="300vh">
-                {({ scrollYProgress }) => (
-                    <FullBleedImage
-                        videoSrc={VIDEOS.hackerScene}
-                        poster={POSTERS.hackerScene}
-                        scrollProgress={scrollYProgress}
-                    />
-                )}
-            </StickySlide>
-            {/* S3b — 5:00pm DDoS attack */}
+            {/* S3 — 5:00pm DDoS attack */}
             <StickySlide appearInPlace trackHeight="300vh">
                 {({ scrollYProgress }) => (
                     <NarrativeSlide

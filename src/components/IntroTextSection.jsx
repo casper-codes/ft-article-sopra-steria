@@ -15,7 +15,7 @@ const Container = styled.section`
 
 const TextBlock = styled(motion.div)`
     font-family: "Space Mono", monospace;
-    font-size: 21px;
+    font-size: 24px;
     font-weight: 400;
     color: #000000;
     text-align: center;
