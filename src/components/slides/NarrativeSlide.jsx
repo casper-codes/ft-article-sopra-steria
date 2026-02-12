@@ -7,7 +7,7 @@ import useScrollVideo from "../../hooks/useScrollVideo";
 const Slide = styled.section`
     position: relative;
     min-height: 100vh;
-    background: ${({ $bg }) => $bg || '#0d1117'};
+    background: ${({ $bg }) => $bg || "#0d1117"};
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -23,7 +23,7 @@ const BackgroundImage = styled.div`
     z-index: 0;
 
     &::after {
-        content: '';
+        content: "";
         position: absolute;
         inset: 0;
         background: linear-gradient(
@@ -63,7 +63,8 @@ const Content = styled.div`
     display: flex;
     flex-direction: column;
     flex: 1;
-    justify-content: ${({ $position }) => $position === 'bottom' ? 'flex-end' : 'flex-start'};
+    justify-content: ${({ $position }) =>
+        $position === "bottom" ? "flex-end" : "flex-start"};
 
     ${media.mobile(`
         padding: 80px 20px 40px;
@@ -75,7 +76,7 @@ const TimestampWrapper = styled.div`
 `;
 
 const Heading = styled.h2`
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-size: 30px;
     font-weight: 500;
     color: #fff;
@@ -106,7 +107,7 @@ const Body = styled.div`
     max-width: 600px;
 
     p {
-        font-family: 'logic-monospace', monospace;
+        font-family: "logic-monospace", monospace;
         font-size: 24px;
         font-weight: 400;
         line-height: 1.35;
@@ -165,7 +166,9 @@ export default function NarrativeSlide({
                         ref={scrollProgress ? videoRef : undefined}
                         src={getAssetPath(backgroundVideo)}
                         poster={poster ? getAssetPath(poster) : undefined}
-                        {...(scrollProgress ? { preload: "auto" } : { autoPlay: true, loop: true })}
+                        {...(scrollProgress
+                            ? { preload: "auto" }
+                            : { autoPlay: true, loop: true })}
                         muted
                         playsInline
                     />
@@ -180,7 +183,11 @@ export default function NarrativeSlide({
                         <TimestampBadge time={timestamp} color={accentColor} />
                     </TimestampWrapper>
                 )}
-                {heading && <Heading><span>{heading}</span></Heading>}
+                {heading && (
+                    <Heading>
+                        <span>{heading}</span>
+                    </Heading>
+                )}
                 <BodyWrapper>{children}</BodyWrapper>
             </Content>
         </Slide>

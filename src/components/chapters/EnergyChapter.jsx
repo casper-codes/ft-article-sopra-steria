@@ -388,7 +388,7 @@ export default function EnergyChapter() {
                     timestamp="5:20pm"
                     backgroundVideo={VIDEOS.glitchyCityscape}
                     poster={POSTERS.glitchyCityscape}
-                    textPosition="bottom"
+                    textPosition="top"
                 >
                     <p>
                         As the grid's automated load balancers struggle to cope
@@ -405,7 +405,7 @@ export default function EnergyChapter() {
                     timestamp="5:30pm"
                     backgroundVideo={VIDEOS.glitchyCityscape530}
                     poster={POSTERS.glitchyCityscape530}
-                    textPosition="bottom"
+                    textPosition="top"
                 >
                     <p>
                         Workers use phone torches to find their way to the
