@@ -14,7 +14,7 @@ const Container = styled.section`
 const ContentWrapper = styled.div`
     position: relative;
     z-index: 2;
-    max-width: 1280px;
+    max-width: 1480px;
     width: 100%;
     margin: 0 auto;
     padding: 110px 80px 40px;
