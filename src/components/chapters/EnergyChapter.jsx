@@ -459,30 +459,12 @@ export default function EnergyChapter() {
                             for monitoring and management to prevent loss of
                             visibility, Rørvik says.
                         </p>
-                        <SlideQuote
-                            quote="Within this architecture, essential assets can continue functioning, even while under sustained attack"
-                            name="Jørgen Rørvik"
-                            role="Director of Cybersecurity and Connectivity, Sopra Steria Nordics"
-                        />
                     </EditorialBody>
-                </EditorialSlide>
-            </StickySlide>
-            <StickySlide appearInPlace>
-                <EditorialSlide sectionTitle="OPERATING WHILE UNDER ATTACK">
-                    <EditorialBody>
-                        <p>
-                            This can include breaking the grid into "islands",
-                            which can distribute power locally, to prevent
-                            cascading failures, or building a parallel network
-                            for monitoring and management to prevent loss of
-                            visibility, Rørvik says.
-                        </p>
-                        <SlideQuote
-                            quote="Within this architecture, essential assets can continue functioning, even while under sustained attack"
-                            name="Jørgen Rørvik"
-                            role="Director of Cybersecurity and Connectivity, Sopra Steria Nordics"
-                        />
-                    </EditorialBody>
+                    <SlideQuote
+                        quote="Within this architecture, essential assets can continue functioning, even while under sustained attack"
+                        name="Jørgen Rørvik"
+                        role="Director of Cybersecurity and Connectivity, Sopra Steria Nordics"
+                    />
                 </EditorialSlide>
             </StickySlide>
 
