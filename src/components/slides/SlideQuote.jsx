@@ -24,7 +24,7 @@ const QuoteText = styled.p`
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: -0.54px;
-    line-height: 1.1;
+    line-height: 1.3;
     color: #000;
     margin: 0 0 16px;
 
@@ -39,7 +39,7 @@ const Attribution = styled.p`
     font-weight: 700;
     color: #000;
     margin: 0;
-    line-height: 1.1;
+    line-height: 1.3;
     text-transform: uppercase;
 `;
 
@@ -48,7 +48,7 @@ export default function SlideQuote({ quote, name, role }) {
         <QuoteWrapper>
             <QuoteMark>&ldquo;</QuoteMark>
             <QuoteText>{quote}</QuoteText>
-            <Attribution>{name}{role ? `, ${role}` : ''}</Attribution>
+            <Attribution>{name}{role ? <>,<br />{role}</> : ''}</Attribution>
         </QuoteWrapper>
     );
 }
