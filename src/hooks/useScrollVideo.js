@@ -1,10 +1,10 @@
 import { useRef, useEffect } from "react";
 
 /**
- * Plays a video forward while the user is scrolling, pauses when they stop.
- * No seeking — just play/pause — so standard encoding works fine (no -g 1 needed).
+ * Scrubs a video forward/backward based on scroll position.
+ * Maps scrollProgress (0→1) directly to video.currentTime (0→duration).
  *
- * @param {MotionValue<number>} scrollProgress - MotionValue from useScroll (used to detect scroll activity)
+ * @param {MotionValue<number>} scrollProgress - MotionValue from useScroll
  * @returns {React.RefObject} ref to attach to the <video> element
  */
 export default function useScrollVideo(scrollProgress) {
@@ -13,29 +13,14 @@ export default function useScrollVideo(scrollProgress) {
     useEffect(() => {
         if (!scrollProgress) return;
 
-        let pauseTimer;
-
-        const unsubscribe = scrollProgress.on("change", () => {
+        const unsubscribe = scrollProgress.on("change", (v) => {
             const video = videoRef.current;
-            if (!video) return;
+            if (!video || !video.duration || isNaN(video.duration)) return;
 
-            if (video.paused) {
-                video.playbackRate = 2;
-                video.play().catch(() => {});
-            }
-
-            clearTimeout(pauseTimer);
-            pauseTimer = setTimeout(() => {
-                if (video && !video.paused) {
-                    video.pause();
-                }
-            }, 150);
+            video.currentTime = v * video.duration;
         });
 
-        return () => {
-            unsubscribe();
-            clearTimeout(pauseTimer);
-        };
+        return () => unsubscribe();
     }, [scrollProgress]);
 
     return videoRef;
