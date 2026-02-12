@@ -101,55 +101,60 @@ function ScrollSyncHeroVideo({ scrollProgress, src, poster }) {
     );
 }
 
-
 export default function EnergyChapter() {
     return (
         <Chapter>
             {/* Hero + S1 — continuous Oslo cityscape video */}
-            <ContinuousSlide trackHeight="300vh" slides={[
-                ({ scrollYProgress }) => (
-                    <HeroSection>
+            <ContinuousSlide
+                trackHeight="300vh"
+                background={({ scrollYProgress }) => (
+                    <>
                         <ScrollSyncHeroVideo
                             scrollProgress={scrollYProgress}
                             src={getAssetPath(VIDEOS.osloCityscape)}
                             poster={getAssetPath(POSTERS.osloCityscape)}
                         />
                         <HeroOverlay />
-                        <div style={{ position: "relative", zIndex: 2 }}>
-                            <ChapterIntro
-                                chapter="CHAPTER_ONE"
-                                title="ENERGY"
-                                subtitle="When vital infrastructure is held hostage by hacktivists"
-                            />
-                        </div>
-                    </HeroSection>
-                ),
-                ({ scrollYProgress }) => (
-                    <NarrativeSlide
-                        backgroundVideo={VIDEOS.osloCityscape}
-                        poster={POSTERS.osloCityscape}
-                        scrollProgress={scrollYProgress}
-                        heading={
-                            <>
-                                TUESDAY
-                                <br />
-                                OSLO, NORWAY
-                            </>
-                        }
-                        textPosition="top"
-                    >
-                        <p>
-                            The sun sets early in December, and by mid-afternoon
-                            the city is slipping into darkness.
-                        </p>
-                        <p>
-                            As workers wrap up for the day, the grid that keeps
-                            Norway – and several neighbouring countries –
-                            running begins to falter.
-                        </p>
-                    </NarrativeSlide>
-                ),
-            ]} />
+                    </>
+                )}
+                slides={[
+                    () => (
+                        <HeroSection>
+                            <div style={{ position: "relative", zIndex: 2 }}>
+                                <ChapterIntro
+                                    chapter="CHAPTER_ONE"
+                                    title="ENERGY"
+                                    subtitle="When vital infrastructure is held hostage by hacktivists"
+                                />
+                            </div>
+                        </HeroSection>
+                    ),
+                    () => (
+                        <NarrativeSlide
+                            backgroundColor="transparent"
+                            heading={
+                                <>
+                                    TUESDAY
+                                    <br />
+                                    OSLO, NORWAY
+                                </>
+                            }
+                            textPosition="top"
+                        >
+                            <p>
+                                The sun sets early in December, and by
+                                mid-afternoon the city is slipping into
+                                darkness.
+                            </p>
+                            <p>
+                                As workers wrap up for the day, the grid that
+                                keeps Norway – and several neighbouring
+                                countries – running begins to falter.
+                            </p>
+                        </NarrativeSlide>
+                    ),
+                ]}
+            />
 
             {/* S3 — 5:00pm DDoS attack */}
             <StickySlide appearInPlace trackHeight="300vh">
@@ -261,10 +266,11 @@ export default function EnergyChapter() {
                         <br />
                         <br />
                         <p>
-                            But as energy networks become "smarter", with automated
-                            load balancing, remote sensors and increasing reliance
-                            on digital infrastructure, cyber criminals can find
-                            novel ways of exploiting cracks in the system.
+                            But as energy networks become "smarter", with
+                            automated load balancing, remote sensors and
+                            increasing reliance on digital infrastructure, cyber
+                            criminals can find novel ways of exploiting cracks
+                            in the system.
                         </p>
                     </EditorialBody>
                 </EditorialSlide>
@@ -310,11 +316,12 @@ export default function EnergyChapter() {
                 <EditorialSlide sectionTitle="AN EVOLVING THREAT LANDSCAPE">
                     <EditorialBody>
                         <p>
-                            Sopra Steria, a technology and consulting company that
-                            provides cybersecurity services, identified in its State
-                            of Cybersecurity 2025 report that Advanced Persistent
-                            Threat (APT) groups are increasingly collaborating with
-                            cyber criminals, particularly on destructive attacks.
+                            Sopra Steria, a technology and consulting company
+                            that provides cybersecurity services, identified in
+                            its State of Cybersecurity 2025 report that Advanced
+                            Persistent Threat (APT) groups are increasingly
+                            collaborating with cyber criminals, particularly on
+                            destructive attacks.
                         </p>
                     </EditorialBody>
                 </EditorialSlide>
@@ -352,19 +359,19 @@ export default function EnergyChapter() {
             {/* S11 — 5:30pm phone torches */}
             <StickySlide appearInPlace trackHeight="300vh">
                 {({ scrollYProgress }) => (
-                <NarrativeSlide
-                    timestamp="5:30pm"
-                    backgroundVideo={VIDEOS.glitchyCityscape530}
-                    poster={POSTERS.glitchyCityscape530}
-                    scrollProgress={scrollYProgress}
-                    textPosition="bottom"
-                >
-                    <p>
-                        Workers use phone torches to find their way to the
-                        stairwell and towards the lobby. Confusion is
-                        widespread; every building is impacted.
-                    </p>
-                </NarrativeSlide>
+                    <NarrativeSlide
+                        timestamp="5:30pm"
+                        backgroundVideo={VIDEOS.glitchyCityscape530}
+                        poster={POSTERS.glitchyCityscape530}
+                        scrollProgress={scrollYProgress}
+                        textPosition="bottom"
+                    >
+                        <p>
+                            Workers use phone torches to find their way to the
+                            stairwell and towards the lobby. Confusion is
+                            widespread; every building is impacted.
+                        </p>
+                    </NarrativeSlide>
                 )}
             </StickySlide>
 
@@ -395,11 +402,11 @@ export default function EnergyChapter() {
                 <EditorialSlide sectionTitle="OPERATING WHILE UNDER ATTACK">
                     <EditorialBody>
                         <p>
-                            Most of the investment in cybersecurity in the energy
-                            sector has gone into prevention rather than visibility
-                            and monitoring. This presents challenges for root-cause
-                            analysis and improving prevention strategies, explains
-                            Lee.
+                            Most of the investment in cybersecurity in the
+                            energy sector has gone into prevention rather than
+                            visibility and monitoring. This presents challenges
+                            for root-cause analysis and improving prevention
+                            strategies, explains Lee.
                         </p>
                     </EditorialBody>
                 </EditorialSlide>
@@ -420,11 +427,12 @@ export default function EnergyChapter() {
                     <EditorialBody>
                         <p>
                             Europe's policymakers are starting to recognise the
-                            risks. In 2025, the European Commission signed a €36mn
-                            agreement with the EU's Agency for Cybersecurity (ENISA)
-                            to administer a reserve that can be used by critical
-                            sectors – including energy – to support the response and
-                            recovery from cyber incidents.
+                            risks. In 2025, the European Commission signed a
+                            €36mn agreement with the EU's Agency for
+                            Cybersecurity (ENISA) to administer a reserve that
+                            can be used by critical sectors – including energy –
+                            to support the response and recovery from cyber
+                            incidents.
                         </p>
                     </EditorialBody>
                 </EditorialSlide>
@@ -444,11 +452,11 @@ export default function EnergyChapter() {
                 <EditorialSlide sectionTitle="OPERATING WHILE UNDER ATTACK">
                     <EditorialBody>
                         <p>
-                            This can include breaking the grid into "islands", which
-                            can distribute power locally, to prevent cascading
-                            failures, or building a parallel network for monitoring
-                            and management to prevent loss of visibility, Rørvik
-                            says.
+                            This can include breaking the grid into "islands",
+                            which can distribute power locally, to prevent
+                            cascading failures, or building a parallel network
+                            for monitoring and management to prevent loss of
+                            visibility, Rørvik says.
                         </p>
                         <SlideQuote
                             quote="Within this architecture, essential assets can continue functioning, even while under sustained attack"
@@ -462,11 +470,11 @@ export default function EnergyChapter() {
                 <EditorialSlide sectionTitle="OPERATING WHILE UNDER ATTACK">
                     <EditorialBody>
                         <p>
-                            This can include breaking the grid into "islands", which
-                            can distribute power locally, to prevent cascading
-                            failures, or building a parallel network for monitoring
-                            and management to prevent loss of visibility, Rørvik
-                            says.
+                            This can include breaking the grid into "islands",
+                            which can distribute power locally, to prevent
+                            cascading failures, or building a parallel network
+                            for monitoring and management to prevent loss of
+                            visibility, Rørvik says.
                         </p>
                         <SlideQuote
                             quote="Within this architecture, essential assets can continue functioning, even while under sustained attack"
@@ -478,52 +486,58 @@ export default function EnergyChapter() {
             </StickySlide>
 
             {/* S16-S18 — 8:00pm / 2:00am / 8:00am (continuous video) */}
-            <ContinuousSlide trackHeight="300vh" appearInPlace slides={[
-                ({ scrollYProgress }) => (
-                    <NarrativeSlide
-                        timestamp="8:00pm"
-                        heading="WORK CONTINUES THROUGH THE NIGHT"
-                        backgroundVideo={VIDEOS.escalator}
-                        poster={POSTERS.escalator}
-                        scrollProgress={scrollYProgress}
-                        textPosition="top"
-                    >
-                        <p>
-                            Policymakers, emergency services and cybersecurity
-                            experts gather to implement emergency procedures.
-                        </p>
-                    </NarrativeSlide>
-                ),
-                ({ scrollYProgress }) => (
-                    <NarrativeSlide
-                        timestamp="2:00am"
-                        backgroundVideo={VIDEOS.escalator}
-                        poster={POSTERS.escalator}
-                        scrollProgress={scrollYProgress}
-                        textPosition="top"
-                    >
-                        <p>
-                            Cyber experts work with internet service providers
-                            to divert malicious traffic and implement recovery
-                            protocols.
-                        </p>
-                    </NarrativeSlide>
-                ),
-                ({ scrollYProgress }) => (
-                    <NarrativeSlide
-                        timestamp="8:00am"
-                        backgroundVideo={VIDEOS.escalator}
-                        poster={POSTERS.escalator}
-                        scrollProgress={scrollYProgress}
-                        textPosition="top"
-                    >
-                        <p>
-                            Power has returned, but public services reel from
-                            the human and financial cost of this major incident.
-                        </p>
-                    </NarrativeSlide>
-                ),
-            ]} />
+            <ContinuousSlide
+                trackHeight="300vh"
+                appearInPlace
+                slides={[
+                    ({ scrollYProgress }) => (
+                        <NarrativeSlide
+                            timestamp="8:00pm"
+                            heading="WORK CONTINUES THROUGH THE NIGHT"
+                            backgroundVideo={VIDEOS.escalator}
+                            poster={POSTERS.escalator}
+                            scrollProgress={scrollYProgress}
+                            textPosition="top"
+                        >
+                            <p>
+                                Policymakers, emergency services and
+                                cybersecurity experts gather to implement
+                                emergency procedures.
+                            </p>
+                        </NarrativeSlide>
+                    ),
+                    ({ scrollYProgress }) => (
+                        <NarrativeSlide
+                            timestamp="2:00am"
+                            backgroundVideo={VIDEOS.escalator}
+                            poster={POSTERS.escalator}
+                            scrollProgress={scrollYProgress}
+                            textPosition="top"
+                        >
+                            <p>
+                                Cyber experts work with internet service
+                                providers to divert malicious traffic and
+                                implement recovery protocols.
+                            </p>
+                        </NarrativeSlide>
+                    ),
+                    ({ scrollYProgress }) => (
+                        <NarrativeSlide
+                            timestamp="8:00am"
+                            backgroundVideo={VIDEOS.escalator}
+                            poster={POSTERS.escalator}
+                            scrollProgress={scrollYProgress}
+                            textPosition="top"
+                        >
+                            <p>
+                                Power has returned, but public services reel
+                                from the human and financial cost of this major
+                                incident.
+                            </p>
+                        </NarrativeSlide>
+                    ),
+                ]}
+            />
 
             {/* S19 — Solutions data grid */}
             <DataGridSlide

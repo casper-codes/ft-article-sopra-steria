@@ -9,14 +9,23 @@ import { useScroll } from "framer-motion";
  *
  * Each slide receives { scrollYProgress } (spanning the entire section).
  *
+ * Optional `background` render prop persists across all phases (ideal for
+ * a shared video that shouldn't restart between slides).
+ *
  * Usage:
- *   <ContinuousSlide trackHeight="300vh" appearInPlace slides={[
- *       ({ scrollYProgress }) => <NarrativeSlide ... />,
- *       ({ scrollYProgress }) => <NarrativeSlide ... />,
- *   ]} />
+ *   <ContinuousSlide
+ *       trackHeight="300vh"
+ *       appearInPlace
+ *       background={({ scrollYProgress }) => <Video ... />}
+ *       slides={[
+ *           () => <TextContent />,
+ *           () => <TextContent />,
+ *       ]}
+ *   />
  */
 export default function ContinuousSlide({
     slides,
+    background,
     trackHeight = "300vh",
     appearInPlace = false,
 }) {
@@ -64,6 +73,7 @@ export default function ContinuousSlide({
             style={{ position: "relative", height: trackHeight }}
         >
             <div style={{ position: "sticky", top: 0, height: "100vh", overflow: "hidden" }}>
+                {background?.({ scrollYProgress })}
                 {slides[phase]({ scrollYProgress })}
             </div>
         </div>
