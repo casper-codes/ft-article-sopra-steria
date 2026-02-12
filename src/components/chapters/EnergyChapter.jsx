@@ -307,7 +307,7 @@ export default function EnergyChapter() {
             </StickySlide>
 
             {/* S8 — Cyber attacks data grid */}
-            <StickySlide appearInPlace flowHeight="400vh" trackHeight="300vh">
+            <StickySlide appearInPlace flowHeight="200vh" trackHeight="300vh">
                 {({ scrollYProgress }) => (
                     <DataGridSlide
                         sectionTitle="AN EVOLVING THREAT LANDSCAPE"
@@ -383,42 +383,36 @@ export default function EnergyChapter() {
             </StickySlide>
 
             {/* S10 — 5:20pm blackouts */}
-            <StickySlide appearInPlace trackHeight="300vh">
-                {({ scrollYProgress }) => (
-                    <NarrativeSlide
-                        timestamp="5:20pm"
-                        backgroundVideo={VIDEOS.glitchyCityscape}
-                        poster={POSTERS.glitchyCityscape}
-                        scrollProgress={scrollYProgress}
-                        textPosition="bottom"
-                    >
-                        <p>
-                            As the grid's automated load balancers struggle to
-                            cope with the intensity of a sustained attack,
-                            safety shutdowns are being triggered across energy
-                            grids, causing blackouts.
-                        </p>
-                    </NarrativeSlide>
-                )}
+            <StickySlide appearInPlace>
+                <NarrativeSlide
+                    timestamp="5:20pm"
+                    backgroundVideo={VIDEOS.glitchyCityscape}
+                    poster={POSTERS.glitchyCityscape}
+                    textPosition="bottom"
+                >
+                    <p>
+                        As the grid's automated load balancers struggle to cope
+                        with the intensity of a sustained attack, safety
+                        shutdowns are being triggered across energy grids,
+                        causing blackouts.
+                    </p>
+                </NarrativeSlide>
             </StickySlide>
 
             {/* S11 — 5:30pm phone torches */}
-            <StickySlide appearInPlace trackHeight="300vh">
-                {({ scrollYProgress }) => (
-                    <NarrativeSlide
-                        timestamp="5:30pm"
-                        backgroundVideo={VIDEOS.glitchyCityscape530}
-                        poster={POSTERS.glitchyCityscape530}
-                        scrollProgress={scrollYProgress}
-                        textPosition="bottom"
-                    >
-                        <p>
-                            Workers use phone torches to find their way to the
-                            stairwell and towards the lobby. Confusion is
-                            widespread; every building is impacted.
-                        </p>
-                    </NarrativeSlide>
-                )}
+            <StickySlide appearInPlace>
+                <NarrativeSlide
+                    timestamp="5:30pm"
+                    backgroundVideo={VIDEOS.glitchyCityscape530}
+                    poster={POSTERS.glitchyCityscape530}
+                    textPosition="bottom"
+                >
+                    <p>
+                        Workers use phone torches to find their way to the
+                        stairwell and towards the lobby. Confusion is
+                        widespread; every building is impacted.
+                    </p>
+                </NarrativeSlide>
             </StickySlide>
 
             {/* S12 — 7:00pm C-suite */}

@@ -6,7 +6,7 @@ export const DataText = styled.div`
     text-align: center;
     max-width: 400px;
     font-family: "logic-monospace", monospace;
-    font-size: 24px;
+    font-size: 30px;
     font-weight: 400;
     line-height: 1.25;
     letter-spacing: -0.96px;
@@ -24,8 +24,12 @@ export const DataText = styled.div`
         font-weight: 700;
     }
 
+    ${media.tablet(`
+        font-size: 28px;
+    `)}
+
     ${media.mobile(`
-        font-size: 19px;
+        font-size: 22px;
         line-height: 1.35;
         letter-spacing: -0.76px;
     `)}
@@ -33,13 +37,14 @@ export const DataText = styled.div`
 
 const DataCenterStyled = styled.div`
     font-family: "logic-monospace", monospace;
-    font-size: 32px;
-    font-weight: 400;
+    font-size: 30px;
+    font-weight: 600;
     line-height: 1.25;
     max-width: 400px;
     letter-spacing: -0.96px;
     color: #000;
     text-align: center;
+    text-transform: uppercase;
 
     span {
         background: ${({ $bg }) => $bg || "#f7ff95"};
@@ -49,8 +54,12 @@ const DataCenterStyled = styled.div`
         -webkit-box-decoration-break: clone;
     }
 
-    ${media.mobile(`
+    ${media.tablet(`
         font-size: 28px;
+    `)}
+
+    ${media.mobile(`
+        font-size: 22px;
         line-height: 1.35;
         letter-spacing: -0.76px;
     `)}
@@ -98,7 +107,7 @@ export const SolutionBox = styled.div`
 
 export const DataAttribution = styled.div`
     font-family: "logic-monospace", monospace;
-    font-size: 24px;
+    font-size: 30px;
     font-weight: 400;
     line-height: 1.25;
     letter-spacing: -0.96px;
@@ -115,8 +124,12 @@ export const DataAttribution = styled.div`
         -webkit-box-decoration-break: clone;
     }
 
+    ${media.tablet(`
+        font-size: 28px;
+    `)}
+
     ${media.mobile(`
-        font-size: 19px;
+        font-size: 22px;
         line-height: 1.35;
         letter-spacing: -0.76px;
     `)}
