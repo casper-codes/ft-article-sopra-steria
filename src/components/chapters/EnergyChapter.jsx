@@ -174,7 +174,7 @@ function ContinuousVideoSection() {
     return (
         <div
             ref={trackRef}
-            style={{ position: "relative", height: "900vh" }}
+            style={{ position: "relative", height: "300vh" }}
         >
             <div style={{ position: "sticky", top: 0, height: "100vh", overflow: "hidden" }}>
                 <NarrativeSlide
