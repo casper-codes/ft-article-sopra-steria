@@ -1,4 +1,6 @@
+import { useState, useEffect, useRef, useLayoutEffect } from "react";
 import styled from "styled-components";
+import { useScroll } from "framer-motion";
 import { media } from "../../utils/breakpoints";
 import { getAssetPath } from "../../utils/assetPath";
 import { ChapterIntro } from "../shared";
@@ -97,6 +99,96 @@ function ScrollSyncHeroVideo({ scrollProgress, src, poster }) {
             playsInline
             preload="auto"
         />
+    );
+}
+
+const PHASES = [
+    {
+        timestamp: "8:00pm",
+        heading: "WORK CONTINUES THROUGH THE NIGHT",
+        body: (
+            <p>
+                Policymakers, emergency services and cybersecurity
+                experts gather to implement emergency procedures.
+            </p>
+        ),
+    },
+    {
+        timestamp: "2:00am",
+        body: (
+            <p>
+                Cyber experts work with internet service providers
+                to divert malicious traffic and implement recovery
+                protocols.
+            </p>
+        ),
+    },
+    {
+        timestamp: "8:00am",
+        body: (
+            <p>
+                Power has returned, but public services reel from
+                the human and financial cost of this major incident.
+            </p>
+        ),
+    },
+];
+
+function ContinuousVideoSection() {
+    const trackRef = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: trackRef,
+        offset: ["start start", "end end"],
+    });
+    const [phase, setPhase] = useState(0);
+
+    // z-index + initial hide (mirrors StickySlide's useZIndexAndAppear)
+    useLayoutEffect(() => {
+        const el = trackRef.current;
+        const siblings = Array.from(el.parentElement.children);
+        el.style.zIndex = siblings.indexOf(el) + 1;
+        el.style.opacity = "0";
+    }, []);
+
+    // appear when scrolled into place
+    useEffect(() => {
+        const el = trackRef.current;
+        const handleScroll = () => {
+            el.style.opacity = el.getBoundingClientRect().top <= 0 ? "1" : "0";
+        };
+        handleScroll();
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    // switch text phase based on scroll progress
+    useEffect(() => {
+        return scrollYProgress.on("change", (v) => {
+            const next = v < 0.333 ? 0 : v < 0.666 ? 1 : 2;
+            setPhase((prev) => (prev === next ? prev : next));
+        });
+    }, [scrollYProgress]);
+
+    const { timestamp, heading, body } = PHASES[phase];
+
+    return (
+        <div
+            ref={trackRef}
+            style={{ position: "relative", height: "900vh" }}
+        >
+            <div style={{ position: "sticky", top: 0, height: "100vh", overflow: "hidden" }}>
+                <NarrativeSlide
+                    timestamp={timestamp}
+                    heading={heading}
+                    backgroundVideo={VIDEOS.escalator}
+                    poster={POSTERS.escalator}
+                    scrollProgress={scrollYProgress}
+                    textPosition="top"
+                >
+                    {body}
+                </NarrativeSlide>
+            </div>
+        </div>
     );
 }
 
@@ -479,61 +571,8 @@ export default function EnergyChapter() {
                 </EditorialSlide>
             </StickySlide>
 
-            {/* S16 — 8:00pm work through the night */}
-            <StickySlide appearInPlace trackHeight="300vh">
-                {({ scrollYProgress }) => (
-                    <NarrativeSlide
-                        timestamp="8:00pm"
-                        heading="WORK CONTINUES THROUGH THE NIGHT"
-                        backgroundVideo={VIDEOS.escalator}
-                        poster={POSTERS.escalator}
-                        scrollProgress={scrollYProgress}
-                        textPosition="top"
-                    >
-                        <p>
-                            Policymakers, emergency services and cybersecurity
-                            experts gather to implement emergency procedures.
-                        </p>
-                    </NarrativeSlide>
-                )}
-            </StickySlide>
-
-            {/* S17 — 2:00am */}
-            <StickySlide appearInPlace trackHeight="300vh">
-                {({ scrollYProgress }) => (
-                    <NarrativeSlide
-                        timestamp="2:00am"
-                        backgroundVideo={VIDEOS.escalator}
-                        poster={POSTERS.escalator}
-                        scrollProgress={scrollYProgress}
-                        textPosition="top"
-                    >
-                        <p>
-                            Cyber experts work with internet service providers
-                            to divert malicious traffic and implement recovery
-                            protocols.
-                        </p>
-                    </NarrativeSlide>
-                )}
-            </StickySlide>
-
-            {/* S18 — 8:00am */}
-            <StickySlide appearInPlace trackHeight="300vh">
-                {({ scrollYProgress }) => (
-                    <NarrativeSlide
-                        timestamp="8:00am"
-                        backgroundVideo={VIDEOS.escalator}
-                        poster={POSTERS.escalator}
-                        scrollProgress={scrollYProgress}
-                        textPosition="top"
-                    >
-                        <p>
-                            Power has returned, but public services reel from
-                            the human and financial cost of this major incident.
-                        </p>
-                    </NarrativeSlide>
-                )}
-            </StickySlide>
+            {/* S16-S18 — 8:00pm / 2:00am / 8:00am (continuous video) */}
+            <ContinuousVideoSection />
 
             {/* S19 — Solutions data grid */}
             <DataGridSlide
