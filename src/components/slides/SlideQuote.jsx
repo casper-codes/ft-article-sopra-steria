@@ -19,11 +19,11 @@ const QuoteMark = styled.span`
 `;
 
 const QuoteText = styled.p`
-    font-family: 'Space Mono', monospace;
+    font-family: 'logic-monospace', monospace;
     font-size: 30px;
     font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: -0.54px;
+    letter-spacing: -0.88px;
     line-height: 1.3;
     color: #000;
     margin: 0 0 16px;
@@ -34,12 +34,13 @@ const QuoteText = styled.p`
 `;
 
 const Attribution = styled.p`
-    font-family: 'Space Mono', monospace;
+    font-family: 'logic-monospace', monospace;
     font-size: 17px;
+    font-style: normal;
     font-weight: 700;
     color: #000;
     margin: 0;
-    line-height: 1.3;
+    line-height: 120%;
     text-transform: uppercase;
 `;
 
