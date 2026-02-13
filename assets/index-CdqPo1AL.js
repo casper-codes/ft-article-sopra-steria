@@ -86,9 +86,7 @@ Error generating stack: `+c.message+`
     `)}
 
     ${media.mobile(`
-        width: 100%;
-        min-height: auto;
-        gap: 40px;
+        display: contents;
     `)}
 `,RightColumn=dt.div`
     width: 494px;
@@ -99,8 +97,7 @@ Error generating stack: `+c.message+`
     `)}
 
     ${media.mobile(`
-        width: 100%;
-        text-align: left;
+        display: contents;
     `)}
 `,MainTitle=dt(motion.h1)`
     font-family: "Space Grotesk", sans-serif;
@@ -159,7 +156,23 @@ Error generating stack: `+c.message+`
     line-height: 1.35;
     margin: 0;
     text-transform: uppercase;
-`,containerVariants$1={hidden:{opacity:0},visible:{opacity:1,transition:{staggerChildren:.15,delayChildren:.3}}},itemVariants$1={hidden:{opacity:0,y:30},visible:{opacity:1,y:0,transition:{duration:.8,ease:"easeOut"}}};function IntroSection(){return jsxRuntimeExports.jsx(Container$6,{children:jsxRuntimeExports.jsxs(ContentWrapper,{children:[jsxRuntimeExports.jsxs(MainRow,{children:[jsxRuntimeExports.jsxs(LeftColumn,{children:[jsxRuntimeExports.jsx(motion.div,{initial:"hidden",animate:"visible",variants:containerVariants$1,children:jsxRuntimeExports.jsx(MainTitle,{variants:itemVariants$1,children:"Digital disruption diaries:"})}),jsxRuntimeExports.jsx(motion.div,{initial:"hidden",animate:"visible",variants:containerVariants$1,children:jsxRuntimeExports.jsx(Standfirst,{variants:itemVariants$1,children:"Three hypothetical stories expose how cyber attacks could swiftly disrupt and destabilise daily life – and explore the solutions and measures required to protect our most critical systems"})})]}),jsxRuntimeExports.jsx(RightColumn,{children:jsxRuntimeExports.jsx(motion.div,{initial:"hidden",animate:"visible",variants:containerVariants$1,children:jsxRuntimeExports.jsx(BigQuestion,{variants:itemVariants$1,children:"what if Europe’s networks went dark?"})})})]}),jsxRuntimeExports.jsx(ScrollIndicator,{initial:{opacity:0},animate:{opacity:1},transition:{delay:1.5,duration:.5},children:"SCROLL TO EXPLORE"})]})})}const Container$5=dt.section`
+`,TitleBlock=dt(motion.div)`
+    ${media.mobile(`
+        order: 1;
+        width: 100%;
+    `)}
+`,QuestionBlock=dt(motion.div)`
+    ${media.mobile(`
+        order: 2;
+        width: 100%;
+        text-align: left;
+    `)}
+`,StandfirstBlock=dt(motion.div)`
+    ${media.mobile(`
+        order: 3;
+        width: 100%;
+    `)}
+`,containerVariants$1={hidden:{opacity:0},visible:{opacity:1,transition:{staggerChildren:.15,delayChildren:.3}}},itemVariants$1={hidden:{opacity:0,y:30},visible:{opacity:1,y:0,transition:{duration:.8,ease:"easeOut"}}};function IntroSection(){return jsxRuntimeExports.jsx(Container$6,{children:jsxRuntimeExports.jsxs(ContentWrapper,{children:[jsxRuntimeExports.jsxs(MainRow,{children:[jsxRuntimeExports.jsxs(LeftColumn,{children:[jsxRuntimeExports.jsx(TitleBlock,{initial:"hidden",animate:"visible",variants:containerVariants$1,children:jsxRuntimeExports.jsx(MainTitle,{variants:itemVariants$1,children:"Digital disruption diaries:"})}),jsxRuntimeExports.jsx(StandfirstBlock,{initial:"hidden",animate:"visible",variants:containerVariants$1,children:jsxRuntimeExports.jsx(Standfirst,{variants:itemVariants$1,children:"Three hypothetical stories expose how cyber attacks could swiftly disrupt and destabilise daily life – and explore the solutions and measures required to protect our most critical systems"})})]}),jsxRuntimeExports.jsx(RightColumn,{children:jsxRuntimeExports.jsx(QuestionBlock,{initial:"hidden",animate:"visible",variants:containerVariants$1,children:jsxRuntimeExports.jsx(BigQuestion,{variants:itemVariants$1,children:"what if Europe's networks went dark?"})})})]}),jsxRuntimeExports.jsx(ScrollIndicator,{initial:{opacity:0},animate:{opacity:1},transition:{delay:1.5,duration:.5},children:"SCROLL TO EXPLORE"})]})})}const Container$5=dt.section`
     width: 100%;
     min-height: 100vh;
     display: flex;
