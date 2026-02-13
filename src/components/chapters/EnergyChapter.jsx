@@ -107,7 +107,6 @@ function scrambleText(element) {
 }
 
 const DARKNESS_WORDS = [
-    { text: null, offset: "-130%" },
     { text: "THE", offset: "-130%" },
     { text: "CITY", offset: "93%" },
     { text: "IS", offset: "-94%" },
@@ -315,56 +314,63 @@ export default function EnergyChapter() {
                 ]}
             />
 
-            {/* S3 — 5:00pm DDoS attack */}
-            <StickySlide appearInPlace trackHeight="300vh">
-                {({ scrollYProgress }) => (
-                    <NarrativeSlide
-                        timestamp="4:45pm"
-                        backgroundVideo={VIDEOS.globe}
-                        poster={POSTERS.globe}
-                        scrollProgress={scrollYProgress}
-                        textPosition="top"
-                    >
-                        <p>
-                            A lead engineer at one of Norway's top energy
-                            companies logs in for the evening shift and is
-                            immediately locked out of the grid's control system.
-                        </p>
-                        <br />
-                        <br />
-                        <p>Something is seriously wrong.</p>
-                    </NarrativeSlide>
+            {/* S3 + S4 — continuous globe video */}
+            <ContinuousSlide
+                trackHeight="600vh"
+                appearInPlace
+                background={({ scrollYProgress }) => (
+                    <>
+                        <ScrollSyncHeroVideo
+                            scrollProgress={scrollYProgress}
+                            src={getAssetPath(VIDEOS.globe)}
+                            poster={getAssetPath(POSTERS.globe)}
+                        />
+                        <HeroOverlay />
+                    </>
                 )}
-            </StickySlide>
-
-            {/* S4 — 5:00pm DDoS attack */}
-            <StickySlide appearInPlace trackHeight="300vh">
-                {({ scrollYProgress }) => (
-                    <NarrativeSlide
-                        timestamp="5:00pm"
-                        backgroundVideo={VIDEOS.hackerScene}
-                        poster={POSTERS.hackerScene}
-                        scrollProgress={scrollYProgress}
-                        textPosition="top"
-                    >
-                        <p>
-                            Remotely, a hacktivist group is in the process of
-                            systematically taking out the smart grids of the
-                            country's leading energy providers via a{" "}
-                            <strong>
-                                distributed denial-of-service attack
-                            </strong>
-                            .
-                        </p>
-                        <br />
-                        <br />
-                        <p>
-                            By targeting smart meters, they are overwhelming the
-                            central servers that power the grids.
-                        </p>
-                    </NarrativeSlide>
-                )}
-            </StickySlide>
+                slides={[
+                    () => (
+                        <NarrativeSlide
+                            timestamp="4:45pm"
+                            backgroundColor="transparent"
+                            textPosition="top"
+                        >
+                            <p>
+                                A lead engineer at one of Norway's top energy
+                                companies logs in for the evening shift and is
+                                immediately locked out of the grid's control
+                                system.
+                            </p>
+                            <br />
+                            <br />
+                            <p>Something is seriously wrong.</p>
+                        </NarrativeSlide>
+                    ),
+                    () => (
+                        <NarrativeSlide
+                            timestamp="5:00pm"
+                            backgroundColor="transparent"
+                            textPosition="top"
+                        >
+                            <p>
+                                Remotely, a hacktivist group is in the process
+                                of systematically taking out the smart grids of
+                                the country's leading energy providers via a{" "}
+                                <strong>
+                                    distributed denial-of-service attack
+                                </strong>
+                                .
+                            </p>
+                            <br />
+                            <br />
+                            <p>
+                                By targeting smart meters, they are overwhelming
+                                the central servers that power the grids.
+                            </p>
+                        </NarrativeSlide>
+                    ),
+                ]}
+            />
 
             {/* S5 — 5:10pm elevator */}
             <StickySlide appearInPlace trackHeight="200vh" flowHeight="200vh">
