@@ -541,7 +541,7 @@ export default function EnergyChapter() {
             </StickySlide>
 
             {/* S11 — 5:30pm phone torches */}
-            <StickySlide appearInPlace>
+            <StickySlide appearInPlace flowHeight="200vh" trackHeight="200px">
                 <NarrativeSlide
                     timestamp="5:30pm"
                     backgroundVideo={VIDEOS.glitchyCityscape530}
