@@ -63,9 +63,7 @@ const LeftColumn = styled.div`
     `)}
 
     ${media.mobile(`
-        width: 100%;
-        min-height: auto;
-        gap: 40px;
+        display: contents;
     `)}
 `;
 
@@ -78,8 +76,7 @@ const RightColumn = styled.div`
     `)}
 
     ${media.mobile(`
-        width: 100%;
-        text-align: left;
+        display: contents;
     `)}
 `;
 
@@ -148,6 +145,28 @@ const ScrollIndicator = styled(motion.p)`
     text-transform: uppercase;
 `;
 
+const TitleBlock = styled(motion.div)`
+    ${media.mobile(`
+        order: 1;
+        width: 100%;
+    `)}
+`;
+
+const QuestionBlock = styled(motion.div)`
+    ${media.mobile(`
+        order: 2;
+        width: 100%;
+        text-align: left;
+    `)}
+`;
+
+const StandfirstBlock = styled(motion.div)`
+    ${media.mobile(`
+        order: 3;
+        width: 100%;
+    `)}
+`;
+
 const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -171,7 +190,7 @@ export default function IntroSection() {
             <ContentWrapper>
                 <MainRow>
                     <LeftColumn>
-                        <motion.div
+                        <TitleBlock
                             initial="hidden"
                             animate="visible"
                             variants={containerVariants}
@@ -179,8 +198,8 @@ export default function IntroSection() {
                             <MainTitle variants={itemVariants}>
                                 Digital disruption diaries:
                             </MainTitle>
-                        </motion.div>
-                        <motion.div
+                        </TitleBlock>
+                        <StandfirstBlock
                             initial="hidden"
                             animate="visible"
                             variants={containerVariants}
@@ -192,18 +211,18 @@ export default function IntroSection() {
                                 measures required to protect our most critical
                                 systems
                             </Standfirst>
-                        </motion.div>
+                        </StandfirstBlock>
                     </LeftColumn>
                     <RightColumn>
-                        <motion.div
+                        <QuestionBlock
                             initial="hidden"
                             animate="visible"
                             variants={containerVariants}
                         >
                             <BigQuestion variants={itemVariants}>
-                                what if Europe’s networks went dark?
+                                what if Europe's networks went dark?
                             </BigQuestion>
-                        </motion.div>
+                        </QuestionBlock>
                     </RightColumn>
                 </MainRow>
                 <ScrollIndicator
