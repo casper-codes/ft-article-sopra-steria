@@ -513,7 +513,30 @@ export default function EnergyChapter() {
             </StickySlide>
 
             {/* S10 — 5:20pm blackouts + word reveal */}
-            <StickySlide appearInPlace trackHeight="400vh" flowHeight="300vh">
+            <StickySlide appearInPlace trackHeight="200vh" flowHeight="200vh">
+                <div
+                    style={{
+                        position: "relative",
+                        width: "100%",
+                        height: "100%",
+                    }}
+                >
+                    <NarrativeSlide
+                        timestamp="5:20pm"
+                        backgroundVideo={VIDEOS.glitchyCityscape}
+                        poster={POSTERS.glitchyCityscape}
+                        textPosition="top"
+                    >
+                        <p>
+                            As the grid's automated load balancers struggle to
+                            cope with the intensity of a sustained attack,
+                            safety shutdowns are being triggered across energy
+                            grids, causing blackouts.
+                        </p>
+                    </NarrativeSlide>
+                </div>
+            </StickySlide>
+            {/* <StickySlide appearInPlace trackHeight="400vh" flowHeight="300vh">
                 {({ scrollYProgress }) => (
                     <div
                         style={{
@@ -538,7 +561,7 @@ export default function EnergyChapter() {
                         <WordReveal scrollProgress={scrollYProgress} />
                     </div>
                 )}
-            </StickySlide>
+            </StickySlide> */}
 
             {/* S11 — 5:30pm phone torches */}
             <StickySlide appearInPlace flowHeight="200vh" trackHeight="200px">
